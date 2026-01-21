@@ -1,0 +1,59 @@
+{
+  "company": {
+    "name": "REPLACE: Company Name",
+    "legalName": "REPLACE: LEGAL NAME, LLC",
+    "shortName": "REPLACE: Short Name",
+    "tagline": "",
+    "description": "REPLACE: Brief company description for SEO",
+    "phone": "(555) 123-4567",
+    "phoneRaw": "+15551234567",
+    "email": "info@example.com",
+    "websiteUrl": "https://www.example.com",
+    "licenseNumber": "",
+    "address": {
+      "street": "123 Main Street",
+      "city": "City",
+      "state": "CA",
+      "zip": "12345",
+      "region": "Service Area"
+    },
+    "hours": {
+      "weekdays": "Mon - Fri: 8AM - 5PM",
+      "weekends": "Weekends: By Appointment",
+      "emergency": "24/7 Emergency Service"
+    },
+    "serviceAreas": [
+      "City 1",
+      "City 2"
+    ],
+    "social": {
+      "youtube": "",
+      "instagram": "",
+      "facebook": "",
+      "yelp": "",
+      "linkedin": ""
+    },
+    "coordinates": {
+      "lat": 0,
+      "lng": 0
+    }
+  },
+  "branding": {
+    "logoPath": "/lovable-uploads/logo.png",
+    "colors": {
+      "primary": "205 50% 21%",
+      "accent": "25 95% 55%",
+      "themeColor": "#0b3040"
+    }
+  },
+  "supabase": {
+    "projectId": "REPLACE-project-id",
+    "publishableKey": "REPLACE-anon-key",
+    "url": "https://REPLACE-project-id.supabase.co"
+  },
+  "app": {
+    "appId": "app.customer2.admin",
+    "repoName": "customer-2-admin"
+  },
+  "constructionType": "roofing"
+}

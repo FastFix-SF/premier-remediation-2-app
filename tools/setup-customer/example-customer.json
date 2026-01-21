@@ -1,0 +1,65 @@
+{
+  "company": {
+    "name": "Bay Area Solar Pros",
+    "legalName": "BAY AREA SOLAR PROS, LLC",
+    "shortName": "Solar Pros",
+    "tagline": "Power Your Future",
+    "description": "Leading solar installation company serving the San Francisco Bay Area. Licensed, insured, and committed to sustainable energy solutions.",
+    "phone": "(510) 555-1234",
+    "phoneRaw": "+15105551234",
+    "email": "info@bayareasolar.com",
+    "websiteUrl": "https://www.bayareasolar.com",
+    "licenseNumber": "CA License #999999",
+    "address": {
+      "street": "123 Solar Way",
+      "city": "Oakland",
+      "state": "CA",
+      "zip": "94612",
+      "region": "San Francisco Bay Area"
+    },
+    "hours": {
+      "weekdays": "Mon - Fri: 7AM - 6PM",
+      "weekends": "Sat: 9AM - 2PM",
+      "emergency": "24/7 Emergency Service"
+    },
+    "serviceAreas": [
+      "Oakland",
+      "Berkeley",
+      "San Francisco",
+      "Fremont",
+      "Hayward",
+      "San Jose"
+    ],
+    "social": {
+      "youtube": "https://www.youtube.com/@BayAreaSolarPros",
+      "instagram": "https://www.instagram.com/bayareasolar/",
+      "facebook": "https://www.facebook.com/bayareasolar",
+      "yelp": "https://www.yelp.com/biz/bay-area-solar-oakland",
+      "linkedin": "https://www.linkedin.com/company/bayareasolar"
+    },
+    "coordinates": {
+      "lat": 37.8044,
+      "lng": -122.2712
+    }
+  },
+  "branding": {
+    "logoPath": "./assets/solar-pros-logo.png",
+    "faviconUrl": "https://example.com/favicon.png",
+    "ogImageUrl": "https://example.com/social-image.png",
+    "colors": {
+      "primary": "45 93% 47%",
+      "accent": "142 70% 45%",
+      "themeColor": "#f59e0b"
+    }
+  },
+  "supabase": {
+    "projectId": "your-new-project-id",
+    "publishableKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "url": "https://your-new-project-id.supabase.co"
+  },
+  "app": {
+    "appId": "app.bayareasolar.admin",
+    "repoName": "bay-area-solar-admin"
+  },
+  "constructionType": "solar"
+}

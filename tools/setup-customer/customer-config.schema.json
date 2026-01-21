@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer Configuration",
+  "description": "Configuration schema for setting up a new construction company customer",
+  "type": "object",
+  "required": ["company", "supabase"],
+  "properties": {
+    "company": {
+      "type": "object",
+      "required": ["name", "legalName", "shortName", "phone", "email", "address"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full company name (e.g., 'The Roofing Friend')"
+        },
+        "legalName": {
+          "type": "string",
+          "description": "Legal business name (e.g., 'THE ROOFING FRIEND, INC')"
+        },
+        "shortName": {
+          "type": "string",
+          "description": "Short display name (e.g., 'Roofing Friend')"
+        },
+        "tagline": {
+          "type": "string",
+          "description": "Company tagline/slogan",
+          "default": ""
+        },
+        "description": {
+          "type": "string",
+          "description": "Company description for SEO and about sections"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Formatted phone number (e.g., '(415) 697-1849')"
+        },
+        "phoneRaw": {
+          "type": "string",
+          "description": "Raw phone number with country code (e.g., '+14156971849')"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Primary contact email"
+        },
+        "websiteUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Company website URL"
+        },
+        "licenseNumber": {
+          "type": "string",
+          "description": "Contractor license (e.g., 'CA License #1067709')"
+        },
+        "address": {
+          "type": "object",
+          "required": ["street", "city", "state", "zip"],
+          "properties": {
+            "street": { "type": "string" },
+            "city": { "type": "string" },
+            "state": { "type": "string" },
+            "zip": { "type": "string" },
+            "region": { "type": "string", "description": "Service region (e.g., 'San Francisco Bay Area')" }
+          }
+        },
+        "hours": {
+          "type": "object",
+          "properties": {
+            "weekdays": { "type": "string", "default": "Mon - Fri: 8AM - 5PM" },
+            "weekends": { "type": "string", "default": "Weekends: Closed" },
+            "emergency": { "type": "string", "default": "24/7 Emergency Service" }
+          }
+        },
+        "serviceAreas": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of cities/areas served"
+        },
+        "social": {
+          "type": "object",
+          "properties": {
+            "youtube": { "type": "string", "format": "uri" },
+            "instagram": { "type": "string", "format": "uri" },
+            "facebook": { "type": "string", "format": "uri" },
+            "tiktok": { "type": "string", "format": "uri" },
+            "google": { "type": "string", "format": "uri" },
+            "yelp": { "type": "string", "format": "uri" },
+            "linkedin": { "type": "string", "format": "uri" }
+          }
+        },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        }
+      }
+    },
+    "branding": {
+      "type": "object",
+      "properties": {
+        "logoPath": {
+          "type": "string",
+          "description": "Path to logo file (will be copied to lovable-uploads)"
+        },
+        "faviconUrl": {
+          "type": "string",
+          "description": "URL or path to favicon"
+        },
+        "ogImageUrl": {
+          "type": "string",
+          "description": "URL for social media share image (1200x630)"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": "string",
+              "description": "Primary brand color in HSL (e.g., '205 50% 21%')"
+            },
+            "accent": {
+              "type": "string",
+              "description": "Accent color in HSL (e.g., '25 95% 55%')"
+            },
+            "themeColor": {
+              "type": "string",
+              "description": "Theme color hex for PWA (e.g., '#0b3040')"
+            }
+          }
+        }
+      }
+    },
+    "supabase": {
+      "type": "object",
+      "required": ["projectId", "publishableKey", "url"],
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "description": "Supabase project ID"
+        },
+        "publishableKey": {
+          "type": "string",
+          "description": "Supabase anon/publishable key"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Supabase project URL"
+        }
+      }
+    },
+    "app": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "Capacitor app ID (e.g., 'app.company.projectname')"
+        },
+        "repoName": {
+          "type": "string",
+          "description": "GitHub repo name for the new customer"
+        }
+      }
+    },
+    "constructionType": {
+      "type": "string",
+      "enum": ["roofing", "general", "electrical", "plumbing", "hvac", "solar", "painting", "landscaping", "concrete", "framing"],
+      "description": "Type of construction business (affects default services)",
+      "default": "roofing"
+    }
+  }
+}

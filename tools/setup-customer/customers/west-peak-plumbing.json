@@ -1,0 +1,68 @@
+{
+  "company": {
+    "name": "West Peak Trenchless & Plumbing",
+    "legalName": "WEST PEAK TRENCHLESS & PLUMBING, LLC",
+    "shortName": "West Peak Plumbing",
+    "tagline": "Trenchless Solutions Done Right",
+    "description": "Professional trenchless and plumbing services serving the San Francisco Bay Area. Specializing in sewer repair, pipe lining, and full-service plumbing solutions.",
+    "phone": "(650) 379-8166",
+    "phoneRaw": "+16503798166",
+    "email": "servicerequests@westpeak.biz",
+    "websiteUrl": "https://www.westpeakplumbing.com",
+    "licenseNumber": "",
+    "address": {
+      "street": "1030 Duane Ave",
+      "city": "Santa Clara",
+      "state": "CA",
+      "zip": "95054",
+      "region": "San Francisco Bay Area"
+    },
+    "hours": {
+      "weekdays": "Mon - Fri: 7AM - 6PM",
+      "weekends": "Sat: 8AM - 4PM",
+      "emergency": "24/7 Emergency Service"
+    },
+    "serviceAreas": [
+      "Santa Clara",
+      "San Jose",
+      "Sunnyvale",
+      "Mountain View",
+      "Palo Alto",
+      "Cupertino",
+      "Los Altos",
+      "Milpitas",
+      "Fremont",
+      "San Francisco"
+    ],
+    "social": {
+      "youtube": "",
+      "instagram": "",
+      "facebook": "",
+      "yelp": "",
+      "google": "",
+      "linkedin": ""
+    },
+    "coordinates": {
+      "lat": 37.3585,
+      "lng": -121.9563
+    }
+  },
+  "branding": {
+    "logoPath": "/lovable-uploads/west-peak-logo.png",
+    "colors": {
+      "primary": "200 80% 35%",
+      "accent": "142 70% 45%",
+      "themeColor": "#0369a1"
+    }
+  },
+  "supabase": {
+    "projectId": "vdjubzjqlegcybydbjvk",
+    "publishableKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkanViempxbGVnY3lieWRianZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5NTE3MzEsImV4cCI6MjA4NDUyNzczMX0.fdvAGfYZ4wB3M8oFXZj0beX-2_cM0REHAwatJy5OcWQ",
+    "url": "https://vdjubzjqlegcybydbjvk.supabase.co"
+  },
+  "app": {
+    "appId": "app.westpeak.plumbing.admin",
+    "repoName": "west-peak-plumbing-admin"
+  },
+  "constructionType": "plumbing"
+}

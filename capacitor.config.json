@@ -1,0 +1,22 @@
+{
+  "appId": "app.westpeak.plumbing.admin",
+  "appName": "west-peak-plumbing-admin",
+  "webDir": "dist",
+  "server": {
+    "url": "https://e48134d4-1e37-4df9-b2e9-373e5ead16c5.lovableproject.com?forceHideBadge=true",
+    "cleartext": true
+  },
+  "plugins": {
+    "PushNotifications": {
+      "presentationOptions": [
+        "badge",
+        "sound",
+        "alert"
+      ]
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample",
+      "iconColor": "#488AFF"
+    }
+  }
+}
