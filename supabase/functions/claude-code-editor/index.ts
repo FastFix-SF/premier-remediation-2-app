@@ -35,12 +35,12 @@ serve(async (req) => {
       );
     }
 
-    const ANTHROPIC_API_KEY = Deno.env.get('ANTHROPIC_API_KEY');
-    const GITHUB_TOKEN = Deno.env.get('GITHUB_TOKEN');
+    const CLAUDE_API_KEY = Deno.env.get('CLAUDE_API_KEY') || Deno.env.get('CLAUDE_API_KEY');
+    const GITHUB_TOKEN = Deno.env.get('GITHUB_TOKEN') || Deno.env.get('GITHUB_ORG'); // Fallback to GITHUB_ORG if available
 
-    if (!ANTHROPIC_API_KEY) {
+    if (!CLAUDE_API_KEY) {
       return new Response(
-        JSON.stringify({ error: 'ANTHROPIC_API_KEY is not configured. Add it to Supabase secrets.' }),
+        JSON.stringify({ error: 'CLAUDE_API_KEY is not configured. Add it to Supabase secrets.' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
@@ -119,7 +119,7 @@ Only respond with valid JSON, no markdown code blocks.`;
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': ANTHROPIC_API_KEY,
+        'x-api-key': CLAUDE_API_KEY,
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
