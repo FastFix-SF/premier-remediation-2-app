@@ -94,6 +94,11 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Store = lazy(() => import("./pages/Store"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const Cart = lazy(() => import("./pages/Cart"));
+// Dynamic service and area pages - reads from JSON config
+const ServicePage = lazy(() => import("./pages/ServicePage"));
+const AreaPage = lazy(() => import("./pages/AreaPage"));
+
+// Legacy individual service pages (can be removed once dynamic routing is confirmed working)
 const ResidentialRoofing = lazy(() => import("./pages/ResidentialRoofing"));
 const CommercialRoofing = lazy(() => import("./pages/CommercialRoofing"));
 const MetalRoofInstallation = lazy(() => import("./pages/MetalRoofInstallation"));
@@ -292,15 +297,24 @@ const AppRoutes = () => (
     <Route path="/roof-quote" element={<RoofQuote />} />
     <Route path="/quote/:id" element={<QuoteDetail />} />
     <Route path="/quote/:id/draw" element={<RoofDrawingInterface />} />
-    <Route path="/residential-roofing" element={<ResidentialRoofing />} />
-    <Route path="/commercial-roofing" element={<CommercialRoofing />} />
-    <Route path="/metal-roof-installation" element={<MetalRoofInstallation />} />
-    <Route path="/standing-seam-systems" element={<StandingSeamSystems />} />
-    <Route path="/r-panel-installation" element={<RPanelInstallation />} />
-    <Route path="/metal-roof-panels" element={<MetalRoofPanels />} />
-    <Route path="/roof-repair-maintenance" element={<RoofRepairMaintenance />} />
-    <Route path="/storm-fire-energy" element={<StormFireEnergy />} />
-    <Route path="/roofing-services/:locationSlug" element={<LocationService />} />
+    {/* Dynamic service page - reads from services.json */}
+    <Route path="/services/:slug" element={<ServicePage />} />
+
+    {/* Dynamic area page - reads from areas.json */}
+    <Route path="/areas/:locationSlug" element={<AreaPage />} />
+
+    {/* Legacy routes - redirect to new dynamic service routes */}
+    <Route path="/residential-roofing" element={<Navigate to="/services/residential-roofing" replace />} />
+    <Route path="/commercial-roofing" element={<Navigate to="/services/commercial-roofing" replace />} />
+    <Route path="/metal-roof-installation" element={<Navigate to="/services/metal-roof-installation" replace />} />
+    <Route path="/standing-seam-systems" element={<Navigate to="/services/standing-seam-systems" replace />} />
+    <Route path="/r-panel-installation" element={<Navigate to="/services/r-panel-installation" replace />} />
+    <Route path="/metal-roof-panels" element={<Navigate to="/services/metal-roof-panels" replace />} />
+    <Route path="/roof-repair-maintenance" element={<Navigate to="/services/roof-repair-maintenance" replace />} />
+    <Route path="/storm-fire-energy" element={<Navigate to="/services/storm-fire-energy" replace />} />
+
+    {/* Legacy location routes - also support new /areas/ path */}
+    <Route path="/roofing-services/:locationSlug" element={<AreaPage />} />
     <Route path="/invoice/:invoiceNumber" element={<InvoicePayment />} />
     <Route path="/invoice-payment/:invoiceNumber" element={<InvoicePayment />} />
     <Route path="*" element={<NotFound />} />
