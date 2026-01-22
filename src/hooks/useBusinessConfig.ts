@@ -115,22 +115,37 @@ export interface ServiceFAQ {
   answer: string;
 }
 
+export interface ServiceProcessStep {
+  title: string;
+  description: string;
+}
+
 export interface ServiceConfig {
   id: string;
   name: string;
   slug: string;
   shortDescription: string;
-  description: string;
+  longDescription?: string;
+  description?: string; // legacy field
   icon: string;
+  image?: string;
   heroImage?: string;
   heroTitle?: string;
   heroHighlight?: string;
   benefits: ServiceBenefit[];
+  process?: ServiceProcessStep[];
   faqs: ServiceFAQ[];
   seoTitle?: string;
   seoDescription?: string;
   seoKeywords?: string[];
+  priceRange?: string;
+  duration?: string;
   isFeatured?: boolean;
+  sortOrder?: number;
+  // AEO fields for AI/Voice search optimization
+  aeoSummary?: string;
+  aeoKeyPoints?: string[];
+  aeoConversationalAnswer?: string;
 }
 
 export interface AreaTestimonial {
@@ -154,12 +169,18 @@ export interface AreaConfig {
   heroImage?: string;
   neighborhoods: string[];
   services: string[];
-  testimonial: AreaTestimonial;
-  faqs: AreaFAQ[];
-  coordinates: {
+  testimonial?: AreaTestimonial;
+  faqs?: AreaFAQ[];
+  coordinates?: {
     lat: number;
     lng: number;
   };
+  // SEO fields
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string[];
+  // AEO fields
+  aeoSummary?: string;
 }
 
 export interface FAQConfig {

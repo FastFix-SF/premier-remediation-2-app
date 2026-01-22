@@ -1,1 +1,275 @@
-[]
+[
+  {
+    "slug": "san-francisco",
+    "name": "San Francisco",
+    "fullName": "San Francisco, California",
+    "description": "Premier Remediation provides comprehensive water damage, mold remediation, and fire cleanup services for commercial and multifamily properties throughout San Francisco. Our team responds rapidly to emergencies in downtown high-rises, hotels, and managed buildings.",
+    "population": "870,000+",
+    "heroImage": "",
+    "neighborhoods": [
+      "Financial District",
+      "SoMa",
+      "Mission District",
+      "Marina",
+      "Pacific Heights",
+      "Nob Hill",
+      "Russian Hill",
+      "Castro",
+      "Sunset District",
+      "Richmond District",
+      "Tenderloin",
+      "North Beach"
+    ],
+    "services": [
+      "Water Damage Mitigation",
+      "Mold Remediation",
+      "Fire & Smoke Cleanup",
+      "Commercial Property Remediation"
+    ],
+    "testimonial": {
+      "name": "Michael Chen",
+      "text": "Premier Remediation saved our hotel from extensive water damage. Their 24/7 response and professional documentation made the insurance process seamless.",
+      "rating": 5,
+      "project": "Hotel Water Damage Recovery"
+    },
+    "faqs": [
+      {
+        "question": "How quickly can Premier Remediation respond to water emergencies in San Francisco?",
+        "answer": "We offer 24/7 emergency response throughout San Francisco. Our team can typically arrive within 1-2 hours for urgent commercial water damage situations in the city."
+      },
+      {
+        "question": "Do you handle mold remediation in San Francisco high-rise buildings?",
+        "answer": "Yes, we specialize in mold remediation for high-rise buildings, hotels, and commercial properties in San Francisco. We understand the unique challenges of tall buildings and complex HVAC systems."
+      },
+      {
+        "question": "What areas of San Francisco does Premier Remediation serve?",
+        "answer": "We serve all San Francisco neighborhoods including Financial District, SoMa, Mission, Marina, Pacific Heights, and more. We focus on commercial and multifamily properties citywide."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.7749,
+      "lng": -122.4194
+    },
+    "seoTitle": "San Francisco Remediation Services | Water Damage & Mold Removal",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services in San Francisco. 24/7 emergency response for commercial properties. Licensed & insured.",
+    "aeoSummary": "Premier Remediation provides 24/7 emergency water damage, mold, and fire cleanup services for commercial and multifamily properties throughout San Francisco, including downtown high-rises, hotels, and managed buildings."
+  },
+  {
+    "slug": "oakland",
+    "name": "Oakland",
+    "fullName": "Oakland, California",
+    "description": "Serving Oakland's commercial and multifamily properties with expert water damage mitigation, mold remediation, and fire cleanup services. From downtown office buildings to apartment complexes, we deliver professional restoration with thorough documentation.",
+    "population": "430,000+",
+    "heroImage": "",
+    "neighborhoods": [
+      "Downtown Oakland",
+      "Jack London Square",
+      "Lake Merritt",
+      "Temescal",
+      "Rockridge",
+      "Piedmont Avenue",
+      "Fruitvale",
+      "Grand Lake",
+      "Adams Point",
+      "Uptown"
+    ],
+    "services": [
+      "Water Damage Mitigation",
+      "Mold Remediation",
+      "Fire & Smoke Cleanup",
+      "Multifamily Property Remediation"
+    ],
+    "testimonial": {
+      "name": "Sarah Martinez",
+      "text": "After a pipe burst flooded three floors of our apartment building, Premier Remediation coordinated everything professionally. Minimal disruption to our residents.",
+      "rating": 5,
+      "project": "Multifamily Water Damage"
+    },
+    "faqs": [
+      {
+        "question": "Does Premier Remediation serve apartment buildings in Oakland?",
+        "answer": "Yes, we specialize in multifamily property remediation throughout Oakland. We coordinate with property managers and residents to minimize disruption during water damage, mold, or fire cleanup projects."
+      },
+      {
+        "question": "How do you handle mold in Oakland's older buildings?",
+        "answer": "Oakland's older buildings require careful assessment. We conduct thorough inspections, establish proper containment, and follow all California regulations for safe mold removal and remediation."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8044,
+      "lng": -122.2712
+    },
+    "seoTitle": "Oakland Remediation Services | Commercial Water & Mold Cleanup",
+    "seoDescription": "Professional remediation services in Oakland for commercial and multifamily properties. Water damage, mold removal, fire cleanup. 24/7 emergency response.",
+    "aeoSummary": "Premier Remediation serves Oakland commercial and multifamily properties with professional water damage, mold remediation, and fire cleanup services, focusing on downtown offices and apartment complexes."
+  },
+  {
+    "slug": "berkeley",
+    "name": "Berkeley",
+    "fullName": "Berkeley, California",
+    "description": "Premier Remediation provides professional remediation services to Berkeley's commercial properties, apartment complexes, and managed buildings. We understand the unique needs of properties near the university and throughout the city.",
+    "population": "120,000+",
+    "heroImage": "",
+    "neighborhoods": [
+      "Downtown Berkeley",
+      "Southside",
+      "North Berkeley",
+      "Elmwood",
+      "Rockridge",
+      "Westbrae",
+      "Claremont",
+      "Thousand Oaks"
+    ],
+    "services": [
+      "Water Damage Mitigation",
+      "Mold Remediation",
+      "Fire & Smoke Cleanup",
+      "Commercial Property Remediation"
+    ],
+    "faqs": [
+      {
+        "question": "Do you provide remediation services for properties near UC Berkeley?",
+        "answer": "Yes, we serve commercial and multifamily properties throughout Berkeley, including areas near the university. We work with property managers and landlords to address water damage, mold, and fire cleanup needs."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.8716,
+      "lng": -122.2727
+    },
+    "seoTitle": "Berkeley Remediation Services | Water Damage & Mold Experts",
+    "seoDescription": "Berkeley water damage and mold remediation for commercial properties. Professional cleanup services with thorough documentation. Call for free assessment.",
+    "aeoSummary": "Premier Remediation provides water damage, mold, and fire cleanup services for Berkeley commercial and multifamily properties, including areas near UC Berkeley."
+  },
+  {
+    "slug": "san-jose",
+    "name": "San Jose",
+    "fullName": "San Jose, California",
+    "description": "As the Bay Area's largest city, San Jose's commercial properties deserve expert remediation services. Premier Remediation serves downtown offices, tech campuses, hotels, retail centers, and multifamily communities throughout Silicon Valley.",
+    "population": "1,000,000+",
+    "heroImage": "",
+    "neighborhoods": [
+      "Downtown San Jose",
+      "Santana Row",
+      "Willow Glen",
+      "Almaden Valley",
+      "Berryessa",
+      "Evergreen",
+      "South San Jose",
+      "North San Jose",
+      "Campbell",
+      "Los Gatos"
+    ],
+    "services": [
+      "Water Damage Mitigation",
+      "Mold Remediation",
+      "Fire & Smoke Cleanup",
+      "Commercial Property Remediation",
+      "Asbestos & Lead Abatement"
+    ],
+    "testimonial": {
+      "name": "David Park",
+      "text": "Premier Remediation handled water damage at our tech office with incredible professionalism. They worked after hours to minimize business disruption.",
+      "rating": 5,
+      "project": "Commercial Office Water Damage"
+    },
+    "faqs": [
+      {
+        "question": "Can you handle large commercial projects in San Jose?",
+        "answer": "Absolutely. We have experience with large commercial properties throughout San Jose and Silicon Valley, including office buildings, retail centers, and tech campuses. Our team is equipped for projects of any scale."
+      },
+      {
+        "question": "Do you offer after-hours remediation in San Jose?",
+        "answer": "Yes, we offer 24/7 emergency response and can schedule work during off-hours to minimize disruption to your San Jose business operations."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.3382,
+      "lng": -121.8863
+    },
+    "seoTitle": "San Jose Remediation Services | Silicon Valley Water & Mold Cleanup",
+    "seoDescription": "Professional remediation services in San Jose and Silicon Valley. Water damage, mold removal, fire cleanup for commercial properties. 24/7 emergency response.",
+    "aeoSummary": "Premier Remediation serves San Jose and Silicon Valley commercial properties with water damage, mold remediation, and fire cleanup services, including downtown offices and tech campuses."
+  },
+  {
+    "slug": "alameda-county",
+    "name": "Alameda County",
+    "fullName": "Alameda County, California",
+    "description": "Premier Remediation provides comprehensive remediation services throughout Alameda County, serving commercial and multifamily properties in Oakland, Berkeley, Fremont, Hayward, and surrounding communities.",
+    "population": "1,600,000+",
+    "heroImage": "",
+    "neighborhoods": [
+      "Oakland",
+      "Berkeley",
+      "Fremont",
+      "Hayward",
+      "Pleasanton",
+      "Livermore",
+      "Newark",
+      "Union City",
+      "Dublin",
+      "San Leandro",
+      "Alameda",
+      "Emeryville"
+    ],
+    "services": [
+      "Water Damage Mitigation",
+      "Mold Remediation",
+      "Fire & Smoke Cleanup",
+      "Clearance & Verification Support"
+    ],
+    "faqs": [
+      {
+        "question": "What cities in Alameda County does Premier Remediation serve?",
+        "answer": "We serve all of Alameda County including Oakland, Berkeley, Fremont, Hayward, Pleasanton, Livermore, Newark, Union City, Dublin, San Leandro, Alameda, and Emeryville."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.6017,
+      "lng": -121.7195
+    },
+    "seoTitle": "Alameda County Remediation Services | East Bay Water & Mold Cleanup",
+    "seoDescription": "Remediation services throughout Alameda County. Water damage, mold removal, fire cleanup for commercial properties in Oakland, Berkeley, Fremont, and more.",
+    "aeoSummary": "Premier Remediation serves Alameda County commercial properties with water damage, mold, and fire cleanup services across Oakland, Berkeley, Fremont, Hayward, and surrounding East Bay communities."
+  },
+  {
+    "slug": "contra-costa-county",
+    "name": "Contra Costa County",
+    "fullName": "Contra Costa County, California",
+    "description": "From Walnut Creek to Richmond, Premier Remediation serves commercial and multifamily properties throughout Contra Costa County with professional water damage, mold remediation, and fire cleanup services.",
+    "population": "1,150,000+",
+    "heroImage": "",
+    "neighborhoods": [
+      "Walnut Creek",
+      "Concord",
+      "Richmond",
+      "Antioch",
+      "San Ramon",
+      "Danville",
+      "Pleasant Hill",
+      "Martinez",
+      "Pittsburg",
+      "Brentwood",
+      "Lafayette",
+      "Orinda"
+    ],
+    "services": [
+      "Water Damage Mitigation",
+      "Mold Remediation",
+      "Fire & Smoke Cleanup",
+      "Commercial Property Remediation"
+    ],
+    "faqs": [
+      {
+        "question": "Do you serve the Tri-Valley area in Contra Costa County?",
+        "answer": "Yes, we serve Danville, San Ramon, and the entire Tri-Valley area with professional remediation services for commercial and multifamily properties."
+      }
+    ],
+    "coordinates": {
+      "lat": 37.9161,
+      "lng": -122.0574
+    },
+    "seoTitle": "Contra Costa County Remediation | Water Damage & Mold Services",
+    "seoDescription": "Professional remediation services in Contra Costa County. Water damage, mold removal, fire cleanup in Walnut Creek, Concord, Richmond, and surrounding areas.",
+    "aeoSummary": "Premier Remediation provides water damage, mold, and fire cleanup services throughout Contra Costa County, serving Walnut Creek, Concord, Richmond, and surrounding communities."
+  }
+]
