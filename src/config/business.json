@@ -1,92 +1,101 @@
 {
-  "name": "The Roofing Friend",
-  "tagline": "Your Trusted Roofing Partner",
-  "description": "Premium metal roofing services in the San Francisco Bay Area. Expert installation, repair, and maintenance with a 25-year warranty.",
-  "phone": "(415) 697-1849",
-  "phoneRaw": "+14156971849",
-  "email": "info@theroofingfriend.com",
+  "name": "Premier Remediation",
+  "tagline": "Restoring Commercial Properties, Responsibly.",
+  "description": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services, primarily serving commercial and multifamily properties. With a deep understanding of the unique challenges faced by property managers, we offer a structured and efficient approach to mitigating damage from water, mold, fire, and smoke.",
+  "phone": "(415) 969-2410",
+  "phoneRaw": "4159692410",
+  "email": "fastrackfix@gmail.com",
   "address": {
-    "street": "1030 Duane Ave",
-    "city": "Santa Clara",
+    "street": "729 Jones Street, apt 7",
+    "city": "San Francisco",
     "state": "CA",
-    "zip": "95054",
-    "full": "1030 Duane Ave, Santa Clara, CA 95054"
+    "zip": "94109",
+    "full": "729 Jones Street, apt 7, San Francisco, CA, 94109"
   },
-  "owner": "The Roofing Friend Team",
-  "logo": "/lovable-uploads/roofing-friend-logo.png",
+  "owner": {
+    "name": "Juan Munos",
+    "bio": "",
+    "photo": ""
+  },
+  "logo": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/logos/101921aa-cfa5-47b4-a979-51c47a255a58-logos-1768983671041.png",
+  "logoDark": "",
+  "favicon": "",
+  "heroImage": "",
+  "heroVideo": "",
   "colors": {
-    "primary": "#1a5f7a",
-    "secondary": "#57c5b6",
-    "accent": "#f97316"
+    "primary": "#042758",
+    "secondary": "#b91d1e",
+    "accent": "#e6e9ed"
   },
-  "hours": "Mon-Fri: 7AM-6PM, Sat: 8AM-4PM",
-  "certifications": ["Licensed", "Insured", "Bonded", "Sheffield Metals Certified"],
-  "uniqueSellingPoints": ["25-Year Warranty", "Free Estimates", "Same-Day Quotes", "24/7 Emergency Service"],
+  "hours": "Mon-Fri: 8am-6pm, Sat: 9am-4pm",
+  "certifications": ["Licensed", "Insured", "Certified Remediation Specialists"],
+  "uniqueSellingPoints": ["Commercial Focus", "Detailed Documentation", "Clearance Support", "24/7 Emergency"],
   "social": {
-    "facebook": "https://facebook.com/theroofingfriend",
-    "instagram": "https://instagram.com/theroofingfriend",
+    "facebook": "",
+    "instagram": "",
+    "twitter": "",
     "linkedin": "",
-    "yelp": "https://yelp.com/biz/the-roofing-friend",
-    "youtube": "https://youtube.com/@theroofingfriend",
-    "tiktok": "",
-    "google": ""
+    "youtube": ""
   },
   "seo": {
-    "siteUrl": "https://theroofingfriend.com",
-    "defaultTitle": "The Roofing Friend | Premium Metal Roofing Bay Area",
-    "titleTemplate": "%s | The Roofing Friend",
-    "description": "Expert metal roofing installation, repair, and maintenance in the San Francisco Bay Area. Standing seam, R-panel, fire-resistant solutions. Free estimates, 25-year warranty.",
-    "keywords": ["metal roofing", "Bay Area", "roofing contractor", "standing seam", "fire resistant roof"]
+    "metaTitle": "Premier Remediation | Commercial Property Restoration",
+    "metaDescription": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services for commercial and multifamily properties in the Bay Area.",
+    "keywords": ["water damage restoration", "mold remediation", "commercial property", "Bay Area"]
   },
   "hero": {
-    "headline": "Make Your Roof the",
-    "headlineHighlight": "Best on the Block.",
-    "subheadline": "Premium Metal Roofing, Priced Right. Installed to Last.",
-    "ctaPrimary": "Get Free Estimate",
-    "ctaSecondary": "View Our Work"
+    "headline": "Commercial Property",
+    "headlineHighlight": "Remediation Experts.",
+    "subheadline": "Water damage, mold, fire cleanup - restored with documentation and care.",
+    "ctaPrimary": "Get Assessment",
+    "ctaSecondary": "Our Services"
   },
   "trustIndicators": [
-    {"icon": "Shield", "text": "25-Year Warranty"},
-    {"icon": "Truck", "text": "Free Bay Area Delivery"},
-    {"icon": "Award", "text": "Locally Owned & Operated"}
+    {"icon": "Shield", "text": "Licensed & Insured"},
+    {"icon": "Clock", "text": "Rapid Response"},
+    {"icon": "CheckCircle", "text": "Clearance Support"}
   ],
   "statistics": [
-    {"icon": "Users", "number": "500+", "label": "Projects Completed", "description": "Successful installations across the Bay Area"},
-    {"icon": "MapPin", "number": "13+", "label": "Service Areas", "description": "Serving communities throughout California"},
-    {"icon": "Shield", "number": "25", "label": "Year Warranty", "description": "Industry-leading protection for your investment"},
-    {"icon": "Clock", "number": "24/7", "label": "Emergency Service", "description": "Always here when you need us most"}
+    {"icon": "Building", "number": "500+", "label": "Properties Served", "description": "Commercial and multifamily projects completed"},
+    {"icon": "MapPin", "number": "6+", "label": "Bay Area Counties", "description": "SF, Oakland, Berkeley, San Jose and more"},
+    {"icon": "Users", "number": "10+", "label": "Years Experience", "description": "Trusted remediation professionals"},
+    {"icon": "Clock", "number": "24/7", "label": "Emergency Service", "description": "Always here when you need us"}
   ],
-  "certificationLogos": [
-    {"src": "/lovable-uploads/sheffield-metals.png", "alt": "Sheffield Metals Partner"},
-    {"src": "/lovable-uploads/metal-roofing-alliance.png", "alt": "Metal Roofing Alliance Member"}
-  ],
+  "certificationLogos": [],
   "ratings": {
-    "average": "4.9",
-    "count": "150",
+    "average": "5.0",
+    "count": "50",
     "platform": "Google"
   },
+  "yearsInBusiness": 10,
+  "foundedYear": 2015,
+  "licenseNumber": "License #141231",
+  "employeesCount": "6-10",
+  "googlePlaceId": "",
+  "googleBusinessUrl": "",
+  "googleAverageRating": null,
+  "googleTotalReviews": null,
   "servicesPage": {
-    "title": "Installation Services",
-    "subtitle": "Professional metal roofing installation and maintenance services across the San Francisco Bay Area.",
+    "title": "Remediation Services",
+    "subtitle": "Comprehensive water damage, mold, fire cleanup and hazardous material abatement for commercial properties.",
     "whyChooseUs": {
-      "title": "Why Choose Us?",
-      "subtitle": "We're committed to delivering exceptional results with every project, backed by our experience and warranty.",
+      "title": "Why Choose Premier Remediation?",
+      "subtitle": "We specialize in commercial and multifamily properties with a focus on documentation and clearance support.",
       "features": [
-        {"icon": "Shield", "title": "25-Year Warranty", "description": "Comprehensive warranty covering materials and workmanship for your peace of mind."},
-        {"icon": "CheckCircle", "title": "Licensed & Insured", "description": "Fully licensed contractors with comprehensive insurance for your protection."},
-        {"icon": "Zap", "title": "Same Day Quotes", "description": "Fast, accurate estimates to get your project started quickly."}
+        {"icon": "Shield", "title": "Licensed & Insured", "description": "Fully licensed contractors with comprehensive insurance for your protection."},
+        {"icon": "FileCheck", "title": "Documentation", "description": "Detailed documentation for insurance claims and property management records."},
+        {"icon": "CheckCircle", "title": "Clearance Support", "description": "Coordination with industrial hygienists for post-remediation verification."}
       ]
     },
     "teamSection": {
-      "title": "Professional Installation Team",
-      "subtitle": "Our certified professionals bring decades of experience to every project. Licensed, insured, and committed to excellence.",
-      "features": ["Licensed & Insured Contractors", "25+ Years Combined Experience", "Manufacturer Certified Installers"],
-      "image": "/src/assets/residential-roofing-crew.jpg",
-      "imageAlt": "Professional crew installing roof"
+      "title": "Professional Remediation Team",
+      "subtitle": "Our certified professionals bring years of experience to every commercial project. Licensed, insured, and committed to excellence.",
+      "features": ["Licensed & Insured Contractors", "10+ Years Experience", "Certified Remediation Specialists"],
+      "image": "",
+      "imageAlt": "Professional remediation team"
     },
     "cta": {
       "title": "Ready to Start Your Project?",
-      "subtitle": "Contact us today for a free consultation and same-day quote. Our experts are ready to help you choose the perfect solution."
+      "subtitle": "Contact us today for a free assessment. Our experts are ready to help restore your commercial property."
     }
   }
 }

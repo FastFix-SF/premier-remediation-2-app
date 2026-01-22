@@ -1,56 +1,83 @@
 [
   {
-    "id": "faq-property-types",
+    "id": "7852ed1b-0dad-45cc-8aa4-11dcd5e44566",
     "question": "What types of properties do you service?",
-    "answer": "Premier Remediation 2 primarily serves commercial and multifamily properties, including high-rises, hotels, retail establishments, restaurants, office buildings, and apartment complexes. We specialize in properties that require a professional, documented approach to remediation.",
-    "category": "general"
+    "answer": "Premier Remediation 2 primarily serves commercial and multifamily properties, including high-rises, hotels, retail establishments, restaurants, and other managed buildings. We specialize in understanding the unique needs and complexities of these larger-scale properties.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 0,
+    "serviceId": null
   },
   {
-    "id": "faq-water-emergency",
+    "id": "3d5a64e3-9996-47de-988c-9de74478f61b",
     "question": "How quickly can you respond to a water damage emergency?",
-    "answer": "We understand the urgency of water damage. Our team is committed to rapid response, assessing the situation and initiating mitigation efforts as quickly as possible to minimize damage and business disruption.",
-    "category": "general"
+    "answer": "We understand the urgency of water damage. Our team is committed to rapid response, assessing the situation and initiating mitigation efforts as quickly as possible to prevent further damage and mold growth. Please contact us immediately for assistance.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 1,
+    "serviceId": null
   },
   {
-    "id": "faq-mold-process",
+    "id": "b391ad14-23bc-4d67-8e61-e3e48f4ce6c7",
     "question": "What is included in your mold remediation process?",
-    "answer": "Our mold remediation process involves locating affected areas, confirming the scope of contamination, establishing containment, safely removing contaminated materials, HEPA vacuuming and cleaning all surfaces, and preparing the space for third-party clearance testing.",
-    "category": "general"
+    "answer": "Our mold remediation process involves locating affected areas, confirming the scope of contamination, establishing containment, safely removing contaminated materials, and performing detailed cleaning. We also support post-remediation verification and clearance steps.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 2,
+    "serviceId": null
   },
   {
-    "id": "faq-asbestos-lead",
+    "id": "c3b7043a-5181-4915-9bad-b37ddfb29c48",
     "question": "Do you handle asbestos and lead removal?",
-    "answer": "Yes, when required by a project in older buildings, we provide compliant abatement and removal of asbestos- and lead-containing materials. This includes proper containment, removal, and disposal following all applicable regulations.",
-    "category": "general"
+    "answer": "Yes, when required by a project in older buildings, we provide compliant abatement and removal of asbestos- and lead-containing materials. This ensures safety and adherence to regulations during demolition or remediation work.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 3,
+    "serviceId": null
   },
   {
-    "id": "faq-clearance",
+    "id": "6157ce8e-13a0-4386-a129-a60db24ec1bc",
     "question": "What is 'clearance and verification support'?",
-    "answer": "Clearance and verification support is our service to ensure that a remediated area is definitively safe and ready for re-occupancy. This includes preparing the space for independent testing, coordinating with industrial hygienists, and providing complete documentation.",
-    "category": "general"
+    "answer": "Clearance and verification support is our service to ensure that a remediated area is definitively safe and ready for re-occupancy. This includes coordinating any necessary testing and reporting to provide property managers with official documentation and peace of mind.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 4,
+    "serviceId": null
   },
   {
-    "id": "faq-certified",
+    "id": "ff4cb0e6-6ef4-4d7b-9cc3-515ba914f049",
     "question": "Are you certified and insured?",
-    "answer": "Yes, Premier Remediation 2 adheres to industry standards and best practices. We are fully insured and our team is trained and equipped to handle water damage, mold, fire/smoke damage, and hazardous material abatement for commercial and multifamily properties.",
-    "category": "general"
+    "answer": "Yes, Premier Remediation 2 adheres to industry standards and best practices. We are fully insured and our team is trained and equipped to handle complex remediation projects safely and effectively. Specific certifications can be provided upon request.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 5,
+    "serviceId": null
   },
   {
-    "id": "faq-service-areas",
+    "id": "64f06eb0-48cc-4f0b-8a16-ac5e44d8f082",
     "question": "What areas do you serve?",
-    "answer": "We provide commercial-first remediation support in San Francisco, Oakland, Berkeley, San Jose, Alameda County, and Contra Costa County. Contact us to confirm service availability in your specific location.",
-    "category": "general"
+    "answer": "We provide commercial-first remediation support in San Francisco, Oakland, Berkeley, San Jose, Alameda County, and Contra Costa County. Please contact us to confirm service availability for your specific location.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 6,
+    "serviceId": null
   },
   {
-    "id": "faq-pricing",
+    "id": "3f2fca7a-2621-4f26-9033-5ef652de5901",
     "question": "How does your pricing work?",
-    "answer": "Our pricing is based on the scope and complexity of the remediation project. We provide detailed assessments and transparent estimates for each project. For property managers, we offer portfolio-wide service agreements with consistent pricing.",
-    "category": "general"
+    "answer": "Our pricing is based on the scope and complexity of the remediation project. We provide detailed assessments and transparent estimates for all services. For specific inquiries, please contact us to discuss your needs and receive a consultation.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 7,
+    "serviceId": null
   },
   {
-    "id": "faq-different",
+    "id": "b40885f1-01e6-4e2f-a521-c75c426a5440",
     "question": "What makes Premier Remediation 2 different from other companies?",
-    "answer": "We specialize in commercial and multifamily properties, offering a structured, documented approach that goes beyond basic cleanup. Our focus on thorough remediation, third-party verification, and clear communication sets us apart from general restoration companies.",
-    "category": "general"
+    "answer": "We specialize in commercial and multifamily properties, offering a structured, documented approach that goes beyond basic cleanup. Our focus on detailed cleaning, comprehensive monitoring, and crucial clearance/verification support ensures a complete and confident resolution for property managers.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 8,
+    "serviceId": null
   }
 ]
