@@ -1,1 +1,328 @@
-[]
+[
+  {
+    "id": "sf-001",
+    "name": "San Francisco",
+    "slug": "san-francisco",
+    "fullName": "San Francisco, California",
+    "shortDescription": "Premier remediation services for San Francisco's commercial and multifamily properties.",
+    "longDescription": "West Peak Remediation provides comprehensive water damage, mold remediation, and fire cleanup services throughout San Francisco. Our team understands the unique challenges of the city's diverse building stock, from historic Victorians to modern high-rises. We're equipped to handle any commercial or multifamily property emergency with rapid response times and thorough documentation.",
+    "image": "",
+    "neighborhoods": [
+      "Financial District",
+      "SoMa",
+      "Mission District",
+      "Marina District",
+      "Pacific Heights",
+      "Nob Hill",
+      "Russian Hill",
+      "North Beach",
+      "Castro",
+      "Haight-Ashbury",
+      "Sunset District",
+      "Richmond District"
+    ],
+    "population": "874,784",
+    "propertyTypes": ["High-rises", "Victorian buildings", "Mixed-use developments", "Apartment complexes"],
+    "testimonials": [
+      {
+        "quote": "West Peak responded within 2 hours to our water damage emergency in a 50-unit building. Their professionalism and documentation made the insurance process seamless.",
+        "author": "Michael Chen",
+        "role": "Property Manager",
+        "company": "SF Property Group"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What areas of San Francisco do you serve?",
+        "answer": "We serve all San Francisco neighborhoods including the Financial District, SoMa, Mission District, Marina, Pacific Heights, and surrounding areas. Our team can typically arrive on-site within 60-90 minutes for emergencies."
+      },
+      {
+        "question": "Do you work with San Francisco building codes?",
+        "answer": "Yes, our team is fully familiar with San Francisco's unique building codes and permit requirements. We ensure all remediation work meets local standards and can coordinate with city inspectors as needed."
+      },
+      {
+        "question": "Can you handle high-rise remediation in San Francisco?",
+        "answer": "Absolutely. We specialize in high-rise commercial and residential buildings, understanding the complexities of multi-story water intrusion, HVAC-related mold issues, and the coordination required with building management."
+      }
+    ],
+    "seoKeywords": ["San Francisco remediation", "SF water damage", "mold removal San Francisco", "commercial remediation SF", "fire damage cleanup San Francisco"],
+    "seoTitle": "Water Damage & Mold Remediation in San Francisco | West Peak",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services in San Francisco. 24/7 emergency response for commercial and multifamily properties. Licensed & insured.",
+    "isFeatured": true,
+    "sortOrder": 0,
+    "aeoSummary": "West Peak Remediation provides 24/7 emergency water damage, mold remediation, and fire cleanup services for San Francisco commercial and multifamily properties, with typical response times of 60-90 minutes.",
+    "aeoKeyPoints": [
+      "24/7 emergency response throughout San Francisco",
+      "Specialists in high-rise and historic building remediation",
+      "Full documentation for insurance claims",
+      "Licensed and insured for California commercial work"
+    ],
+    "aeoConversationalAnswer": "West Peak Remediation serves all of San Francisco with water damage, mold, and fire cleanup services. We specialize in commercial and multifamily properties, including high-rises and historic buildings. Our team typically responds within 60-90 minutes for emergencies and provides thorough documentation for insurance claims."
+  },
+  {
+    "id": "oak-001",
+    "name": "Oakland",
+    "slug": "oakland",
+    "fullName": "Oakland, California",
+    "shortDescription": "Expert remediation services for Oakland's growing commercial and residential communities.",
+    "longDescription": "West Peak Remediation brings professional water damage, mold remediation, and fire cleanup services to Oakland's diverse property landscape. From Lake Merritt high-rises to Jack London Square commercial spaces, we provide rapid response and thorough remediation for property managers and building owners throughout the East Bay.",
+    "image": "",
+    "neighborhoods": [
+      "Downtown Oakland",
+      "Lake Merritt",
+      "Jack London Square",
+      "Temescal",
+      "Rockridge",
+      "Piedmont Avenue",
+      "Grand Lake",
+      "Fruitvale",
+      "West Oakland",
+      "Montclair"
+    ],
+    "population": "433,031",
+    "propertyTypes": ["Commercial buildings", "Apartment complexes", "Mixed-use developments", "Industrial properties"],
+    "testimonials": [
+      {
+        "quote": "After a pipe burst in our Oakland apartment building, West Peak had a team on-site within an hour. They saved us from extensive damage and handled everything professionally.",
+        "author": "Sarah Johnson",
+        "role": "Building Owner",
+        "company": "East Bay Properties"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How quickly can you respond to emergencies in Oakland?",
+        "answer": "Our Oakland response team can typically arrive on-site within 45-75 minutes for water damage emergencies. We maintain equipment and personnel positioned throughout the East Bay for rapid deployment."
+      },
+      {
+        "question": "Do you serve industrial properties in Oakland?",
+        "answer": "Yes, we have extensive experience with Oakland's industrial properties, including warehouses, manufacturing facilities, and mixed-use industrial/commercial spaces. We understand the unique remediation needs of these property types."
+      }
+    ],
+    "seoKeywords": ["Oakland remediation", "Oakland water damage", "mold removal Oakland", "East Bay remediation", "fire damage cleanup Oakland"],
+    "seoTitle": "Water Damage & Mold Remediation in Oakland | West Peak",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services in Oakland. Fast response times for commercial and multifamily properties throughout the East Bay.",
+    "isFeatured": true,
+    "sortOrder": 1,
+    "aeoSummary": "West Peak Remediation offers professional water damage, mold, and fire cleanup services in Oakland with 45-75 minute emergency response times for commercial and multifamily properties.",
+    "aeoKeyPoints": [
+      "Fast 45-75 minute response times in Oakland",
+      "Experience with industrial and commercial properties",
+      "Serving all Oakland neighborhoods",
+      "Full insurance documentation support"
+    ],
+    "aeoConversationalAnswer": "West Peak Remediation provides water damage, mold remediation, and fire cleanup services throughout Oakland. We serve commercial, multifamily, and industrial properties with response times typically under 75 minutes for emergencies."
+  },
+  {
+    "id": "berk-001",
+    "name": "Berkeley",
+    "slug": "berkeley",
+    "fullName": "Berkeley, California",
+    "shortDescription": "Specialized remediation for Berkeley's unique mix of historic and modern properties.",
+    "longDescription": "West Peak Remediation understands Berkeley's distinctive building environment, from classic craftsman apartment buildings to modern commercial developments near UC Berkeley. Our team provides expert water damage, mold remediation, and fire cleanup services with attention to preserving architectural character while ensuring thorough restoration.",
+    "image": "",
+    "neighborhoods": [
+      "Downtown Berkeley",
+      "Southside",
+      "Northside",
+      "West Berkeley",
+      "Elmwood",
+      "Claremont",
+      "North Berkeley",
+      "Thousand Oaks"
+    ],
+    "population": "124,321",
+    "propertyTypes": ["Student housing", "Historic apartments", "Commercial buildings", "Mixed-use developments"],
+    "testimonials": [
+      {
+        "quote": "West Peak handled our student housing mold issue with minimal disruption to residents. Their team was professional and thorough.",
+        "author": "David Martinez",
+        "role": "Property Manager",
+        "company": "Berkeley Housing Partners"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you have experience with student housing in Berkeley?",
+        "answer": "Yes, we regularly work with student housing properties near UC Berkeley. We understand the importance of quick turnaround times and minimal disruption during the academic year."
+      },
+      {
+        "question": "Can you work with historic buildings in Berkeley?",
+        "answer": "Absolutely. Our team has experience with Berkeley's historic craftsman and period buildings. We use appropriate techniques and materials to ensure remediation work respects the property's architectural integrity."
+      }
+    ],
+    "seoKeywords": ["Berkeley remediation", "Berkeley water damage", "mold removal Berkeley", "student housing remediation", "fire damage cleanup Berkeley"],
+    "seoTitle": "Water Damage & Mold Remediation in Berkeley | West Peak",
+    "seoDescription": "Expert water damage, mold remediation, and fire cleanup services in Berkeley. Specialized experience with student housing and historic properties.",
+    "isFeatured": true,
+    "sortOrder": 2,
+    "aeoSummary": "West Peak Remediation provides water damage, mold, and fire cleanup services in Berkeley, with specialized experience in student housing and historic property remediation.",
+    "aeoKeyPoints": [
+      "Specialized in student housing remediation",
+      "Experience with historic Berkeley buildings",
+      "Quick turnaround to minimize disruption",
+      "Full documentation for property managers"
+    ],
+    "aeoConversationalAnswer": "West Peak Remediation serves Berkeley with water damage, mold remediation, and fire cleanup services. We have special expertise in student housing near UC Berkeley and historic buildings, providing quick turnaround times with minimal disruption."
+  },
+  {
+    "id": "sj-001",
+    "name": "San Jose",
+    "slug": "san-jose",
+    "fullName": "San Jose, California",
+    "shortDescription": "Comprehensive remediation services for Silicon Valley's commercial and multifamily properties.",
+    "longDescription": "As the heart of Silicon Valley, San Jose presents unique remediation challenges for its tech campuses, corporate headquarters, and rapidly growing multifamily housing sector. West Peak Remediation delivers enterprise-grade water damage, mold, and fire cleanup services with the professionalism and documentation that Silicon Valley property managers expect.",
+    "image": "",
+    "neighborhoods": [
+      "Downtown San Jose",
+      "Santana Row",
+      "Willow Glen",
+      "Almaden Valley",
+      "Evergreen",
+      "Cambrian",
+      "Rose Garden",
+      "North San Jose"
+    ],
+    "population": "1,013,240",
+    "propertyTypes": ["Tech campuses", "Corporate offices", "Luxury apartments", "Mixed-use developments"],
+    "testimonials": [
+      {
+        "quote": "West Peak's response to water damage at our corporate campus was exceptional. They minimized downtime and kept our operations running.",
+        "author": "Jennifer Wong",
+        "role": "Facilities Director",
+        "company": "Tech Campus Management"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you work with tech company facilities in San Jose?",
+        "answer": "Yes, we have extensive experience with Silicon Valley tech campuses and corporate headquarters. We understand the importance of minimizing operational disruption and can work around your business schedules."
+      },
+      {
+        "question": "What's your response time for San Jose emergencies?",
+        "answer": "Our San Jose team typically responds within 60-90 minutes for water damage emergencies. For tech campuses and large commercial properties, we can deploy multiple crews simultaneously."
+      }
+    ],
+    "seoKeywords": ["San Jose remediation", "Silicon Valley water damage", "mold removal San Jose", "tech campus remediation", "fire damage cleanup San Jose"],
+    "seoTitle": "Water Damage & Mold Remediation in San Jose | West Peak",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services in San Jose. Enterprise-grade solutions for Silicon Valley commercial and multifamily properties.",
+    "isFeatured": true,
+    "sortOrder": 3,
+    "aeoSummary": "West Peak Remediation provides enterprise-grade water damage, mold, and fire cleanup services for San Jose and Silicon Valley, with 60-90 minute response times for commercial emergencies.",
+    "aeoKeyPoints": [
+      "Experience with tech campuses and corporate facilities",
+      "60-90 minute emergency response times",
+      "Minimal operational disruption focus",
+      "Enterprise-level documentation and reporting"
+    ],
+    "aeoConversationalAnswer": "West Peak Remediation serves San Jose and Silicon Valley with professional water damage, mold remediation, and fire cleanup services. We specialize in tech campuses and corporate properties, providing enterprise-grade solutions with minimal operational disruption."
+  },
+  {
+    "id": "alameda-001",
+    "name": "Alameda County",
+    "slug": "alameda-county",
+    "fullName": "Alameda County, California",
+    "shortDescription": "Serving all Alameda County communities with professional remediation services.",
+    "longDescription": "West Peak Remediation provides comprehensive water damage, mold remediation, and fire cleanup services throughout Alameda County. From Fremont to Albany, our team serves commercial and multifamily properties across the county with consistent quality and rapid response times.",
+    "image": "",
+    "neighborhoods": [
+      "Fremont",
+      "Hayward",
+      "Union City",
+      "Newark",
+      "Pleasanton",
+      "Livermore",
+      "Dublin",
+      "Albany",
+      "Emeryville",
+      "Alameda"
+    ],
+    "population": "1,682,353",
+    "propertyTypes": ["Suburban commercial", "Apartment complexes", "Industrial parks", "Shopping centers"],
+    "testimonials": [
+      {
+        "quote": "West Peak has been our go-to remediation company for properties across Alameda County. Consistent quality every time.",
+        "author": "Robert Kim",
+        "role": "Regional Manager",
+        "company": "County Property Management"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do you serve all cities in Alameda County?",
+        "answer": "Yes, we serve all cities and unincorporated areas of Alameda County, including Fremont, Hayward, Pleasanton, Livermore, Dublin, Union City, Newark, Albany, Emeryville, and Alameda Island."
+      },
+      {
+        "question": "What's your coverage for suburban Alameda County areas?",
+        "answer": "We maintain crews positioned throughout Alameda County to ensure response times of 60-90 minutes even in suburban and Tri-Valley areas like Pleasanton, Livermore, and Dublin."
+      }
+    ],
+    "seoKeywords": ["Alameda County remediation", "Fremont water damage", "Hayward mold removal", "Pleasanton remediation", "East Bay fire cleanup"],
+    "seoTitle": "Water Damage & Mold Remediation in Alameda County | West Peak",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services throughout Alameda County. Serving Fremont, Hayward, Pleasanton, Livermore, and all East Bay communities.",
+    "isFeatured": false,
+    "sortOrder": 4,
+    "aeoSummary": "West Peak Remediation serves all of Alameda County with water damage, mold, and fire cleanup services, including Fremont, Hayward, Pleasanton, Livermore, and Dublin.",
+    "aeoKeyPoints": [
+      "Serving all Alameda County cities",
+      "60-90 minute response times county-wide",
+      "Commercial and multifamily specialists",
+      "Including Tri-Valley coverage"
+    ],
+    "aeoConversationalAnswer": "West Peak Remediation provides water damage, mold remediation, and fire cleanup services throughout all of Alameda County. We serve Fremont, Hayward, Pleasanton, Livermore, Dublin, and all other East Bay communities with consistent quality and fast response times."
+  },
+  {
+    "id": "cc-001",
+    "name": "Contra Costa County",
+    "slug": "contra-costa-county",
+    "fullName": "Contra Costa County, California",
+    "shortDescription": "Expert remediation services for Contra Costa County's diverse property portfolio.",
+    "longDescription": "West Peak Remediation extends our professional water damage, mold remediation, and fire cleanup services throughout Contra Costa County. From Walnut Creek's commercial centers to Richmond's industrial properties, we provide consistent, high-quality remediation for all property types across the county.",
+    "image": "",
+    "neighborhoods": [
+      "Walnut Creek",
+      "Concord",
+      "Richmond",
+      "Antioch",
+      "San Ramon",
+      "Danville",
+      "Martinez",
+      "Pleasant Hill",
+      "Pittsburg",
+      "Brentwood"
+    ],
+    "population": "1,165,927",
+    "propertyTypes": ["Suburban office parks", "Retail centers", "Apartment communities", "Industrial facilities"],
+    "testimonials": [
+      {
+        "quote": "West Peak's team handled our Walnut Creek office building water damage with exceptional professionalism. Highly recommend.",
+        "author": "Linda Torres",
+        "role": "Building Manager",
+        "company": "Contra Costa Commercial"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What areas of Contra Costa County do you cover?",
+        "answer": "We serve all of Contra Costa County, including Walnut Creek, Concord, Richmond, San Ramon, Danville, Pleasant Hill, Martinez, Antioch, Pittsburg, and Brentwood."
+      },
+      {
+        "question": "Do you work with industrial properties in Contra Costa County?",
+        "answer": "Yes, we have extensive experience with Contra Costa County's industrial sector, including refineries, manufacturing facilities, and warehouses in Richmond, Martinez, and the eastern county areas."
+      }
+    ],
+    "seoKeywords": ["Contra Costa remediation", "Walnut Creek water damage", "Concord mold removal", "San Ramon remediation", "Richmond fire cleanup"],
+    "seoTitle": "Water Damage & Mold Remediation in Contra Costa County | West Peak",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services throughout Contra Costa County. Serving Walnut Creek, Concord, San Ramon, and all county communities.",
+    "isFeatured": false,
+    "sortOrder": 5,
+    "aeoSummary": "West Peak Remediation serves all of Contra Costa County with water damage, mold, and fire cleanup services, including Walnut Creek, Concord, San Ramon, Richmond, and Danville.",
+    "aeoKeyPoints": [
+      "Full Contra Costa County coverage",
+      "Commercial and industrial specialists",
+      "Suburban and urban property experience",
+      "Rapid response throughout the county"
+    ],
+    "aeoConversationalAnswer": "West Peak Remediation provides water damage, mold remediation, and fire cleanup services throughout Contra Costa County. We serve Walnut Creek, Concord, San Ramon, Danville, Richmond, and all other county communities with professional, rapid-response remediation services."
+  }
+]
