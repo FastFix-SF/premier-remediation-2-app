@@ -1,16 +1,16 @@
 {
   "name": "Premier Remediation",
   "tagline": "Restoring Commercial Properties, Responsibly.",
-  "description": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services, primarily serving commercial and multifamily properties. With a deep understanding of the unique challenges faced by property managers, we offer a structured and efficient approach to mitigating damage from water, mold, fire, and smoke.",
-  "phone": "(415) 969-2410",
+  "description": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services, primarily serving commercial and multifamily properties. With a deep understanding of the unique challenges faced by property managers, we offer a structured and efficient approach to mitigating damage from water, mold, fire, and smoke. Our commitment extends beyond mere cleanup, focusing on thorough documentation, detailed cleaning, and support for post-remediation verification to ensure properties are safely and confidently returned to pre-incident conditions.\n\nOur team is equipped to handle complex remediation projects, from swift water damage mitigation to precise mold remediation and asbestos/lead abatement when required. We pride ourselves on our meticulous process, which includes containment, selective demolition, advanced drying techniques, and continuous moisture monitoring. By providing clear communication and robust support for clearance and verification, Premier Remediation 2 helps minimize disruption and facilitate a smooth transition toward full restoration and re-occupancy for your commercial assets.",
+  "phone": "4159692410",
   "phoneRaw": "4159692410",
   "email": "fastrackfix@gmail.com",
   "address": {
     "street": "729 Jones Street, apt 7",
-    "city": "San Francisco",
+    "city": "San francisco",
     "state": "CA",
     "zip": "94109",
-    "full": "729 Jones Street, apt 7, San Francisco, CA, 94109"
+    "full": "729 Jones Street, apt 7, San francisco, CA, 94109"
   },
   "owner": {
     "name": "Juan Munos",
@@ -28,8 +28,8 @@
     "accent": "#e6e9ed"
   },
   "hours": "Mon-Fri: 8am-6pm, Sat: 9am-4pm",
-  "certifications": ["Licensed", "Insured", "Certified Remediation Specialists"],
-  "uniqueSellingPoints": ["Commercial Focus", "Detailed Documentation", "Clearance Support", "24/7 Emergency"],
+  "certifications": [],
+  "uniqueSellingPoints": [],
   "social": {
     "facebook": "",
     "instagram": "",
@@ -38,64 +38,16 @@
     "youtube": ""
   },
   "seo": {
-    "metaTitle": "Premier Remediation | Commercial Property Restoration",
-    "metaDescription": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services for commercial and multifamily properties in the Bay Area.",
-    "keywords": ["water damage restoration", "mold remediation", "commercial property", "Bay Area"]
-  },
-  "hero": {
-    "headline": "Commercial Property",
-    "headlineHighlight": "Remediation Experts.",
-    "subheadline": "Water damage, mold, fire cleanup - restored with documentation and care.",
-    "ctaPrimary": "Get Assessment",
-    "ctaSecondary": "Our Services"
-  },
-  "trustIndicators": [
-    {"icon": "Shield", "text": "Licensed & Insured"},
-    {"icon": "Clock", "text": "Rapid Response"},
-    {"icon": "CheckCircle", "text": "Clearance Support"}
-  ],
-  "statistics": [
-    {"icon": "Building", "number": "500+", "label": "Properties Served", "description": "Commercial and multifamily projects completed"},
-    {"icon": "MapPin", "number": "6+", "label": "Bay Area Counties", "description": "SF, Oakland, Berkeley, San Jose and more"},
-    {"icon": "Users", "number": "10+", "label": "Years Experience", "description": "Trusted remediation professionals"},
-    {"icon": "Clock", "number": "24/7", "label": "Emergency Service", "description": "Always here when you need us"}
-  ],
-  "certificationLogos": [],
-  "ratings": {
-    "average": "5.0",
-    "count": "50",
-    "platform": "Google"
+    "metaTitle": "Premier Remediation | Professional Services",
+    "metaDescription": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services, primarily serving commercial and multifamily properties. With a deep understanding of the unique challenges faced by property managers, we offer a structured and efficient approach to mitigating damage from water, mold, fire, and smoke. Our commitment extends beyond mere cleanup, focusing on thorough documentation, detailed cleaning, and support for post-remediation verification to ensure properties are safely and confidently returned to pre-incident conditions.\n\nOur team is equipped to handle complex remediation projects, from swift water damage mitigation to precise mold remediation and asbestos/lead abatement when required. We pride ourselves on our meticulous process, which includes containment, selective demolition, advanced drying techniques, and continuous moisture monitoring. By providing clear communication and robust support for clearance and verification, Premier Remediation 2 helps minimize disruption and facilitate a smooth transition toward full restoration and re-occupancy for your commercial assets.",
+    "keywords": []
   },
   "yearsInBusiness": 10,
-  "foundedYear": 2015,
+  "foundedYear": 2025,
   "licenseNumber": "License #141231",
   "employeesCount": "6-10",
   "googlePlaceId": "",
   "googleBusinessUrl": "",
   "googleAverageRating": null,
-  "googleTotalReviews": null,
-  "servicesPage": {
-    "title": "Remediation Services",
-    "subtitle": "Comprehensive water damage, mold, fire cleanup and hazardous material abatement for commercial properties.",
-    "whyChooseUs": {
-      "title": "Why Choose Premier Remediation?",
-      "subtitle": "We specialize in commercial and multifamily properties with a focus on documentation and clearance support.",
-      "features": [
-        {"icon": "Shield", "title": "Licensed & Insured", "description": "Fully licensed contractors with comprehensive insurance for your protection."},
-        {"icon": "FileCheck", "title": "Documentation", "description": "Detailed documentation for insurance claims and property management records."},
-        {"icon": "CheckCircle", "title": "Clearance Support", "description": "Coordination with industrial hygienists for post-remediation verification."}
-      ]
-    },
-    "teamSection": {
-      "title": "Professional Remediation Team",
-      "subtitle": "Our certified professionals bring years of experience to every commercial project. Licensed, insured, and committed to excellence.",
-      "features": ["Licensed & Insured Contractors", "10+ Years Experience", "Certified Remediation Specialists"],
-      "image": "",
-      "imageAlt": "Professional remediation team"
-    },
-    "cta": {
-      "title": "Ready to Start Your Project?",
-      "subtitle": "Contact us today for a free assessment. Our experts are ready to help restore your commercial property."
-    }
-  }
+  "googleTotalReviews": null
 }
