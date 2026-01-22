@@ -6,18 +6,27 @@ import { Camera, FileText } from 'lucide-react';
 import HeroTrustIndicators from './HeroTrustIndicators';
 import HeroReviewsPreview from './HeroReviewsPreview';
 import SolarOptionsButton from '../solar/SolarOptionsButton';
+import { useHero } from '@/hooks/useBusinessConfig';
 
 const HeroContent = () => {
   const navigate = useNavigate();
+  const hero = useHero();
+
+  // Fallback values if hero config is not set
+  const headline = hero?.headline || 'Welcome to Our Business';
+  const headlineHighlight = hero?.headlineHighlight || 'Excellence.';
+  const subheadline = hero?.subheadline || 'Quality service you can trust.';
+  const ctaPrimary = hero?.ctaPrimary || 'Get Instant Quote';
+  const ctaSecondary = hero?.ctaSecondary || 'Portfolio';
 
   return (
     <div className="text-center lg:text-left space-y-6 lg:space-y-8">
       <div className="space-y-4 lg:space-y-6">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-arial font-bold leading-tight">
-          Make Your Roof the <span className="text-accent animate-text-glow animate-best-bounce relative inline-block bg-gradient-to-r from-accent via-accent to-accent bg-[length:200%_100%] animate-shine bg-clip-text">Best on the Block.</span>
+          {headline} <span className="text-accent animate-text-glow animate-best-bounce relative inline-block bg-gradient-to-r from-accent via-accent to-accent bg-[length:200%_100%] animate-shine bg-clip-text">{headlineHighlight}</span>
         </h1>
         <p className="text-lg sm:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-          Premium Metal Roofing, Priced Right. Installed to Last.
+          {subheadline}
         </p>
       </div>
 
@@ -28,7 +37,7 @@ const HeroContent = () => {
           className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all w-full sm:w-auto animate-pulse-cta hover:animate-glow hover:scale-105 motion-safe:animate-float-gentle group"
         >
           <FileText className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-pulse group-hover:animate-glow" />
-          <span className="hidden sm:inline">Get Instant Quote</span>
+          <span className="hidden sm:inline">{ctaPrimary}</span>
           <span className="sm:hidden">Get Quote</span>
         </Button>
         <Button 
@@ -38,8 +47,8 @@ const HeroContent = () => {
           className="font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-xl shadow-lg group"
         >
           <Camera className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-flash" />
-          <span className="hidden sm:inline">Portfolio</span>
-          <span className="sm:hidden">Portfolio</span>
+          <span className="hidden sm:inline">{ctaSecondary}</span>
+          <span className="sm:hidden">{ctaSecondary}</span>
         </Button>
         <SolarOptionsButton />
       </div>

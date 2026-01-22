@@ -21,6 +21,7 @@ import { MobileAdminGuard } from "./mobile/components/guards/MobileAdminGuard";
 import { MobileShiftGuard } from "./mobile/components/guards/MobileShiftGuard";
 import { ChunkLoadErrorBoundary } from "./components/ChunkLoadErrorBoundary";
 import AdminDashboardPage from "./pages/AdminDashboard";
+import ThemeProvider from "./components/ThemeProvider";
 
 // Retry wrapper for React.lazy() imports (helps with transient Vite/SW cache issues)
 const lazyWithRetry = <T extends React.ComponentType<any>>(
@@ -374,23 +375,25 @@ function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <LanguageProvider>
-            <MobileProvider>
-              <AuthProvider>
-                <UpdatesProvider>
-                  <CartProvider>
-                    <SearchProvider>
-                      <TooltipProvider>
-                        <AppContent />
-                      </TooltipProvider>
-                    </SearchProvider>
-                  </CartProvider>
-                </UpdatesProvider>
-              </AuthProvider>
-            </MobileProvider>
-          </LanguageProvider>
-        </BrowserRouter>
+        <ThemeProvider>
+          <BrowserRouter>
+            <LanguageProvider>
+              <MobileProvider>
+                <AuthProvider>
+                  <UpdatesProvider>
+                    <CartProvider>
+                      <SearchProvider>
+                        <TooltipProvider>
+                          <AppContent />
+                        </TooltipProvider>
+                      </SearchProvider>
+                    </CartProvider>
+                  </UpdatesProvider>
+                </AuthProvider>
+              </MobileProvider>
+            </LanguageProvider>
+          </BrowserRouter>
+        </ThemeProvider>
       </QueryClientProvider>
     </HelmetProvider>
   );

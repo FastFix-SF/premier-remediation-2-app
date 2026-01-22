@@ -5,20 +5,26 @@ import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu, Phone, MapPin, ShoppingCart, User, X } from 'lucide-react';
 import { companyConfig } from '@/config/company';
+import { useServices, useBusiness } from '@/hooks/useBusinessConfig';
 
 
 const RoofingFriendHeader = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const services = useServices();
+  const business = useBusiness();
+
+  // Build dynamic submenu from services JSON
+  const serviceSubmenu = services.slice(0, 6).map(service => ({
+    label: service.name,
+    path: `/services/${service.slug}`
+  }));
 
   const navigationItems = [
     { label: 'Home', path: '/' },
     { label: 'Material Store', path: '/store' },
-    { label: 'Installation Services', path: '/services', submenu: [
-      { label: 'Residential Roofing', path: '/residential-roofing' },
-      { label: 'Commercial & Industrial', path: '/commercial-roofing' },
-      { label: 'Metal Roof Panels', path: '/metal-roof-panels' },
-      { label: 'Storm, Fire & Energy', path: '/storm-fire-energy' }
+    { label: 'Installation Services', path: '/services', submenu: serviceSubmenu.length > 0 ? serviceSubmenu : [
+      { label: 'View All Services', path: '/services' }
     ]},
     { label: 'Service Areas', path: '/#service-areas', mobileOnly: true },
     { label: 'Projects', path: '/projects' },

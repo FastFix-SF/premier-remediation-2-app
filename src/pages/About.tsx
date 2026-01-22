@@ -5,13 +5,16 @@ import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { Shield, Award, Users, Clock, Phone, Mail } from 'lucide-react';
 import { companyConfig } from '@/config/company';
+import { useBusiness } from '@/hooks/useBusinessConfig';
 
 const About = () => {
+  const business = useBusiness();
+
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
-        title={`About ${companyConfig.name} - Bay Area Metal Roofing Experts`}
-        description={`Learn about ${companyConfig.name}, your trusted Bay Area metal roofing specialists. Licensed, insured, and committed to excellence.`}
+      <SEOHead
+        title={`About ${business.name} - Professional Services`}
+        description={`Learn about ${business.name}. ${business.description?.substring(0, 150)}...`}
       />
       <RoofingFriendHeader />
       
@@ -20,10 +23,10 @@ const About = () => {
           {/* Hero Section */}
           <div className="text-center mb-12 lg:mb-16">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-              About {companyConfig.name}
+              About {business.name}
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-              {companyConfig.description}
+              {business.description}
             </p>
           </div>
 
@@ -33,26 +36,24 @@ const About = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in 2006, {companyConfig.name} has been the Bay Area's most trusted 
-                  metal roofing specialist for over 18 years. We started with a simple mission: provide exceptional 
-                  roofing solutions with unmatched customer service.
+                  {business.description}
                 </p>
                 <p>
-                  Our team combines decades of experience with cutting-edge technology to deliver 
-                  roofing systems that protect your investment for years to come. From residential 
-                  homes to commercial properties, we've completed over 500 successful installations.
+                  Our team combines years of experience with industry best practices to deliver
+                  exceptional results that exceed expectations. We take pride in every project
+                  we complete.
                 </p>
                 <p>
-                  What sets us apart is our commitment to quality, transparency, and customer 
-                  satisfaction. Every project, regardless of size, receives our full attention 
+                  What sets us apart is our commitment to quality, transparency, and customer
+                  satisfaction. Every project, regardless of size, receives our full attention
                   and expertise.
                 </p>
               </div>
             </div>
             <div className="bg-muted rounded-xl p-4 h-full flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/a9586668-8940-4ab8-a5d6-8b0f0911ccaf.png" 
-                alt={`${companyConfig.name} Team`}
+              <img
+                src={business.logo || "/lovable-uploads/a9586668-8940-4ab8-a5d6-8b0f0911ccaf.png"}
+                alt={`${business.name} Team`}
                 className="w-full h-full max-h-96 rounded-lg object-cover"
               />
             </div>
@@ -104,23 +105,22 @@ const About = () => {
               Ready to Work With Us?
             </h2>
             <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Contact us today for a free consultation and discover why we're the Bay Area's 
-              preferred metal roofing specialists.
+              Contact us today for a free consultation and discover why clients trust {business.name}.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href={`tel:${companyConfig.phoneRaw}`}
+              <a
+                href={`tel:${business.phoneRaw}`}
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                {companyConfig.phone}
+                {business.phone}
               </a>
-              <a 
-                href={`mailto:${companyConfig.email}`}
+              <a
+                href={`mailto:${business.email}`}
                 className="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/10 transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                {companyConfig.email}
+                {business.email}
               </a>
             </div>
           </div>

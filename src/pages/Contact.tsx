@@ -10,8 +10,20 @@ import { Phone, Mail, MapPin, Clock, Send, Loader2 } from 'lucide-react';
 import { GooglePlacesAutocomplete } from '@/components/ui/google-places-autocomplete';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { companyConfig } from '@/config/company';
+import { useStatistics, useRatings } from '@/hooks/useBusinessConfig';
 
 const Contact = () => {
+  const statistics = useStatistics();
+  const ratings = useRatings();
+
+  // Find the projects completed stat
+  const projectsStat = statistics.find(s => s.label.toLowerCase().includes('project'));
+  const projectsCompleted = projectsStat?.number || '500+';
+
+  // Get ratings from config
+  const ratingAverage = ratings?.average || '5.0';
+  const ratingCount = ratings?.count || '100';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -141,7 +153,7 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className={isMobile ? "text-base text-muted-foreground max-w-3xl mx-auto" : "text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto"}>
-              Ready to start your roofing project? Get in touch for a free consultation and same-day quote.
+              Ready to start your project? Get in touch for a free consultation and same-day quote.
             </p>
           </div>
 
@@ -377,11 +389,11 @@ const Contact = () => {
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Projects Completed</span>
-                      <span className="font-semibold text-foreground">500+</span>
+                      <span className="font-semibold text-foreground">{projectsCompleted}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Customer Rating</span>
-                      <span className="font-semibold text-foreground">4.9/5</span>
+                      <span className="font-semibold text-foreground">{ratingAverage}/5</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Warranty</span>

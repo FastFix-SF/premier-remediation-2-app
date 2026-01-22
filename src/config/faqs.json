@@ -1,134 +1,56 @@
 [
   {
-    "id": "general-1",
+    "id": "faq-property-types",
+    "question": "What types of properties do you service?",
+    "answer": "Premier Remediation 2 primarily serves commercial and multifamily properties, including high-rises, hotels, retail establishments, restaurants, office buildings, and apartment complexes. We specialize in properties that require a professional, documented approach to remediation.",
+    "category": "general"
+  },
+  {
+    "id": "faq-water-emergency",
+    "question": "How quickly can you respond to a water damage emergency?",
+    "answer": "We understand the urgency of water damage. Our team is committed to rapid response, assessing the situation and initiating mitigation efforts as quickly as possible to minimize damage and business disruption.",
+    "category": "general"
+  },
+  {
+    "id": "faq-mold-process",
+    "question": "What is included in your mold remediation process?",
+    "answer": "Our mold remediation process involves locating affected areas, confirming the scope of contamination, establishing containment, safely removing contaminated materials, HEPA vacuuming and cleaning all surfaces, and preparing the space for third-party clearance testing.",
+    "category": "general"
+  },
+  {
+    "id": "faq-asbestos-lead",
+    "question": "Do you handle asbestos and lead removal?",
+    "answer": "Yes, when required by a project in older buildings, we provide compliant abatement and removal of asbestos- and lead-containing materials. This includes proper containment, removal, and disposal following all applicable regulations.",
+    "category": "general"
+  },
+  {
+    "id": "faq-clearance",
+    "question": "What is 'clearance and verification support'?",
+    "answer": "Clearance and verification support is our service to ensure that a remediated area is definitively safe and ready for re-occupancy. This includes preparing the space for independent testing, coordinating with industrial hygienists, and providing complete documentation.",
+    "category": "general"
+  },
+  {
+    "id": "faq-certified",
+    "question": "Are you certified and insured?",
+    "answer": "Yes, Premier Remediation 2 adheres to industry standards and best practices. We are fully insured and our team is trained and equipped to handle water damage, mold, fire/smoke damage, and hazardous material abatement for commercial and multifamily properties.",
+    "category": "general"
+  },
+  {
+    "id": "faq-service-areas",
     "question": "What areas do you serve?",
-    "answer": "We serve the entire San Francisco Bay Area including San Francisco, Santa Clara, Walnut Creek, Tiburon, San Anselmo, Santa Cruz, Santa Rosa, Modesto, Petaluma, Los Gatos, Kentfield, Alameda County, and Contra Costa County.",
+    "answer": "We provide commercial-first remediation support in San Francisco, Oakland, Berkeley, San Jose, Alameda County, and Contra Costa County. Contact us to confirm service availability in your specific location.",
     "category": "general"
   },
   {
-    "id": "general-2",
-    "question": "How long does a metal roof last?",
-    "answer": "Quality metal roofs last 40-70+ years with minimal maintenance, significantly longer than traditional asphalt shingles which typically last 15-20 years.",
+    "id": "faq-pricing",
+    "question": "How does your pricing work?",
+    "answer": "Our pricing is based on the scope and complexity of the remediation project. We provide detailed assessments and transparent estimates for each project. For property managers, we offer portfolio-wide service agreements with consistent pricing.",
     "category": "general"
   },
   {
-    "id": "general-3",
-    "question": "Do you offer free estimates?",
-    "answer": "Yes, we provide free, no-obligation estimates for all roofing projects. Contact us to schedule your consultation.",
+    "id": "faq-different",
+    "question": "What makes Premier Remediation 2 different from other companies?",
+    "answer": "We specialize in commercial and multifamily properties, offering a structured, documented approach that goes beyond basic cleanup. Our focus on thorough remediation, third-party verification, and clear communication sets us apart from general restoration companies.",
     "category": "general"
-  },
-  {
-    "id": "general-4",
-    "question": "What warranty do you offer?",
-    "answer": "We offer a comprehensive 25-year warranty covering materials and workmanship on all our installations.",
-    "category": "general"
-  },
-  {
-    "id": "general-5",
-    "question": "Are metal roofs noisy during rain?",
-    "answer": "Modern metal roofs with proper insulation and underlayment are no noisier than other roofing materials. Professional installation includes sound-dampening techniques.",
-    "category": "general"
-  },
-  {
-    "id": "general-6",
-    "question": "Do metal roofs increase home value?",
-    "answer": "Yes, metal roofs can increase home value by 1-6% and offer up to 85% return on investment due to their durability, energy efficiency, and low maintenance.",
-    "category": "general"
-  },
-  {
-    "id": "residential-1",
-    "question": "How much does a residential metal roof cost?",
-    "answer": "Residential metal roofing costs typically range from $8-$16 per square foot installed, depending on the material type, roof complexity, and local factors.",
-    "category": "residential"
-  },
-  {
-    "id": "residential-2",
-    "question": "Can metal roofs withstand Bay Area weather?",
-    "answer": "Absolutely. Metal roofs excel in Bay Area conditions - they're fire-resistant for wildfire zones, earthquake-safe due to light weight, and handle coastal salt air better than other materials.",
-    "category": "residential"
-  },
-  {
-    "id": "residential-3",
-    "question": "What types of residential metal roofing do you offer?",
-    "answer": "We offer standing seam, R-panel, corrugated, and architectural metal roofing systems in various colors and finishes to complement any home style.",
-    "category": "residential"
-  },
-  {
-    "id": "commercial-1",
-    "question": "What commercial roofing options do you offer?",
-    "answer": "We offer standing seam, R-panel, corrugated, and flat commercial roofing systems suitable for warehouses, offices, retail, and industrial facilities.",
-    "category": "commercial"
-  },
-  {
-    "id": "commercial-2",
-    "question": "How long does commercial installation take?",
-    "answer": "Project timelines vary by size. Most commercial projects take 1-3 weeks, and we schedule work to minimize business disruption.",
-    "category": "commercial"
-  },
-  {
-    "id": "commercial-3",
-    "question": "Do you offer maintenance contracts?",
-    "answer": "Yes, we offer annual maintenance programs to extend roof life and catch issues early, keeping your commercial property protected.",
-    "category": "commercial"
-  },
-  {
-    "id": "standing-seam-1",
-    "question": "What is standing seam roofing?",
-    "answer": "Standing seam features raised interlocking seams that conceal fasteners, creating a sleek appearance and superior weather resistance.",
-    "category": "standing-seam"
-  },
-  {
-    "id": "standing-seam-2",
-    "question": "Is standing seam more expensive?",
-    "answer": "Standing seam costs more upfront but offers better longevity, lower maintenance, and higher property value over time.",
-    "category": "standing-seam"
-  },
-  {
-    "id": "standing-seam-3",
-    "question": "How long does standing seam last?",
-    "answer": "Standing seam roofs typically last 50-70+ years with proper installation and minimal maintenance.",
-    "category": "standing-seam"
-  },
-  {
-    "id": "r-panel-1",
-    "question": "What is R-panel roofing?",
-    "answer": "R-panel is an exposed fastener metal roofing system with ribbed panels, offering excellent value and durability for various applications.",
-    "category": "r-panel"
-  },
-  {
-    "id": "r-panel-2",
-    "question": "Is R-panel good for homes?",
-    "answer": "Yes, R-panel is great for homes, especially agricultural, rural, and modern architectural styles where it provides excellent protection at a lower cost.",
-    "category": "r-panel"
-  },
-  {
-    "id": "repair-1",
-    "question": "How often should I have my roof inspected?",
-    "answer": "We recommend annual inspections, plus after major storms. Regular inspections catch small issues before they become expensive problems.",
-    "category": "repair"
-  },
-  {
-    "id": "repair-2",
-    "question": "Do you repair all types of metal roofs?",
-    "answer": "Yes, we repair standing seam, R-panel, corrugated, and all other metal roofing systems.",
-    "category": "repair"
-  },
-  {
-    "id": "storm-fire-1",
-    "question": "Do you offer emergency repair services?",
-    "answer": "Yes, we provide 24/7 emergency response for storm and fire damage to minimize further property damage.",
-    "category": "storm-fire"
-  },
-  {
-    "id": "storm-fire-2",
-    "question": "Are metal roofs fire resistant?",
-    "answer": "Yes, metal roofs have Class A fire ratings, the highest available, making them ideal for wildfire-prone areas throughout California.",
-    "category": "storm-fire"
-  },
-  {
-    "id": "storm-fire-3",
-    "question": "Can metal roofs support solar panels?",
-    "answer": "Absolutely. Metal roofs are excellent for solar integration and often outlast solar panel warranties.",
-    "category": "storm-fire"
   }
 ]

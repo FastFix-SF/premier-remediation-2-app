@@ -64,5 +64,29 @@
     "average": "4.9",
     "count": "150",
     "platform": "Google"
+  },
+  "servicesPage": {
+    "title": "Installation Services",
+    "subtitle": "Professional metal roofing installation and maintenance services across the San Francisco Bay Area.",
+    "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "subtitle": "We're committed to delivering exceptional results with every project, backed by our experience and warranty.",
+      "features": [
+        {"icon": "Shield", "title": "25-Year Warranty", "description": "Comprehensive warranty covering materials and workmanship for your peace of mind."},
+        {"icon": "CheckCircle", "title": "Licensed & Insured", "description": "Fully licensed contractors with comprehensive insurance for your protection."},
+        {"icon": "Zap", "title": "Same Day Quotes", "description": "Fast, accurate estimates to get your project started quickly."}
+      ]
+    },
+    "teamSection": {
+      "title": "Professional Installation Team",
+      "subtitle": "Our certified professionals bring decades of experience to every project. Licensed, insured, and committed to excellence.",
+      "features": ["Licensed & Insured Contractors", "25+ Years Combined Experience", "Manufacturer Certified Installers"],
+      "image": "/src/assets/residential-roofing-crew.jpg",
+      "imageAlt": "Professional crew installing roof"
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "subtitle": "Contact us today for a free consultation and same-day quote. Our experts are ready to help you choose the perfect solution."
+    }
   }
 }

@@ -78,6 +78,30 @@ export interface BusinessConfig {
     count: string;
     platform?: string;
   };
+  servicesPage?: {
+    title: string;
+    subtitle: string;
+    whyChooseUs: {
+      title: string;
+      subtitle: string;
+      features: Array<{
+        icon: string;
+        title: string;
+        description: string;
+      }>;
+    };
+    teamSection: {
+      title: string;
+      subtitle: string;
+      features: string[];
+      image: string;
+      imageAlt: string;
+    };
+    cta: {
+      title: string;
+      subtitle: string;
+    };
+  };
 }
 
 export interface ServiceBenefit {
@@ -178,6 +202,11 @@ export function useStatistics() {
 export function useRatings() {
   const business = businessData as unknown as BusinessConfig;
   return business.ratings;
+}
+
+export function useServicesPage() {
+  const business = businessData as unknown as BusinessConfig;
+  return business.servicesPage;
 }
 
 // ============ SERVICES HOOKS ============

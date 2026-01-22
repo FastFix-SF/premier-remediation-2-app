@@ -10,6 +10,7 @@
 
 import businessJson from './business.json';
 import servicesJson from './services.json';
+import areasJson from './areas.json';
 
 // Type for the JSON config
 interface BusinessJson {
@@ -69,9 +70,16 @@ interface ServiceJson {
   isFeatured?: boolean;
 }
 
+interface AreaJson {
+  slug: string;
+  name: string;
+  fullName?: string;
+}
+
 // Cast imports
 const business = businessJson as BusinessJson;
 const services = servicesJson as ServiceJson[];
+const areas = areasJson as AreaJson[];
 
 // Parse hours string like "Mon-Fri: 8am-6pm" into structured format
 function parseHours(hoursString?: string) {
@@ -92,24 +100,20 @@ function parseHours(hoursString?: string) {
   };
 }
 
-// Extract service areas from the address region or use defaults
+// Extract service areas from areas.json
 function getServiceAreas(): string[] {
-  // Try to extract from business data or use defaults based on region
-  const region = business.address?.city || "San Francisco Bay Area";
+  // Read service areas from areas.json
+  if (areas && areas.length > 0) {
+    return areas.map(area => area.name);
+  }
 
-  // Default service areas - these could be enhanced in the future
-  // to come from areas.json
+  // Fallback to default areas if areas.json is empty
   return [
     business.address?.city || "San Francisco",
     "Oakland",
     "San Jose",
     "Berkeley",
-    "Fremont",
-    "Palo Alto",
-    "Mountain View",
-    "Santa Clara",
-    "Sunnyvale",
-    "Hayward"
+    "Fremont"
   ];
 }
 
