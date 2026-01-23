@@ -119,19 +119,6 @@ const RoofingFriendHeader = () => {
           <div className="flex items-center gap-2 sm:gap-2 lg:gap-3">
             <Button 
               onClick={() => {
-                navigate('/store');
-                window.scrollTo(0, 0);
-              }}
-              variant="outline" 
-              size="sm" 
-              className="hidden sm:flex items-center gap-1.5 text-xs lg:text-sm px-2 lg:px-3 h-8 lg:h-9"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              <span className="hidden lg:inline">Store</span>
-            </Button>
-            
-            <Button 
-              onClick={() => {
                 navigate('/contact');
                 window.scrollTo(0, 0);
               }}
