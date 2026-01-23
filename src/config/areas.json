@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "id": "sf-001",
+    "name": "San Francisco",
+    "slug": "san-francisco",
+    "fullName": "San Francisco, California",
+    "shortDescription": "Premier remediation services for San Francisco's commercial and multifamily properties.",
+    "longDescription": "West Peak Remediation provides comprehensive water damage, mold remediation, and fire cleanup services throughout San Francisco. Our team understands the unique challenges of the city's diverse building stock, from historic Victorians to modern high-rises.",
+    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/premier-remediation-2-app/hero-area-san-francisco-1769145601797.png",
+    "neighborhoods": ["Financial District", "SoMa", "Mission District", "Marina District", "Pacific Heights", "Nob Hill"],
+    "population": "874,784",
+    "seoTitle": "Water Damage & Mold Remediation in San Francisco | West Peak",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services in San Francisco. 24/7 emergency response.",
+    "isFeatured": true,
+    "sortOrder": 0
+  },
+  {
+    "id": "oak-001",
+    "name": "Oakland",
+    "slug": "oakland",
+    "fullName": "Oakland, California",
+    "shortDescription": "Expert remediation services for Oakland's growing commercial and residential communities.",
+    "longDescription": "West Peak Remediation brings professional water damage, mold remediation, and fire cleanup services to Oakland's diverse property landscape.",
+    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/premier-remediation-2-app/hero-area-oakland-1769145615814.png",
+    "neighborhoods": ["Downtown Oakland", "Lake Merritt", "Jack London Square", "Temescal", "Rockridge"],
+    "population": "433,031",
+    "seoTitle": "Water Damage & Mold Remediation in Oakland | West Peak",
+    "seoDescription": "Professional water damage, mold remediation, and fire cleanup services in Oakland.",
+    "isFeatured": true,
+    "sortOrder": 1
+  },
+  {
+    "id": "berk-001",
+    "name": "Berkeley",
+    "slug": "berkeley",
+    "fullName": "Berkeley, California",
+    "shortDescription": "Specialized remediation for Berkeley's unique mix of historic and modern properties.",
+    "longDescription": "West Peak Remediation understands Berkeley's distinctive building environment, from classic craftsman apartment buildings to modern commercial developments.",
+    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/premier-remediation-2-app/hero-area-berkeley-1769145628708.png",
+    "neighborhoods": ["Downtown Berkeley", "Southside", "Northside", "West Berkeley", "Elmwood"],
+    "population": "124,321",
+    "seoTitle": "Water Damage & Mold Remediation in Berkeley | West Peak",
+    "seoDescription": "Expert water damage, mold remediation, and fire cleanup services in Berkeley.",
+    "isFeatured": true,
+    "sortOrder": 2
+  },
+  {
+    "id": "sj-001",
+    "name": "San Jose",
+    "slug": "san-jose",
+    "fullName": "San Jose, California",
+    "shortDescription": "Comprehensive remediation services for Silicon Valley's commercial and multifamily properties.",
+    "longDescription": "As the heart of Silicon Valley, San Jose presents unique remediation challenges for its tech campuses, corporate headquarters, and rapidly growing multifamily housing sector.",
+    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/premier-remediation-2-app/hero-area-san-jose-1769145641234.png",
+    "neighborhoods": ["Downtown San Jose", "Santana Row", "Willow Glen", "Almaden Valley"],
+    "population": "1,013,240",
+    "seoTitle": "Water Damage & Mold Remediation in San Jose | West Peak",
+    "seoDescription": "Professional water damage, mold remediation services in San Jose and Silicon Valley.",
+    "isFeatured": true,
+    "sortOrder": 3
+  }
+]
