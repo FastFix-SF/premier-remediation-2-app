@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
@@ -22,7 +21,6 @@ const RoofingFriendHeader = () => {
 
   const navigationItems = [
     { label: 'Home', path: '/' },
-    { label: 'Material Store', path: '/store' },
     { label: 'Installation Services', path: '/services', submenu: serviceSubmenu.length > 0 ? serviceSubmenu : [
       { label: 'View All Services', path: '/services' }
     ]},
@@ -220,19 +218,6 @@ const RoofingFriendHeader = () => {
                   {/* Action buttons */}
                   <div className="p-4 sm:p-6 border-t">
                     <div className="flex flex-col gap-3">
-                      
-                      <Button 
-                        onClick={() => {
-                          navigate('/store');
-                          window.scrollTo(0, 0);
-                          setIsOpen(false);
-                        }}
-                        variant="outline" 
-                        className="w-full justify-center"
-                      >
-                        <ShoppingCart className="w-4 h-4 mr-2" />
-                        Material Store
-                      </Button>
                       <Button 
                         onClick={() => {
                           navigate('/contact');
