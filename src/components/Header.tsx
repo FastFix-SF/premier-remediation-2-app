@@ -154,6 +154,16 @@ const Header = () => {
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-2 md:hidden">
+            <button onClick={() => {
+              navigate('/cart');
+              window.scrollTo(0, 0);
+            }} className="relative p-2 text-muted-foreground hover:text-foreground transition-smooth hover:bg-muted/80 rounded-lg group">
+              <ShoppingCart className="w-5 h-5" />
+              {state.totalItems > 0 && <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium shadow-sm">
+                  {state.totalItems}
+                </span>}
+            </button>
+
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
