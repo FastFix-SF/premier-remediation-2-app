@@ -180,9 +180,9 @@ const AreaPage: React.FC = () => {
 
             {/* Hero Image or Map Card */}
             <div className="relative hidden lg:block">
-              {area.heroImage ? (
+              {(area.image || area.heroImage) ? (
                 <img
-                  src={area.heroImage}
+                  src={area.image || area.heroImage}
                   alt={`${area.name} cityscape and service area`}
                   className="rounded-2xl shadow-2xl w-full h-80 object-cover"
                   loading="eager"
