@@ -139,7 +139,7 @@ async function uploadToStorage(
 
     // Upload to storage
     const { data: uploadData, error: uploadError } = await supabase.storage
-      .from('hero-images')
+      .from('business-media')
       .upload(fileName, imageBlob, {
         contentType: 'image/png',
         upsert: true
@@ -152,7 +152,7 @@ async function uploadToStorage(
 
     // Get public URL
     const { data: publicUrlData } = supabase.storage
-      .from('hero-images')
+      .from('business-media')
       .getPublicUrl(fileName);
 
     return publicUrlData.publicUrl;
