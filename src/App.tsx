@@ -303,6 +303,7 @@ const AppRoutes = () => (
 
     {/* Dynamic area page - reads from areas.json */}
     <Route path="/areas/:locationSlug" element={<AreaPage />} />
+    <Route path="/service-areas/:locationSlug" element={<AreaPage />} />
 
     {/* Legacy routes - redirect to new dynamic service routes */}
     <Route path="/residential-roofing" element={<Navigate to="/services/residential-roofing" replace />} />
