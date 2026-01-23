@@ -5,7 +5,6 @@ import { Button } from '../ui/button';
 import { Camera, FileText } from 'lucide-react';
 import HeroTrustIndicators from './HeroTrustIndicators';
 import HeroReviewsPreview from './HeroReviewsPreview';
-import SolarOptionsButton from '../solar/SolarOptionsButton';
 import { useHero } from '@/hooks/useBusinessConfig';
 
 const HeroContent = () => {
@@ -50,7 +49,6 @@ const HeroContent = () => {
           <span className="hidden sm:inline">{ctaSecondary}</span>
           <span className="sm:hidden">{ctaSecondary}</span>
         </Button>
-        <SolarOptionsButton />
       </div>
 
       <HeroTrustIndicators />
