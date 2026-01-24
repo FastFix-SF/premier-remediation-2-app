@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
@@ -12,9 +11,9 @@ const HeroContent = () => {
   const hero = useHero();
 
   // Fallback values if hero config is not set
-  const headline = hero?.headline || 'Welcome to Our Business';
-  const headlineHighlight = hero?.headlineHighlight || 'Excellence.';
-  const subheadline = hero?.subheadline || 'Quality service you can trust.';
+  const headline = hero?.headline || 'Expert Mold & Water Damage';
+  const headlineHighlight = hero?.headlineHighlight || 'Remediation.';
+  const subheadline = hero?.subheadline || 'Fast, reliable restoration services to protect your home and health.';
   const ctaPrimary = hero?.ctaPrimary || 'Get Instant Quote';
   const ctaSecondary = hero?.ctaSecondary || 'Portfolio';
 
