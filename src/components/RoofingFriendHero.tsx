@@ -6,9 +6,11 @@ import { ShoppingCart, Phone, Shield, Truck, Award, Star, ExternalLink } from 'l
 import HeroContent from './hero/HeroContent';
 import HeroProjectShowcase from './hero/HeroProjectShowcase';
 import { preloadImage } from '../utils/imageOptimization';
+import { useBusiness } from '../hooks/useBusinessConfig';
 
 const RoofingFriendHero = () => {
   const navigate = useNavigate();
+  const business = useBusiness();
 
   // Updated fallback projects data with your specific images and details
   const fallbackProjects = [
@@ -103,10 +105,10 @@ const RoofingFriendHero = () => {
             <HeroContent />
           </div>
           <div className="w-full">
-            <HeroProjectShowcase 
-              projects={fallbackProjects} 
+            <HeroProjectShowcase
+              projects={fallbackProjects}
               isLoading={false}
-              videoSrc="/intro-video.mp4"
+              videoSrc={business.heroVideo || undefined}
             />
           </div>
         </div>
