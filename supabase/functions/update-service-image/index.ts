@@ -79,7 +79,7 @@ serve(async (req) => {
   }
 
   try {
-    const { serviceSlug, imageUrl, areaSlug } = await req.json();
+    const { serviceSlug, imageUrl, areaSlug, repoOwner, repoName } = await req.json();
 
     if (!imageUrl) {
       return new Response(
@@ -96,8 +96,9 @@ serve(async (req) => {
       );
     }
 
-    const owner = 'FastFix-SF';
-    const repo = 'premier-remediation-2-app';
+    // Dynamic repo - can be passed in request or read from env, with fallback
+    const owner = repoOwner || Deno.env.get('GITHUB_OWNER') || 'FastFix-SF';
+    const repo = repoName || Deno.env.get('GITHUB_REPO') || 'premier-remediation-2-app';
 
     // Update service image
     if (serviceSlug) {
