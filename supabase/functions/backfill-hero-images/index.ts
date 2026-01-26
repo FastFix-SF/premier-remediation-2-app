@@ -323,7 +323,9 @@ serve(async (req) => {
       dryRun = false,
       logoUrl,  // Business logo URL for watermarking
       repoOwner,  // Optional: override repo owner
-      repoName    // Optional: override repo name
+      repoName,   // Optional: override repo name
+      forceRegenerate = false, // Force regenerate even if images exist
+      businessName  // Business name for branded service images
     } = await req.json() || {};
 
     const GEMINI_API_KEY = Deno.env.get('GEMINI_API_KEY');
@@ -376,19 +378,21 @@ serve(async (req) => {
         let updated = false;
 
         for (const service of services) {
-          if (!service.image || service.image === '') {
-            console.log(`Generating image for service: ${service.name}`);
+          const shouldGenerate = forceRegenerate || !service.image || service.image === '';
+
+          if (shouldGenerate) {
+            console.log(`${forceRegenerate ? 'Force regenerating' : 'Generating'} image for service: ${service.name}`);
 
             if (dryRun) {
               results.services.push({ name: service.name, status: 'would_generate' });
               continue;
             }
 
-            // Generate image
+            // Generate image with business name for branding
             const prompt = getServicePrompt({
               name: service.name,
               shortDescription: service.shortDescription || ''
-            });
+            }, businessName);
 
             const imageData = await generateImage(prompt, GEMINI_API_KEY);
 
@@ -439,8 +443,10 @@ serve(async (req) => {
         let updated = false;
 
         for (const area of areas) {
-          if (!area.image || area.image === '') {
-            console.log(`Generating image for area: ${area.name}`);
+          const shouldGenerateArea = forceRegenerate || !area.image || area.image === '';
+
+          if (shouldGenerateArea) {
+            console.log(`${forceRegenerate ? 'Force regenerating' : 'Generating'} image for area: ${area.name}`);
 
             if (dryRun) {
               results.areas.push({ name: area.name, status: 'would_generate' });
@@ -489,9 +495,10 @@ serve(async (req) => {
 
               // Check if neighborhood needs an image (only for object type with image field)
               const needsImage = typeof neighborhood === 'object' && (!neighborhood.image || neighborhood.image === '');
+              const shouldGenerateNeighborhood = forceRegenerate || needsImage || (typeof neighborhood === 'string' && types.includes('neighborhoods'));
 
-              if (needsImage || (typeof neighborhood === 'string' && types.includes('neighborhoods'))) {
-                console.log(`Generating image for neighborhood: ${neighborhoodName} in ${area.name}`);
+              if (shouldGenerateNeighborhood) {
+                console.log(`${forceRegenerate ? 'Force regenerating' : 'Generating'} image for neighborhood: ${neighborhoodName} in ${area.name}`);
 
                 if (dryRun) {
                   results.neighborhoods.push({

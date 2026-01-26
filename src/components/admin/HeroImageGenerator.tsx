@@ -33,6 +33,7 @@ export const HeroImageGenerator: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [backfillResponse, setBackfillResponse] = useState<any>(null);
   const [includeNeighborhoods, setIncludeNeighborhoods] = useState(true);
+  const [forceRegenerate, setForceRegenerate] = useState(false);
 
   // Initialize results from config
   useEffect(() => {
@@ -120,7 +121,9 @@ export const HeroImageGenerator: React.FC = () => {
         body: {
           types: typesToProcess,
           dryRun: false,
-          logoUrl // Pass logo for watermarking
+          logoUrl, // Pass logo for watermarking
+          forceRegenerate, // Force regenerate even if images exist
+          businessName: business.name // Pass business name for branding
         }
       });
 
@@ -175,6 +178,7 @@ export const HeroImageGenerator: React.FC = () => {
     const configService = configServices.find(s => s.slug === service.slug);
 
     try {
+      const logoUrl = business.logoDark || business.logo;
       const { data, error } = await supabase.functions.invoke('generate-hero-image', {
         body: {
           type: 'service',
@@ -183,7 +187,10 @@ export const HeroImageGenerator: React.FC = () => {
             shortDescription: configService?.shortDescription || '',
             icon: configService?.icon
           },
-          saveToStorage: true
+          saveToStorage: true,
+          businessName: business.name,
+          logoUrl,
+          addWatermarkLogo: true
         }
       });
 
@@ -222,6 +229,7 @@ export const HeroImageGenerator: React.FC = () => {
     const configArea = configAreas.find(a => a.slug === area.slug);
 
     try {
+      const logoUrl = business.logoDark || business.logo;
       const { data, error } = await supabase.functions.invoke('generate-hero-image', {
         body: {
           type: 'area',
@@ -229,7 +237,9 @@ export const HeroImageGenerator: React.FC = () => {
             name: configArea?.name || area.name,
             fullName: configArea?.fullName || `${area.name}, California`
           },
-          saveToStorage: true
+          saveToStorage: true,
+          logoUrl,
+          addWatermarkLogo: true
         }
       });
 
@@ -407,7 +417,7 @@ export const HeroImageGenerator: React.FC = () => {
         </div>
 
         {/* Options */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <label className="flex items-center gap-2 text-sm">
             <input
               type="checkbox"
@@ -420,6 +430,21 @@ export const HeroImageGenerator: React.FC = () => {
           <span className="text-sm text-muted-foreground">
             ({neighborhoodResults.length} neighborhoods across {Object.keys(neighborhoodsByCity).length} cities)
           </span>
+          <div className="w-px h-4 bg-border" />
+          <label className="flex items-center gap-2 text-sm">
+            <input
+              type="checkbox"
+              checked={forceRegenerate}
+              onChange={(e) => setForceRegenerate(e.target.checked)}
+              className="rounded border-gray-300"
+            />
+            <span className="text-orange-600 font-medium">Force regenerate ALL images</span>
+          </label>
+          {forceRegenerate && (
+            <span className="text-xs text-orange-500">
+              ⚠️ This will regenerate all images, replacing existing ones
+            </span>
+          )}
         </div>
 
         {/* Backfill Response */}
