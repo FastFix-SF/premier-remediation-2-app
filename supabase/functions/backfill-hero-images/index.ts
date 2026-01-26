@@ -9,49 +9,48 @@ const corsHeaders = {
 
 // Service image prompt - with natural branding integration
 const getServicePrompt = (service: { name: string; shortDescription: string }, businessName?: string) => `
-Create a hyper-realistic professional photograph of a ${service.name} job in progress with these exact specifications:
+Create a hyper-realistic professional photograph showing ${service.name} work ACTIVELY IN PROGRESS:
 
-COMPOSITION & FRAMING:
-- Interior or exterior shot of an active remediation job site
-- Golden hour or professional indoor lighting
-- Aspect ratio 16:10, landscape orientation
-- Workers actively engaged in ${service.name} work
-
-MAIN SUBJECT - ${service.name.toUpperCase()}:
+PRIMARY FOCUS - THE ACTUAL WORK (70% of image - this is the main subject):
 - ${service.shortDescription}
-- Professional crew of 2-3 workers in branded uniforms
-- Industrial-grade equipment with company branding visible
-- Active work scene - not posed, looks candid and real
+- Show workers ACTIVELY PERFORMING ${service.name} - hands on equipment, solving the problem
+- Professional equipment being USED: dehumidifiers running, air scrubbers operating, extraction hoses in use
+- The remediation WORK AREA should be the CENTER of the image
+- Show visible progress: protective sheeting, containment barriers, moisture meters, drying mats
 
-COMPANY BRANDING - "${businessName || 'Premier Remediation'}" - USE THIS EXACT LOGO DESIGN:
-The company logo is a CIRCULAR BADGE with:
-- The words "PREMIER" at the top curved along the circle
-- The words "REMEDIATION" at the bottom curved along the circle
-- Inside the circle: a BLUE WATER DROPLET on the left and RED/ORANGE FLAMES on the right
-- Small white stars decorating the design
-- Red and white stripes at the bottom (American flag style)
-- Colors: Navy blue, red, white, with blue and orange/red for the water and fire icons
+SPECIFIC SCENE REQUIREMENTS FOR ${service.name.toUpperCase()}:
+- Workers in the FOREGROUND using professional ${service.name} equipment
+- Clear view of the actual problem being addressed (water damage, mold, fire damage, etc.)
+- Interior of a real home or commercial building showing the work happening
+- 2-3 workers actively engaged - one operating equipment, one assessing, one documenting
 
-PLACE THIS LOGO NATURALLY ON:
-- The side of a white work van/truck (large, prominent, readable)
-- Worker uniforms (polo shirts or safety vests)
-- Equipment cases and tool boxes
-- Any visible flyers, door hangers, or signage
-- The logo should look like real vinyl graphics/embroidery, not photoshopped
+COMPANY BRANDING - "${businessName || 'Premier Remediation'}" (30% of image - background element):
+Logo is a CIRCULAR BADGE: "PREMIER" at top, "REMEDIATION" at bottom, BLUE WATER DROPLET + RED FLAMES in center, white stars, American flag stripes. Colors: Navy blue, red, white.
 
-ATMOSPHERE & LIGHTING:
-- Documentary/editorial photography style - looks like a real job site photo
-- Natural lighting with professional quality
-- Authentic work environment - some controlled mess is okay
-- Real commercial or residential property setting
+BRANDING PLACEMENT (visible but not the main focus):
+- Company van parked OUTSIDE visible through window or door (background)
+- Worker uniforms clearly showing logo on chest/back
+- Equipment cases with company branding
+- THE WORK being performed is the STAR - the van is supporting context
 
-STYLE REFERENCE:
-- Looks like a real photo taken by a marketing team on an actual job
-- Similar to ServiceMaster, SERVPRO, or Paul Davis marketing photos
-- Photo-journalistic quality - not overly staged
-- High resolution, sharp focus on workers and branding
+CRITICAL IMAGE QUALITY:
+- ALL TEXT must be CRYSTAL CLEAR and SHARP - no blur on "PREMIER REMEDIATION"
+- 8K ultra-high resolution, professional DSLR quality
+- Sharp focus on both workers AND branding elements
+- Text on van and uniforms must be perfectly legible
 
-The image should look 100% like a real photograph from an actual ${service.name} job. The company branding with the circular water/fire logo should be clearly visible and look like authentic business branding, not added digitally.
+COMPOSITION (16:10 landscape):
+- FOREGROUND (60%): Workers actively doing ${service.name}, equipment in use
+- MIDDLE (25%): Work area showing the problem/solution
+- BACKGROUND (15%): Branded van visible, property exterior
+
+STYLE:
+- Like the hero image on ServiceMaster or SERVPRO service pages
+- Shows the VALUE and EXPERTISE of the service
+- Customer thinks "I can see exactly what they'll do at my property"
+- Documentary style - real work happening, not a posed photo shoot
+
+The image must clearly demonstrate WHAT ${service.name} LOOKS LIKE when professionals are doing it, with company branding naturally present in the scene.
 `;
 
 // City-specific landmarks for authentic local imagery
