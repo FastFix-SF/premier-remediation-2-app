@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { addWatermark } from "../_shared/addWatermark.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -79,6 +80,43 @@ COLOR PALETTE:
 The overall impression should be "premium California commercial property market" - showcasing ${area.name} as an attractive, thriving business community.
 `;
 
+// Neighborhood image prompt
+const getNeighborhoodPrompt = (neighborhood: { name: string; cityName: string }) => `
+Create a professional neighborhood street view photograph of ${neighborhood.name} in ${neighborhood.cityName} with these exact specifications:
+
+COMPOSITION & FRAMING:
+- Street-level or slightly elevated perspective showing the neighborhood character
+- Golden hour lighting (warm amber sun with soft purple/blue shadows)
+- Aspect ratio 16:10, landscape orientation
+- Focus on the unique character of ${neighborhood.name}
+
+MAIN SUBJECTS:
+- Residential/commercial mixed-use buildings typical of ${neighborhood.name}
+- Tree-lined streets, local businesses, or community spaces
+- Neighborhood landmarks or distinctive architectural features
+- People walking, cycling, or engaging in community activities (not prominent)
+
+ATMOSPHERE & LIGHTING:
+- Warm, welcoming community feel
+- Natural daylight with soft shadows
+- Rich, saturated colors but natural-looking
+- Inviting and prosperous atmosphere
+
+STYLE REFERENCE:
+- Professional real estate neighborhood photography
+- Magazine-quality lifestyle imagery
+- Ultra high resolution, sharp details
+- Aspirational yet authentic feeling
+
+COLOR PALETTE:
+- Warm amber/gold highlights
+- Natural green foliage
+- Varied building colors typical of California neighborhoods
+- Blue sky with soft clouds
+
+The overall impression should be "${neighborhood.name} as a desirable, vibrant neighborhood" - showcasing it as an excellent place to live and do business.
+`;
+
 // Generate single image using Gemini
 async function generateImage(prompt: string, apiKey: string): Promise<string | null> {
   try {
@@ -117,12 +155,13 @@ async function generateImage(prompt: string, apiKey: string): Promise<string | n
   }
 }
 
-// Upload image to Supabase Storage
+// Upload image to Supabase Storage with optional watermark
 async function uploadToStorage(
   supabase: any,
   imageData: string,
-  type: 'service' | 'area',
-  slug: string
+  type: 'service' | 'area' | 'neighborhood',
+  slug: string,
+  logoUrl?: string
 ): Promise<string | null> {
   try {
     // Convert base64 data URL to blob
@@ -133,7 +172,24 @@ async function uploadToStorage(
     for (let i = 0; i < byteCharacters.length; i++) {
       byteNumbers[i] = byteCharacters.charCodeAt(i);
     }
-    const imageBlob = new Blob([new Uint8Array(byteNumbers)], { type: mimeType });
+    let imageBlob = new Blob([new Uint8Array(byteNumbers)], { type: mimeType });
+
+    // Add watermark if logo URL is provided
+    if (logoUrl) {
+      console.log(`Adding watermark to ${type} image: ${slug}`);
+      try {
+        imageBlob = await addWatermark(imageBlob, logoUrl, {
+          position: 'bottom-right',
+          opacity: 0.7,
+          scale: 0.12,
+          padding: 25
+        });
+        console.log('Watermark added successfully');
+      } catch (watermarkError) {
+        console.warn('Failed to add watermark, continuing without:', watermarkError);
+        // Continue with original image if watermarking fails
+      }
+    }
 
     const fileName = `${type}-hero-${slug}-${Date.now()}.png`;
 
@@ -236,7 +292,13 @@ serve(async (req) => {
   }
 
   try {
-    const { types = ['services', 'areas'], dryRun = false } = await req.json() || {};
+    const {
+      types = ['services', 'areas', 'neighborhoods'],
+      dryRun = false,
+      logoUrl,  // Business logo URL for watermarking
+      repoOwner,  // Optional: override repo owner
+      repoName    // Optional: override repo name
+    } = await req.json() || {};
 
     const GEMINI_API_KEY = Deno.env.get('GEMINI_API_KEY');
     const GITHUB_TOKEN = Deno.env.get('GITHUB_TOKEN');
@@ -258,13 +320,25 @@ serve(async (req) => {
     }
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
-    const owner = 'FastFix-SF';
-    const repo = 'premier-remediation-2-app';
+    const owner = repoOwner || 'FastFix-SF';
+    const repo = repoName || 'premier-remediation-2-app';
+
+    // Get business logo from config if not provided
+    let businessLogoUrl = logoUrl;
+    if (!businessLogoUrl) {
+      const businessFile = await fetchGitHubFile(owner, repo, 'src/config/business.json', GITHUB_TOKEN);
+      if (businessFile?.content) {
+        // Prefer logoDark for watermarks (better contrast), fallback to logo
+        businessLogoUrl = businessFile.content.logoDark || businessFile.content.logo;
+        console.log('Using business logo for watermarks:', businessLogoUrl);
+      }
+    }
 
     const results: {
       services: Array<{ name: string; status: string; imageUrl?: string; error?: string }>;
       areas: Array<{ name: string; status: string; imageUrl?: string; error?: string }>;
-    } = { services: [], areas: [] };
+      neighborhoods: Array<{ name: string; cityName: string; status: string; imageUrl?: string; error?: string }>;
+    } = { services: [], areas: [], neighborhoods: [] };
 
     // Process services
     if (types.includes('services')) {
@@ -293,8 +367,8 @@ serve(async (req) => {
             const imageData = await generateImage(prompt, GEMINI_API_KEY);
 
             if (imageData) {
-              // Upload to storage
-              const publicUrl = await uploadToStorage(supabase, imageData, 'service', service.slug);
+              // Upload to storage with watermark
+              const publicUrl = await uploadToStorage(supabase, imageData, 'service', service.slug, businessLogoUrl);
 
               if (publicUrl) {
                 service.image = publicUrl;
@@ -321,7 +395,7 @@ serve(async (req) => {
             'src/config/services.json',
             services,
             servicesFile.sha,
-            '[AI] Add hero images to services',
+            '[AI] Add hero images with logo watermark to services',
             GITHUB_TOKEN
           );
           console.log('Services JSON update:', updateSuccess ? 'success' : 'failed');
@@ -356,11 +430,12 @@ serve(async (req) => {
             const imageData = await generateImage(prompt, GEMINI_API_KEY);
 
             if (imageData) {
-              // Upload to storage
-              const publicUrl = await uploadToStorage(supabase, imageData, 'area', area.slug);
+              // Upload to storage with watermark
+              const publicUrl = await uploadToStorage(supabase, imageData, 'area', area.slug, businessLogoUrl);
 
               if (publicUrl) {
                 area.image = publicUrl;
+                area.heroImage = publicUrl; // Also update heroImage field
                 updated = true;
                 results.areas.push({ name: area.name, status: 'success', imageUrl: publicUrl });
               } else {
@@ -375,6 +450,89 @@ serve(async (req) => {
           } else {
             results.areas.push({ name: area.name, status: 'skipped', imageUrl: area.image });
           }
+
+          // Process neighborhoods within this area if requested
+          if (types.includes('neighborhoods') && area.neighborhoods && Array.isArray(area.neighborhoods)) {
+            for (let i = 0; i < area.neighborhoods.length; i++) {
+              const neighborhood = area.neighborhoods[i];
+              // Handle both string and object neighborhoods
+              const neighborhoodName = typeof neighborhood === 'string' ? neighborhood : neighborhood.name;
+              const neighborhoodSlug = typeof neighborhood === 'string'
+                ? neighborhood.toLowerCase().replace(/\s+/g, '-')
+                : neighborhood.slug;
+
+              // Check if neighborhood needs an image (only for object type with image field)
+              const needsImage = typeof neighborhood === 'object' && (!neighborhood.image || neighborhood.image === '');
+
+              if (needsImage || (typeof neighborhood === 'string' && types.includes('neighborhoods'))) {
+                console.log(`Generating image for neighborhood: ${neighborhoodName} in ${area.name}`);
+
+                if (dryRun) {
+                  results.neighborhoods.push({
+                    name: neighborhoodName,
+                    cityName: area.name,
+                    status: 'would_generate'
+                  });
+                  continue;
+                }
+
+                // Generate neighborhood image
+                const neighborhoodPrompt = getNeighborhoodPrompt({
+                  name: neighborhoodName,
+                  cityName: area.name
+                });
+
+                const neighborhoodImageData = await generateImage(neighborhoodPrompt, GEMINI_API_KEY);
+
+                if (neighborhoodImageData) {
+                  const neighborhoodPublicUrl = await uploadToStorage(
+                    supabase,
+                    neighborhoodImageData,
+                    'neighborhood',
+                    `${area.slug}-${neighborhoodSlug}`,
+                    businessLogoUrl
+                  );
+
+                  if (neighborhoodPublicUrl) {
+                    // Convert string neighborhood to object if needed
+                    if (typeof neighborhood === 'string') {
+                      area.neighborhoods[i] = {
+                        name: neighborhoodName,
+                        slug: neighborhoodSlug,
+                        image: neighborhoodPublicUrl
+                      };
+                    } else {
+                      neighborhood.image = neighborhoodPublicUrl;
+                    }
+                    updated = true;
+                    results.neighborhoods.push({
+                      name: neighborhoodName,
+                      cityName: area.name,
+                      status: 'success',
+                      imageUrl: neighborhoodPublicUrl
+                    });
+                  } else {
+                    results.neighborhoods.push({
+                      name: neighborhoodName,
+                      cityName: area.name,
+                      status: 'error',
+                      error: 'Failed to upload to storage'
+                    });
+                  }
+                } else {
+                  results.neighborhoods.push({
+                    name: neighborhoodName,
+                    cityName: area.name,
+                    status: 'error',
+                    error: 'Failed to generate image'
+                  });
+                }
+
+                // Rate limiting for neighborhoods
+                await new Promise(resolve => setTimeout(resolve, 3000));
+              }
+            }
+          }
         }
 
         // Update GitHub if we made changes
@@ -384,7 +542,7 @@ serve(async (req) => {
             'src/config/areas.json',
             areas,
             areasFile.sha,
-            '[AI] Add hero images to areas',
+            '[AI] Add hero images with logo watermark to areas and neighborhoods',
             GITHUB_TOKEN
           );
           console.log('Areas JSON update:', updateSuccess ? 'success' : 'failed');
@@ -404,6 +562,8 @@ serve(async (req) => {
           servicesSuccess: results.services.filter(r => r.status === 'success').length,
           areasProcessed: results.areas.length,
           areasSuccess: results.areas.filter(r => r.status === 'success').length,
+          neighborhoodsProcessed: results.neighborhoods.length,
+          neighborhoodsSuccess: results.neighborhoods.filter(r => r.status === 'success').length,
         }
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }

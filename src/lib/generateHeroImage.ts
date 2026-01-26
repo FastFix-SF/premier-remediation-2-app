@@ -1,4 +1,5 @@
 import { supabase } from '@/integrations/supabase/client';
+import businessConfig from '@/config/business.json';
 
 interface ServiceData {
   name: string;
@@ -17,12 +18,39 @@ interface GenerateHeroImageParams {
   data: ServiceData | AreaData;
   recordId?: string;
   saveToStorage?: boolean;
+  /** URL of the business logo to use as watermark */
+  logoUrl?: string;
+  /** Whether to add the logo as a watermark (default: true if logoUrl is provided) */
+  addWatermarkLogo?: boolean;
 }
 
 interface GenerateHeroImageResult {
   heroImageUrl: string;
   originalUrl?: string;
   error?: string;
+}
+
+/**
+ * Get the business logo URL for watermarking
+ * Prefers dark logo, falls back to regular logo
+ */
+function getBusinessLogoUrl(): string | undefined {
+  const config = businessConfig as { logo?: string; logoDark?: string };
+
+  // Prefer dark logo for watermarks (usually better contrast)
+  const logoPath = config.logoDark || config.logo;
+
+  if (!logoPath) return undefined;
+
+  // If it's already an absolute URL, return it
+  if (logoPath.startsWith('http')) {
+    return logoPath;
+  }
+
+  // Otherwise, we need to construct the full URL
+  // This assumes the logo is served from the same domain
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  return `${baseUrl}${logoPath}`;
 }
 
 /**
@@ -35,8 +63,15 @@ export async function generateHeroImage(
   params: GenerateHeroImageParams
 ): Promise<GenerateHeroImageResult> {
   try {
+    // Auto-add logo URL and watermark flag if not specified
+    const enhancedParams = {
+      ...params,
+      logoUrl: params.logoUrl || getBusinessLogoUrl(),
+      addWatermarkLogo: params.addWatermarkLogo !== false // Default to true
+    };
+
     const { data, error } = await supabase.functions.invoke('generate-hero-image', {
-      body: params
+      body: enhancedParams
     });
 
     if (error) {

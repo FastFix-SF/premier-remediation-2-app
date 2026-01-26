@@ -233,7 +233,7 @@ const AreaPage: React.FC = () => {
         </section>
       )}
 
-      {/* Neighborhoods Section */}
+      {/* Neighborhoods Section - Now with links to dedicated neighborhood pages */}
       {area.neighborhoods && area.neighborhoods.length > 0 && (
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -249,15 +249,25 @@ const AreaPage: React.FC = () => {
             </div>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {area.neighborhoods.map((neighborhood, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-4 bg-muted/30 rounded-xl hover:bg-muted/50 transition-colors"
-                >
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="font-medium text-foreground">{neighborhood}</span>
-                </div>
-              ))}
+              {area.neighborhoods.map((neighborhood, index) => {
+                // Handle both string and object neighborhood types
+                const name = typeof neighborhood === 'string' ? neighborhood : (neighborhood as any).name;
+                const slug = typeof neighborhood === 'string'
+                  ? neighborhood.toLowerCase().replace(/\s+/g, '-')
+                  : (neighborhood as any).slug;
+
+                return (
+                  <Link
+                    key={index}
+                    to={`/service-areas/${area.slug}/${slug}`}
+                    className="flex items-center gap-3 p-4 bg-muted/30 rounded-xl hover:bg-primary hover:text-white transition-colors group"
+                  >
+                    <CheckCircle className="w-5 h-5 text-primary group-hover:text-white flex-shrink-0" />
+                    <span className="font-medium text-foreground group-hover:text-white">{name}</span>
+                    <ArrowRight className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

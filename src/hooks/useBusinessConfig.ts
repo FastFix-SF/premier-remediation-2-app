@@ -160,15 +160,38 @@ export interface AreaFAQ {
   answer: string;
 }
 
+/**
+ * Neighborhood configuration for SEO/AEO optimized neighborhood pages
+ * Supports nested routes like /service-areas/oakland-ca/downtown-oakland
+ */
+export interface NeighborhoodConfig {
+  slug: string;
+  name: string;
+  description?: string;
+  image?: string;
+  population?: string;
+  zipCodes?: string[];
+  faqs?: AreaFAQ[];
+  // SEO fields for dedicated neighborhood pages
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string[];
+  // AEO fields for voice search optimization
+  aeoSummary?: string;
+  aeoLocalAnswer?: string; // JSON string of Q&A pairs
+}
+
 export interface AreaConfig {
   slug: string;
   name: string;
-  fullName: string;
+  fullName?: string;
   description: string;
-  population: string;
+  population?: string;
+  image?: string;
   heroImage?: string;
-  neighborhoods: string[];
-  services: string[];
+  // Neighborhoods can be strings (simple) or objects (with SEO data)
+  neighborhoods: (string | NeighborhoodConfig)[];
+  services?: string[];
   testimonial?: AreaTestimonial;
   faqs?: AreaFAQ[];
   coordinates?: {
@@ -181,6 +204,8 @@ export interface AreaConfig {
   seoKeywords?: string[];
   // AEO fields
   aeoSummary?: string;
+  aeoCitySummary?: string;
+  aeoLocalAnswer?: string;
 }
 
 export interface FAQConfig {

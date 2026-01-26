@@ -22,6 +22,8 @@ import { MobileShiftGuard } from "./mobile/components/guards/MobileShiftGuard";
 import { ChunkLoadErrorBoundary } from "./components/ChunkLoadErrorBoundary";
 import AdminDashboardPage from "./pages/AdminDashboard";
 import ThemeProvider from "./components/ThemeProvider";
+import { CustomerFeedbackButton } from "./components/CustomerFeedbackButton";
+import { useBusiness } from "./hooks/useBusinessConfig";
 
 // Retry wrapper for React.lazy() imports (helps with transient Vite/SW cache issues)
 const lazyWithRetry = <T extends React.ComponentType<any>>(
@@ -98,6 +100,7 @@ const Cart = lazy(() => import("./pages/Cart"));
 // Dynamic service and area pages - reads from JSON config
 const ServicePage = lazy(() => import("./pages/ServicePage"));
 const AreaPage = lazy(() => import("./pages/AreaPage"));
+const NeighborhoodPage = lazy(() => import("./pages/NeighborhoodPage"));
 
 // Legacy individual service pages (can be removed once dynamic routing is confirmed working)
 const ResidentialRoofing = lazy(() => import("./pages/ResidentialRoofing"));
@@ -305,6 +308,10 @@ const AppRoutes = () => (
     <Route path="/areas/:locationSlug" element={<AreaPage />} />
     <Route path="/service-areas/:locationSlug" element={<AreaPage />} />
 
+    {/* Dynamic neighborhood page - nested under areas for SEO */}
+    <Route path="/areas/:locationSlug/:neighborhoodSlug" element={<NeighborhoodPage />} />
+    <Route path="/service-areas/:locationSlug/:neighborhoodSlug" element={<NeighborhoodPage />} />
+
     {/* Legacy routes - redirect to new dynamic service routes */}
     <Route path="/residential-roofing" element={<Navigate to="/services/residential-roofing" replace />} />
     <Route path="/commercial-roofing" element={<Navigate to="/services/commercial-roofing" replace />} />
@@ -330,7 +337,8 @@ const AppContent = () => {
     // Only show splash for PWA users not already on mobile route
     return isStandalonePWA() && !window.location.pathname.startsWith('/mobile');
   });
-  
+  const business = useBusiness();
+
   useEffect(() => {
     // Redirect to mobile app when installed as PWA and not already on mobile route
     if (isMobilePWA && !window.location.pathname.startsWith('/mobile')) {
@@ -351,6 +359,17 @@ const AppContent = () => {
     }
   }, [showSplash]);
 
+  // Determine if we should show customer feedback button
+  // Show on customer-facing pages (not admin, not mobile, not auth pages)
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isCustomerFacingPage = !pathname.startsWith('/admin') &&
+                               !pathname.startsWith('/mobile') &&
+                               !pathname.startsWith('/auth') &&
+                               !pathname.startsWith('/admin-login') &&
+                               !pathname.startsWith('/invite') &&
+                               !pathname.startsWith('/team/invite') &&
+                               !isMobilePWA;
+
   return (
     <>
       <SplashScreen isVisible={showSplash} />
@@ -363,6 +382,14 @@ const AppContent = () => {
           <AppRoutes />
         </Suspense>
       </ChunkLoadErrorBoundary>
+      {/* Customer Feedback Button - shown on customer-facing pages only */}
+      {isCustomerFacingPage && (
+        <CustomerFeedbackButton
+          businessName={business.name}
+          mascotImage={business.logo}
+          enabled={true}
+        />
+      )}
     </>
   );
 };

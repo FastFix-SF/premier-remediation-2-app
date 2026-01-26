@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { addWatermark } from "../_shared/addWatermark.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -84,7 +85,7 @@ serve(async (req) => {
   }
 
   try {
-    const { type, data, recordId, saveToStorage } = await req.json();
+    const { type, data, recordId, saveToStorage, logoUrl, addWatermarkLogo } = await req.json();
 
     if (!type || !data) {
       return new Response(
@@ -242,6 +243,23 @@ serve(async (req) => {
           // Fetch the image from URL
           const imageResponse = await fetch(generatedImageUrl);
           imageBlob = await imageResponse.blob();
+        }
+
+        // Add watermark if logo URL is provided
+        if (addWatermarkLogo && logoUrl) {
+          console.log('Adding watermark with logo:', logoUrl);
+          try {
+            imageBlob = await addWatermark(imageBlob, logoUrl, {
+              position: 'bottom-right',
+              opacity: 0.7,
+              scale: 0.15,
+              padding: 30
+            });
+            console.log('Watermark added successfully');
+          } catch (watermarkError) {
+            console.error('Failed to add watermark, continuing without:', watermarkError);
+            // Continue with original image if watermarking fails
+          }
         }
 
         // Upload to Supabase Storage

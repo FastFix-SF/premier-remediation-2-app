@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { supabase } from '@/integrations/supabase/client';
-import { ImageIcon, Loader2, CheckCircle, XCircle, Sparkles, RefreshCw, AlertTriangle } from 'lucide-react';
+import { ImageIcon, Loader2, CheckCircle, XCircle, Sparkles, RefreshCw, AlertTriangle, ChevronDown, ChevronRight, MapPin, Building2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { useServices, useAreas } from '@/hooks/useBusinessConfig';
+import { useServices, useAreas, useBusiness } from '@/hooks/useBusinessConfig';
 
 interface GenerationResult {
   name: string;
@@ -15,18 +16,23 @@ interface GenerationResult {
   status: 'pending' | 'generating' | 'success' | 'error' | 'has_image';
   imageUrl?: string;
   error?: string;
+  cityName?: string; // For neighborhoods
 }
 
 export const HeroImageGenerator: React.FC = () => {
   const configServices = useServices();
   const configAreas = useAreas();
+  const business = useBusiness();
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [isBackfilling, setIsBackfilling] = useState(false);
   const [serviceResults, setServiceResults] = useState<GenerationResult[]>([]);
   const [areaResults, setAreaResults] = useState<GenerationResult[]>([]);
+  const [neighborhoodResults, setNeighborhoodResults] = useState<GenerationResult[]>([]);
+  const [expandedAreas, setExpandedAreas] = useState<Set<string>>(new Set());
   const [progress, setProgress] = useState(0);
   const [backfillResponse, setBackfillResponse] = useState<any>(null);
+  const [includeNeighborhoods, setIncludeNeighborhoods] = useState(true);
 
   // Initialize results from config
   useEffect(() => {
@@ -49,20 +55,72 @@ export const HeroImageGenerator: React.FC = () => {
         imageUrl: a.image || undefined
       }))
     );
+
+    // Extract neighborhoods from all areas
+    const allNeighborhoods: GenerationResult[] = [];
+    configAreas.forEach(area => {
+      if (area.neighborhoods && Array.isArray(area.neighborhoods)) {
+        area.neighborhoods.forEach(n => {
+          const name = typeof n === 'string' ? n : n.name;
+          const slug = typeof n === 'string' ? n.toLowerCase().replace(/\s+/g, '-') : n.slug;
+          const image = typeof n === 'object' ? n.image : undefined;
+          allNeighborhoods.push({
+            name,
+            slug: `${area.slug}-${slug}`,
+            status: image ? 'has_image' : 'pending',
+            imageUrl: image,
+            cityName: area.name
+          });
+        });
+      }
+    });
+    setNeighborhoodResults(allNeighborhoods);
   }, [configAreas]);
+
+  // Group neighborhoods by city for display
+  const neighborhoodsByCity = useMemo(() => {
+    const grouped: Record<string, GenerationResult[]> = {};
+    neighborhoodResults.forEach(n => {
+      const city = n.cityName || 'Unknown';
+      if (!grouped[city]) grouped[city] = [];
+      grouped[city].push(n);
+    });
+    return grouped;
+  }, [neighborhoodResults]);
+
+  const toggleAreaExpanded = (areaName: string) => {
+    setExpandedAreas(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(areaName)) {
+        newSet.delete(areaName);
+      } else {
+        newSet.add(areaName);
+      }
+      return newSet;
+    });
+  };
 
   // Use the new backfill function that updates GitHub directly
   const backfillMissingImages = async () => {
     setIsBackfilling(true);
     setBackfillResponse(null);
 
-    toast.info('Starting backfill process... This may take several minutes.');
+    const typesToProcess = ['services', 'areas'];
+    if (includeNeighborhoods) {
+      typesToProcess.push('neighborhoods');
+    }
+
+    toast.info(`Starting backfill process for ${typesToProcess.join(', ')}... This may take several minutes.`);
 
     try {
+      // Get business logo URL for watermarking
+      const logoUrl = business.logoDark || business.logo;
+
       const { data, error } = await supabase.functions.invoke('backfill-hero-images', {
         body: {
-          types: ['services', 'areas'],
-          dryRun: false
+          types: typesToProcess,
+          dryRun: false,
+          logoUrl // Pass logo for watermarking
         }
       });
 
@@ -71,7 +129,10 @@ export const HeroImageGenerator: React.FC = () => {
       setBackfillResponse(data);
 
       if (data.success) {
-        toast.success(`Generated ${data.summary.servicesSuccess} service images and ${data.summary.areasSuccess} area images! Vercel will auto-deploy.`);
+        const neighborhoodMsg = includeNeighborhoods && data.summary.neighborhoodsSuccess
+          ? ` and ${data.summary.neighborhoodsSuccess} neighborhood images`
+          : '';
+        toast.success(`Generated ${data.summary.servicesSuccess} service images, ${data.summary.areasSuccess} area images${neighborhoodMsg}! Vercel will auto-deploy.`);
 
         // Update local state to reflect changes
         if (data.results?.services) {
@@ -345,15 +406,37 @@ export const HeroImageGenerator: React.FC = () => {
           )}
         </div>
 
+        {/* Options */}
+        <div className="flex items-center gap-4">
+          <label className="flex items-center gap-2 text-sm">
+            <input
+              type="checkbox"
+              checked={includeNeighborhoods}
+              onChange={(e) => setIncludeNeighborhoods(e.target.checked)}
+              className="rounded border-gray-300"
+            />
+            Include neighborhood images
+          </label>
+          <span className="text-sm text-muted-foreground">
+            ({neighborhoodResults.length} neighborhoods across {Object.keys(neighborhoodsByCity).length} cities)
+          </span>
+        </div>
+
         {/* Backfill Response */}
         {backfillResponse && (
           <Alert variant={backfillResponse.success ? 'default' : 'destructive'}>
             <CheckCircle className="w-4 h-4" />
             <AlertTitle>Backfill Complete</AlertTitle>
             <AlertDescription>
-              Services: {backfillResponse.summary?.servicesSuccess || 0} generated, {backfillResponse.summary?.servicesProcessed - backfillResponse.summary?.servicesSuccess || 0} skipped/failed
+              Services: {backfillResponse.summary?.servicesSuccess || 0} generated, {(backfillResponse.summary?.servicesProcessed || 0) - (backfillResponse.summary?.servicesSuccess || 0)} skipped/failed
               <br />
-              Areas: {backfillResponse.summary?.areasSuccess || 0} generated, {backfillResponse.summary?.areasProcessed - backfillResponse.summary?.areasSuccess || 0} skipped/failed
+              Areas: {backfillResponse.summary?.areasSuccess || 0} generated, {(backfillResponse.summary?.areasProcessed || 0) - (backfillResponse.summary?.areasSuccess || 0)} skipped/failed
+              {backfillResponse.summary?.neighborhoodsProcessed > 0 && (
+                <>
+                  <br />
+                  Neighborhoods: {backfillResponse.summary?.neighborhoodsSuccess || 0} generated, {(backfillResponse.summary?.neighborhoodsProcessed || 0) - (backfillResponse.summary?.neighborhoodsSuccess || 0)} skipped/failed
+                </>
+              )}
             </AlertDescription>
           </Alert>
         )}
@@ -361,10 +444,11 @@ export const HeroImageGenerator: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-6">
           {/* Services */}
           <div>
-            <h3 className="font-semibold mb-3">
+            <h3 className="font-semibold mb-3 flex items-center gap-2">
+              <Building2 className="w-4 h-4" />
               Services ({serviceResults.filter(r => r.status === 'success' || r.status === 'has_image').length}/{serviceResults.length})
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-2 max-h-64 overflow-y-auto">
               {serviceResults.map((result) => (
                 <div key={result.slug} className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
                   {getStatusIcon(result.status)}
@@ -378,19 +462,52 @@ export const HeroImageGenerator: React.FC = () => {
             </div>
           </div>
 
-          {/* Areas */}
+          {/* Areas with expandable neighborhoods */}
           <div>
-            <h3 className="font-semibold mb-3">
-              Areas ({areaResults.filter(r => r.status === 'success' || r.status === 'has_image').length}/{areaResults.length})
+            <h3 className="font-semibold mb-3 flex items-center gap-2">
+              <MapPin className="w-4 h-4" />
+              Areas & Neighborhoods ({areaResults.filter(r => r.status === 'success' || r.status === 'has_image').length}/{areaResults.length} areas, {neighborhoodResults.length} neighborhoods)
             </h3>
-            <div className="space-y-2">
-              {areaResults.map((result) => (
-                <div key={result.slug} className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
-                  {getStatusIcon(result.status)}
-                  <span className="text-sm flex-1 truncate">{result.name}</span>
-                  {getStatusBadge(result.status)}
-                </div>
-              ))}
+            <div className="space-y-2 max-h-96 overflow-y-auto">
+              {areaResults.map((result) => {
+                const cityNeighborhoods = neighborhoodsByCity[result.name] || [];
+                const hasNeighborhoods = cityNeighborhoods.length > 0;
+                const isExpanded = expandedAreas.has(result.name);
+
+                return (
+                  <div key={result.slug}>
+                    <div
+                      className={`flex items-center gap-2 p-2 bg-muted/50 rounded-lg ${hasNeighborhoods ? 'cursor-pointer hover:bg-muted' : ''}`}
+                      onClick={() => hasNeighborhoods && toggleAreaExpanded(result.name)}
+                    >
+                      {hasNeighborhoods && (
+                        isExpanded
+                          ? <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                          : <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                      )}
+                      {getStatusIcon(result.status)}
+                      <span className="text-sm flex-1 truncate font-medium">{result.name}</span>
+                      {hasNeighborhoods && (
+                        <span className="text-xs text-muted-foreground">{cityNeighborhoods.length} neighborhoods</span>
+                      )}
+                      {getStatusBadge(result.status)}
+                    </div>
+
+                    {/* Expandable neighborhoods list */}
+                    {isExpanded && hasNeighborhoods && (
+                      <div className="ml-6 mt-1 space-y-1 border-l-2 border-muted pl-3">
+                        {cityNeighborhoods.map((neighborhood) => (
+                          <div key={neighborhood.slug} className="flex items-center gap-2 p-1.5 bg-muted/30 rounded text-sm">
+                            {getStatusIcon(neighborhood.status)}
+                            <span className="flex-1 truncate">{neighborhood.name}</span>
+                            {getStatusBadge(neighborhood.status)}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
               {areaResults.length === 0 && (
                 <p className="text-sm text-muted-foreground">No areas found in config. Add areas to areas.json first.</p>
               )}
