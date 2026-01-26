@@ -13,8 +13,8 @@ const RoofingFriendHeader = () => {
   const services = useServices();
   const business = useBusiness();
 
-  // Build dynamic submenu from services JSON
-  const serviceSubmenu = services.slice(0, 6).map(service => ({
+  // Build dynamic submenu from services JSON - show all services
+  const serviceSubmenu = services.map(service => ({
     label: service.name,
     path: `/services/${service.slug}`
   }));
