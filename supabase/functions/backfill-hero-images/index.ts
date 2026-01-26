@@ -319,12 +319,12 @@ serve(async (req) => {
 
   try {
     const {
-      types = ['services', 'areas', 'neighborhoods'],
+      types = ['services', 'areas'],  // Default to services and areas only (neighborhoods optional)
       dryRun = false,
       logoUrl,  // Business logo URL for watermarking
       repoOwner,  // Optional: override repo owner
       repoName,   // Optional: override repo name
-      forceRegenerate = false, // Force regenerate even if images exist
+      forceRegenerate = true, // Default to TRUE - always regenerate with improved prompts
       businessName  // Business name for branded service images
     } = await req.json() || {};
 
@@ -351,14 +351,20 @@ serve(async (req) => {
     const owner = repoOwner || 'FastFix-SF';
     const repo = repoName || 'premier-remediation-2-app';
 
-    // Get business logo from config if not provided
+    // Get business config for logo and name if not provided
     let businessLogoUrl = logoUrl;
-    if (!businessLogoUrl) {
-      const businessFile = await fetchGitHubFile(owner, repo, 'src/config/business.json', GITHUB_TOKEN);
-      if (businessFile?.content) {
-        // Prefer logoDark for watermarks (better contrast), fallback to logo
+    let brandName = businessName;
+    const businessFile = await fetchGitHubFile(owner, repo, 'src/config/business.json', GITHUB_TOKEN);
+    if (businessFile?.content) {
+      // Prefer logoDark for watermarks (better contrast), fallback to logo
+      if (!businessLogoUrl) {
         businessLogoUrl = businessFile.content.logoDark || businessFile.content.logo;
         console.log('Using business logo for watermarks:', businessLogoUrl);
+      }
+      // Get business name for branding in service images
+      if (!brandName) {
+        brandName = businessFile.content.name;
+        console.log('Using business name for branding:', brandName);
       }
     }
 
@@ -392,7 +398,7 @@ serve(async (req) => {
             const prompt = getServicePrompt({
               name: service.name,
               shortDescription: service.shortDescription || ''
-            }, businessName);
+            }, brandName);
 
             const imageData = await generateImage(prompt, GEMINI_API_KEY);
 
