@@ -1,13 +1,13 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { addWatermark } from "../_shared/addWatermark.ts";
+import { addLogoWithAI, fetchLogoAsBase64 } from "../_shared/addLogoWithAI.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-// Service image prompt - generate clean scene, logo will be added via compositing
+// Service image prompt - generate scene with placeholder branding that AI will replace with real logo
 const getServicePrompt = (service: { name: string; shortDescription: string }, businessName?: string) => `
 Create a hyper-realistic professional photograph showing ${service.name} work ACTIVELY IN PROGRESS:
 
@@ -24,33 +24,32 @@ SPECIFIC SCENE FOR ${service.name.toUpperCase()}:
 - Interior of a real home or commercial building showing the work happening
 - 2-3 workers actively engaged - one operating equipment, one assessing, one documenting
 
-WORK VAN IN BACKGROUND (important - logo will be added separately):
-- Plain WHITE work van/truck parked in driveway or visible through window/door
-- Van should have a BLANK/CLEAN white side panel (no text or logos)
-- Position the van so its side panel is clearly visible in the background
+WORK VAN WITH COMPANY BRANDING:
+- White work van/truck parked in driveway or visible through window/door
+- Van has a CIRCULAR LOGO on the side panel (any generic circular emblem is fine)
+- Position the van so its side panel with logo is clearly visible
 - The van's side panel should be well-lit and unobstructed
 
-WORKER UNIFORMS:
-- Workers wearing plain NAVY BLUE polo shirts or work shirts
-- NO text or logos on uniforms (will be added separately)
+WORKER UNIFORMS WITH BRANDING:
+- Workers wearing NAVY BLUE polo shirts or work shirts
+- Shirts have a CIRCULAR LOGO on the chest or back
 - Professional appearance with safety equipment (hard hats, gloves)
 
 COMPOSITION (16:10 landscape):
 - FOREGROUND (60%): Workers actively doing ${service.name}, equipment in use
 - MIDDLE (25%): Work area showing the problem/solution
-- BACKGROUND (15%): Plain white van visible, property exterior
+- BACKGROUND (15%): Branded van visible, property exterior
 
 CRITICAL QUALITY:
 - 8K ultra-high resolution, professional DSLR quality
 - Sharp focus throughout the image
-- Good lighting on both workers AND the van's side panel
+- Good lighting on workers, van, and logo areas
 
 STYLE:
 - Like a real marketing photo from ServiceMaster or SERVPRO
 - Shows the VALUE and EXPERTISE of the service
 - Documentary style - real work happening, not posed
-
-Generate a clean, professional scene. The company logo will be digitally added to the van afterward.
+- The circular logos should be clearly visible (they will be replaced with real branding)
 `;
 
 // City-specific landmarks for authentic local imagery
@@ -189,51 +188,55 @@ async function generateImage(prompt: string, apiKey: string): Promise<string | n
   }
 }
 
-// Upload image to Supabase Storage with optional watermark
+// Upload image to Supabase Storage with optional AI-based logo replacement
 async function uploadToStorage(
   supabase: any,
   imageData: string,
   type: 'service' | 'area' | 'neighborhood',
   slug: string,
-  logoUrl?: string
+  logoUrl?: string,
+  apiKey?: string
 ): Promise<string | null> {
   try {
-    // Convert base64 data URL to blob
+    // Extract base64 data from data URL
     const [meta, base64Data] = imageData.split(',');
     const mimeType = meta.match(/data:([^;]+)/)?.[1] || 'image/png';
-    const byteCharacters = atob(base64Data);
+
+    let finalBase64 = base64Data;
+
+    // For service images: Use AI to replace placeholder logos with real logo
+    // This is the "nano banana" approach - Gemini replaces all branding naturally
+    if (logoUrl && apiKey && type === 'service') {
+      console.log(`Using AI to add real logo to ${type} image: ${slug}`);
+      try {
+        // Fetch the logo as base64
+        const logoBase64 = await fetchLogoAsBase64(logoUrl);
+
+        if (logoBase64) {
+          // Use Gemini to add the logo to vans, uniforms, etc.
+          const editedBase64 = await addLogoWithAI(base64Data, logoBase64, apiKey);
+
+          if (editedBase64) {
+            finalBase64 = editedBase64;
+            console.log('AI successfully added logo to image');
+          } else {
+            console.warn('AI logo addition returned null, using original image');
+          }
+        } else {
+          console.warn('Could not fetch logo, using original image');
+        }
+      } catch (logoError) {
+        console.warn('Failed to add logo via AI, continuing without:', logoError);
+      }
+    }
+
+    // Convert final base64 to blob
+    const byteCharacters = atob(finalBase64);
     const byteNumbers = new Array(byteCharacters.length);
     for (let i = 0; i < byteCharacters.length; i++) {
       byteNumbers[i] = byteCharacters.charCodeAt(i);
     }
-    let imageBlob = new Blob([new Uint8Array(byteNumbers)], { type: mimeType });
-
-    // Add the real company logo to the image
-    // For service images: larger logo positioned to appear on the van's side panel
-    // For area images: subtle corner watermark
-    if (logoUrl) {
-      console.log(`Adding real logo to ${type} image: ${slug}`);
-      try {
-        const watermarkSettings = type === 'service'
-          ? {
-              position: 'center-right' as const, // Position on van's side panel area
-              opacity: 0.95,  // Nearly solid - should look like vinyl graphics
-              scale: 0.22,    // 22% of image width - prominent on van
-              padding: 80     // Offset from edge to hit van area
-            }
-          : {
-              position: 'bottom-right' as const,
-              opacity: 0.6,   // Subtle for city images
-              scale: 0.10,    // Small watermark
-              padding: 25
-            };
-
-        imageBlob = await addWatermark(imageBlob, logoUrl, watermarkSettings);
-        console.log(`Logo added successfully (${type} style)`);
-      } catch (watermarkError) {
-        console.warn('Failed to add logo, continuing without:', watermarkError);
-      }
-    }
+    const imageBlob = new Blob([new Uint8Array(byteNumbers)], { type: mimeType });
 
     const fileName = `${type}-hero-${slug}-${Date.now()}.png`;
 
@@ -421,8 +424,8 @@ serve(async (req) => {
             const imageData = await generateImage(prompt, GEMINI_API_KEY);
 
             if (imageData) {
-              // Upload to storage with watermark
-              const publicUrl = await uploadToStorage(supabase, imageData, 'service', service.slug, businessLogoUrl);
+              // Upload to storage with AI logo replacement
+              const publicUrl = await uploadToStorage(supabase, imageData, 'service', service.slug, businessLogoUrl, GEMINI_API_KEY);
 
               if (publicUrl) {
                 service.image = publicUrl;
@@ -486,8 +489,8 @@ serve(async (req) => {
             const imageData = await generateImage(prompt, GEMINI_API_KEY);
 
             if (imageData) {
-              // Upload to storage with watermark
-              const publicUrl = await uploadToStorage(supabase, imageData, 'area', area.slug, businessLogoUrl);
+              // Upload to storage (no AI logo for area images)
+              const publicUrl = await uploadToStorage(supabase, imageData, 'area', area.slug);
 
               if (publicUrl) {
                 area.image = publicUrl;
@@ -542,12 +545,12 @@ serve(async (req) => {
                 const neighborhoodImageData = await generateImage(neighborhoodPrompt, GEMINI_API_KEY);
 
                 if (neighborhoodImageData) {
+                  // Upload neighborhood image (no AI logo for neighborhood images)
                   const neighborhoodPublicUrl = await uploadToStorage(
                     supabase,
                     neighborhoodImageData,
                     'neighborhood',
-                    `${area.slug}-${neighborhoodSlug}`,
-                    businessLogoUrl
+                    `${area.slug}-${neighborhoodSlug}`
                   );
 
                   if (neighborhoodPublicUrl) {

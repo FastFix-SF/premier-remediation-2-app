@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { addWatermark } from "../_shared/addWatermark.ts";
+import { addLogoWithAI, fetchLogoAsBase64 } from "../_shared/addLogoWithAI.ts";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -30,7 +30,7 @@ const getLandmarksForCity = (cityName: string): string => {
   return 'local downtown area, distinctive architecture, tree-lined streets, community gathering spaces';
 };
 
-// Service image prompt - generate clean scene, logo will be added via compositing
+// Service image prompt - generate scene with placeholder branding that AI will replace with real logo
 const getServicePrompt = (service: { name: string; shortDescription: string; icon?: string }, businessName?: string) => `
 Create a hyper-realistic professional photograph showing ${service.name} work ACTIVELY IN PROGRESS:
 
@@ -47,33 +47,32 @@ SPECIFIC SCENE FOR ${service.name.toUpperCase()}:
 - Interior of a real home or commercial building showing the work happening
 - 2-3 workers actively engaged - one operating equipment, one assessing, one documenting
 
-WORK VAN IN BACKGROUND (important - logo will be added separately):
-- Plain WHITE work van/truck parked in driveway or visible through window/door
-- Van should have a BLANK/CLEAN white side panel (no text or logos)
-- Position the van so its side panel is clearly visible in the background
+WORK VAN WITH COMPANY BRANDING:
+- White work van/truck parked in driveway or visible through window/door
+- Van has a CIRCULAR LOGO on the side panel (any generic circular emblem is fine)
+- Position the van so its side panel with logo is clearly visible
 - The van's side panel should be well-lit and unobstructed
 
-WORKER UNIFORMS:
-- Workers wearing plain NAVY BLUE polo shirts or work shirts
-- NO text or logos on uniforms (will be added separately)
+WORKER UNIFORMS WITH BRANDING:
+- Workers wearing NAVY BLUE polo shirts or work shirts
+- Shirts have a CIRCULAR LOGO on the chest or back
 - Professional appearance with safety equipment (hard hats, gloves)
 
 COMPOSITION (16:10 landscape):
 - FOREGROUND (60%): Workers actively doing ${service.name}, equipment in use
 - MIDDLE (25%): Work area showing the problem/solution
-- BACKGROUND (15%): Plain white van visible, property exterior
+- BACKGROUND (15%): Branded van visible, property exterior
 
 CRITICAL QUALITY:
 - 8K ultra-high resolution, professional DSLR quality
 - Sharp focus throughout the image
-- Good lighting on both workers AND the van's side panel
+- Good lighting on workers, van, and logo areas
 
 STYLE:
 - Like a real marketing photo from ServiceMaster or SERVPRO
 - Shows the VALUE and EXPERTISE of the service
 - Documentary style - real work happening, not posed
-
-Generate a clean, professional scene. The company logo will be digitally added to the van afterward.
+- The circular logos should be clearly visible (they will be replaced with real branding)
 `;
 
 // Area/City image prompt - with specific local landmarks
@@ -319,30 +318,42 @@ serve(async (req) => {
           imageBlob = await imageResponse.blob();
         }
 
-        // Add the real company logo to the image
-        // For service images: larger logo positioned to appear on the van's side panel
-        // For area images: subtle corner watermark
-        if (addWatermarkLogo && logoUrl) {
-          console.log(`Adding real logo to ${type} image`);
+        // For service images: Use AI to replace placeholder logos with real logo
+        // This is the "nano banana" approach - Gemini replaces all branding naturally
+        if (addWatermarkLogo && logoUrl && type === 'service' && GEMINI_API_KEY) {
+          console.log(`Using AI to add real logo to ${type} image`);
           try {
-            const watermarkSettings = type === 'service'
-              ? {
-                  position: 'center-right' as const,
-                  opacity: 0.95,
-                  scale: 0.22,
-                  padding: 80
-                }
-              : {
-                  position: 'bottom-right' as const,
-                  opacity: 0.6,
-                  scale: 0.10,
-                  padding: 25
-                };
+            // Get base64 from current blob
+            const buffer = await imageBlob.arrayBuffer();
+            const bytes = new Uint8Array(buffer);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) {
+              binary += String.fromCharCode(bytes[i]);
+            }
+            const imageBase64 = btoa(binary);
 
-            imageBlob = await addWatermark(imageBlob, logoUrl, watermarkSettings);
-            console.log(`Logo added successfully (${type} style)`);
-          } catch (watermarkError) {
-            console.error('Failed to add logo, continuing without:', watermarkError);
+            // Fetch the logo as base64
+            const logoBase64 = await fetchLogoAsBase64(logoUrl);
+
+            if (logoBase64) {
+              // Use Gemini to add the logo to vans, uniforms, etc.
+              const editedBase64 = await addLogoWithAI(imageBase64, logoBase64, GEMINI_API_KEY);
+
+              if (editedBase64) {
+                // Convert back to blob
+                const byteCharacters = atob(editedBase64);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) {
+                  byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                imageBlob = new Blob([new Uint8Array(byteNumbers)], { type: 'image/png' });
+                console.log('AI successfully added logo to image');
+              } else {
+                console.warn('AI logo addition returned null, using original image');
+              }
+            }
+          } catch (logoError) {
+            console.error('Failed to add logo via AI, continuing without:', logoError);
           }
         }
 
