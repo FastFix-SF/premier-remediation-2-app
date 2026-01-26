@@ -201,16 +201,27 @@ async function uploadToStorage(
     let imageBlob = new Blob([new Uint8Array(byteNumbers)], { type: mimeType });
 
     // Add watermark if logo URL is provided
+    // Service images get a LARGER, more prominent logo (like branding on a truck)
+    // Area/neighborhood images get a smaller corner watermark
     if (logoUrl) {
       console.log(`Adding watermark to ${type} image: ${slug}`);
       try {
-        imageBlob = await addWatermark(imageBlob, logoUrl, {
-          position: 'bottom-right',
-          opacity: 0.7,
-          scale: 0.12,
-          padding: 25
-        });
-        console.log('Watermark added successfully');
+        const watermarkSettings = type === 'service'
+          ? {
+              position: 'bottom-right' as const,
+              opacity: 0.95, // Almost fully opaque for services
+              scale: 0.25,   // 25% of image width - much more prominent
+              padding: 40
+            }
+          : {
+              position: 'bottom-right' as const,
+              opacity: 0.7,  // Semi-transparent for areas
+              scale: 0.12,   // 12% - subtle watermark
+              padding: 25
+            };
+
+        imageBlob = await addWatermark(imageBlob, logoUrl, watermarkSettings);
+        console.log(`Watermark added successfully (${type} style)`);
       } catch (watermarkError) {
         console.warn('Failed to add watermark, continuing without:', watermarkError);
         // Continue with original image if watermarking fails
