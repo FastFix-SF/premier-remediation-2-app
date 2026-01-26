@@ -7,114 +7,140 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-// Service image prompt
-const getServicePrompt = (service: { name: string; shortDescription: string }) => `
-Create a professional commercial property remediation service image with these exact specifications:
+// Service image prompt - with natural branding integration
+const getServicePrompt = (service: { name: string; shortDescription: string }, businessName?: string) => `
+Create a hyper-realistic professional photograph of a ${service.name} job in progress with these exact specifications:
 
 COMPOSITION & FRAMING:
-- Wide-angle professional photo of a commercial building or multifamily property
-- Golden hour lighting (warm amber sun with soft purple/blue shadows)
+- Interior or exterior shot of an active remediation job site
+- Golden hour or professional indoor lighting
 - Aspect ratio 16:10, landscape orientation
-- Professional remediation team visible but not prominent
+- Workers actively engaged in ${service.name} work
 
-MAIN SUBJECT:
-- Focus on ${service.name} scenario
+MAIN SUBJECT - ${service.name.toUpperCase()}:
 - ${service.shortDescription}
-- Show professional equipment and safety measures
-- Modern commercial building or apartment complex as backdrop
+- Professional crew of 2-3 workers in branded uniforms
+- Industrial-grade equipment with company branding visible
+- Active work scene - not posed, looks candid and real
+
+CRITICAL BRANDING ELEMENTS (make these prominent and readable):
+- Company work truck/van parked nearby with "${businessName || 'Premier Remediation'}" logo on the side
+- Workers wearing polo shirts or safety vests with company logo
+- Equipment cases, dehumidifiers, or tool boxes with company stickers
+- A-frame sign or door hanger visible with company name
+- Clipboard or tablet showing company paperwork
 
 ATMOSPHERE & LIGHTING:
-- Professional, trustworthy atmosphere
-- Clean, well-lit with natural light feel
-- Not too dramatic - reassuring and competent
+- Documentary/editorial photography style - looks like a real job site photo
+- Natural lighting with professional quality
+- Authentic work environment - some controlled mess is okay
+- Real commercial or residential property setting
 
 STYLE REFERENCE:
-- Professional commercial services marketing photography
-- Similar to ServiceMaster or SERVPRO marketing materials
-- Ultra high resolution, sharp details
-- Clean, modern, premium feel
+- Looks like a real photo taken by a marketing team on an actual job
+- Similar to ServiceMaster, SERVPRO, or Paul Davis marketing photos
+- Photo-journalistic quality - not overly staged
+- High resolution, sharp focus on workers and branding
 
-COLOR PALETTE:
-- Warm amber/gold highlights for hope/restoration
-- Professional blue/navy accents
-- Clean white and gray building tones
-- Safety orange/yellow for equipment visibility
-
-The overall impression should be "professional, trustworthy commercial remediation experts" - showcasing competence and reliability for property managers.
+The image should look 100% like a real photograph from an actual ${service.name} job, with the company branding naturally integrated so viewers believe this is the actual company doing real work.
 `;
 
-// Area/City image prompt
-const getAreaPrompt = (area: { name: string; fullName?: string }) => `
-Create a stunning professional cityscape photograph of ${area.fullName || area.name} with these exact specifications:
+// City-specific landmarks for authentic local imagery
+const cityLandmarks: Record<string, string> = {
+  'oakland': 'Lake Merritt with its necklace of lights, the Oakland Tribune Tower, Fox Theater marquee, Jack London Square waterfront, downtown Oakland skyline with the Ordway Building',
+  'san francisco': 'Golden Gate Bridge, Transamerica Pyramid, Painted Ladies Victorian homes, cable cars on hills, Coit Tower, Bay Bridge, Salesforce Tower',
+  'san jose': 'Downtown San Jose skyline, San Jose City Hall rotunda, SAP Center, Santana Row architecture, Tech company campuses, palm tree-lined streets',
+  'berkeley': 'UC Berkeley Campanile (Sather Tower), Berkeley Hills, Claremont Hotel, Fourth Street shopping district, Gourmet Ghetto restaurants, Telegraph Avenue',
+  'contra costa': 'Mount Diablo in background, Walnut Creek downtown, Iron Horse Trail, rolling golden hills, BART stations, suburban town centers',
+  'alameda': 'Alameda Island Victorian homes, Park Street shopping, Oakland Estuary waterfront, Alameda Theatre, beach areas, historic naval air station',
+  'fremont': 'Mission San Jose, Lake Elizabeth, Fremont Hub, Niles Canyon, BART station, tech business parks',
+  'walnut creek': 'Mount Diablo backdrop, Broadway Plaza, downtown restaurants and shops, Iron Horse Trail, Lesher Center for the Arts'
+};
+
+// Get landmarks for a city (fuzzy match)
+const getLandmarksForCity = (cityName: string): string => {
+  const normalizedName = cityName.toLowerCase();
+  for (const [key, landmarks] of Object.entries(cityLandmarks)) {
+    if (normalizedName.includes(key) || key.includes(normalizedName.split(' ')[0])) {
+      return landmarks;
+    }
+  }
+  return 'local downtown area, distinctive architecture, tree-lined streets, community gathering spaces';
+};
+
+// Area/City image prompt - with specific local landmarks
+const getAreaPrompt = (area: { name: string; fullName?: string }) => {
+  const landmarks = getLandmarksForCity(area.name);
+
+  return `
+Create a stunning professional cityscape photograph that IMMEDIATELY identifies this as ${area.fullName || area.name}, California:
 
 COMPOSITION & FRAMING:
-- Wide-angle aerial or elevated view of the city skyline
+- Iconic view that locals would instantly recognize as ${area.name}
 - Golden hour lighting (warm amber sun with soft purple/blue shadows)
-- Shallow depth of field on distant hills/background
+- Wide-angle showing the character of this specific city
 - Aspect ratio 16:10, landscape orientation
 
-MAIN SUBJECTS:
-- Iconic landmarks or recognizable skyline of ${area.name}
-- Mix of commercial buildings and residential areas
-- Bay Area elements if applicable (water, hills, bridges in distance)
-- Tree-lined streets and urban landscape
+MUST INCLUDE THESE ${area.name.toUpperCase()} LANDMARKS:
+${landmarks}
+
+Choose the most iconic and recognizable view - something a resident would use as their phone wallpaper because it captures the essence of their city.
 
 ATMOSPHERE & LIGHTING:
-- Soft, warm sunset glow hitting building facades
-- Light haze creating depth
-- Rich, saturated colors but natural-looking
-- Shadows are soft blue/purple, not harsh black
+- Magic hour/golden hour with warm, inviting glow
+- The kind of light that makes people feel proud of their city
+- Rich colors but realistic - not oversaturated
+- Clear day showing the city at its best
 
 STYLE REFERENCE:
-- Professional real estate marketing photography
-- Similar to Apple Maps or Google Earth promotional imagery
-- Ultra high resolution, sharp details on architecture
-- Warm, inviting, aspirational feeling
+- Tourism board promotional photography
+- "Best of ${area.name}" magazine cover quality
+- The photo locals share saying "this is why I love living here"
+- Ultra high resolution, postcard-worthy composition
 
-COLOR PALETTE:
-- Warm amber/gold highlights
-- Deep teal/blue shadows
-- Rich green foliage
-- Cream/white building accents
+EMOTIONAL GOAL:
+Someone from ${area.name} should see this image and feel a sense of pride and belonging - "That's MY city!"
+A potential customer should think "These people know and serve MY community."
 
-The overall impression should be "premium California commercial property market" - showcasing ${area.name} as an attractive, thriving business community.
+Do NOT create a generic California cityscape. This must be unmistakably, specifically ${area.name}.
 `;
+};
 
-// Neighborhood image prompt
+// Neighborhood image prompt - authentic local feel
 const getNeighborhoodPrompt = (neighborhood: { name: string; cityName: string }) => `
-Create a professional neighborhood street view photograph of ${neighborhood.name} in ${neighborhood.cityName} with these exact specifications:
+Create an authentic street-level photograph that captures the unique character of ${neighborhood.name} in ${neighborhood.cityName}:
 
 COMPOSITION & FRAMING:
-- Street-level or slightly elevated perspective showing the neighborhood character
-- Golden hour lighting (warm amber sun with soft purple/blue shadows)
+- Eye-level street view as if walking through the neighborhood
+- Golden hour lighting creating warm, inviting atmosphere
 - Aspect ratio 16:10, landscape orientation
-- Focus on the unique character of ${neighborhood.name}
+- Show what makes ${neighborhood.name} distinct from other neighborhoods
 
-MAIN SUBJECTS:
-- Residential/commercial mixed-use buildings typical of ${neighborhood.name}
-- Tree-lined streets, local businesses, or community spaces
-- Neighborhood landmarks or distinctive architectural features
-- People walking, cycling, or engaging in community activities (not prominent)
+CAPTURE THE ${neighborhood.name.toUpperCase()} VIBE:
+- The specific architectural style of this neighborhood (Victorian, Craftsman, Modern, Mixed-use)
+- Local businesses, cafes, or shops that give it character
+- Street trees, parks, or gathering spots unique to this area
+- The "feel" of the neighborhood - is it hip and artsy? Family-friendly? Upscale? Historic?
 
-ATMOSPHERE & LIGHTING:
-- Warm, welcoming community feel
-- Natural daylight with soft shadows
-- Rich, saturated colors but natural-looking
-- Inviting and prosperous atmosphere
+AUTHENTIC DETAILS:
+- Real neighborhood elements: street signs, local storefronts, community boards
+- People enjoying the neighborhood (walking dogs, at outdoor cafes, jogging)
+- Parked cars, bikes, the everyday life of the area
+- Seasonal elements appropriate for California
 
-STYLE REFERENCE:
-- Professional real estate neighborhood photography
-- Magazine-quality lifestyle imagery
-- Ultra high resolution, sharp details
-- Aspirational yet authentic feeling
+ATMOSPHERE:
+- The photo should make someone think "I'd love to live/work here"
+- Warm, safe, community-oriented feeling
+- Shows why ${neighborhood.name} is a desirable place
+- Professional real estate photography quality
 
-COLOR PALETTE:
-- Warm amber/gold highlights
-- Natural green foliage
-- Varied building colors typical of California neighborhoods
-- Blue sky with soft clouds
+STYLE:
+- Like a photo from Redfin or Zillow's "neighborhood guide"
+- Magazine editorial quality
+- Makes viewers feel they know what it's like to be there
+- NOT a generic California street - specifically ${neighborhood.name}
 
-The overall impression should be "${neighborhood.name} as a desirable, vibrant neighborhood" - showcasing it as an excellent place to live and do business.
+Someone from ${neighborhood.name} should see this and think "Yes, that's exactly what my neighborhood looks like!"
 `;
 
 // Generate single image using Gemini
