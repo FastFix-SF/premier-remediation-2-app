@@ -121,6 +121,7 @@ serve(async (req) => {
       }
 
       services[serviceIndex].image = imageUrl;
+      services[serviceIndex].heroImage = imageUrl;  // Update both fields!
 
       const updateSuccess = await updateGitHubFile(
         owner, repo,
