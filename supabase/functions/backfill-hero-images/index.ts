@@ -7,50 +7,50 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-// Service image prompt - with natural branding integration
+// Service image prompt - generate clean scene, logo will be added via compositing
 const getServicePrompt = (service: { name: string; shortDescription: string }, businessName?: string) => `
 Create a hyper-realistic professional photograph showing ${service.name} work ACTIVELY IN PROGRESS:
 
-PRIMARY FOCUS - THE ACTUAL WORK (70% of image - this is the main subject):
+PRIMARY FOCUS - THE ACTUAL WORK (70% of image):
 - ${service.shortDescription}
 - Show workers ACTIVELY PERFORMING ${service.name} - hands on equipment, solving the problem
 - Professional equipment being USED: dehumidifiers running, air scrubbers operating, extraction hoses in use
 - The remediation WORK AREA should be the CENTER of the image
 - Show visible progress: protective sheeting, containment barriers, moisture meters, drying mats
 
-SPECIFIC SCENE REQUIREMENTS FOR ${service.name.toUpperCase()}:
+SPECIFIC SCENE FOR ${service.name.toUpperCase()}:
 - Workers in the FOREGROUND using professional ${service.name} equipment
 - Clear view of the actual problem being addressed (water damage, mold, fire damage, etc.)
 - Interior of a real home or commercial building showing the work happening
 - 2-3 workers actively engaged - one operating equipment, one assessing, one documenting
 
-COMPANY BRANDING - "${businessName || 'Premier Remediation'}" (30% of image - background element):
-Logo is a CIRCULAR BADGE: "PREMIER" at top, "REMEDIATION" at bottom, BLUE WATER DROPLET + RED FLAMES in center, white stars, American flag stripes. Colors: Navy blue, red, white.
+WORK VAN IN BACKGROUND (important - logo will be added separately):
+- Plain WHITE work van/truck parked in driveway or visible through window/door
+- Van should have a BLANK/CLEAN white side panel (no text or logos)
+- Position the van so its side panel is clearly visible in the background
+- The van's side panel should be well-lit and unobstructed
 
-BRANDING PLACEMENT (visible but not the main focus):
-- Company van parked OUTSIDE visible through window or door (background)
-- Worker uniforms clearly showing logo on chest/back
-- Equipment cases with company branding
-- THE WORK being performed is the STAR - the van is supporting context
-
-CRITICAL IMAGE QUALITY:
-- ALL TEXT must be CRYSTAL CLEAR and SHARP - no blur on "PREMIER REMEDIATION"
-- 8K ultra-high resolution, professional DSLR quality
-- Sharp focus on both workers AND branding elements
-- Text on van and uniforms must be perfectly legible
+WORKER UNIFORMS:
+- Workers wearing plain NAVY BLUE polo shirts or work shirts
+- NO text or logos on uniforms (will be added separately)
+- Professional appearance with safety equipment (hard hats, gloves)
 
 COMPOSITION (16:10 landscape):
 - FOREGROUND (60%): Workers actively doing ${service.name}, equipment in use
 - MIDDLE (25%): Work area showing the problem/solution
-- BACKGROUND (15%): Branded van visible, property exterior
+- BACKGROUND (15%): Plain white van visible, property exterior
+
+CRITICAL QUALITY:
+- 8K ultra-high resolution, professional DSLR quality
+- Sharp focus throughout the image
+- Good lighting on both workers AND the van's side panel
 
 STYLE:
-- Like the hero image on ServiceMaster or SERVPRO service pages
+- Like a real marketing photo from ServiceMaster or SERVPRO
 - Shows the VALUE and EXPERTISE of the service
-- Customer thinks "I can see exactly what they'll do at my property"
-- Documentary style - real work happening, not a posed photo shoot
+- Documentary style - real work happening, not posed
 
-The image must clearly demonstrate WHAT ${service.name} LOOKS LIKE when professionals are doing it, with company branding naturally present in the scene.
+Generate a clean, professional scene. The company logo will be digitally added to the van afterward.
 `;
 
 // City-specific landmarks for authentic local imagery
@@ -208,8 +208,32 @@ async function uploadToStorage(
     }
     let imageBlob = new Blob([new Uint8Array(byteNumbers)], { type: mimeType });
 
-    // No watermark overlay - branding is included naturally in the AI-generated image
-    // via the prompt (on vans, uniforms, equipment, flyers, etc.)
+    // Add the real company logo to the image
+    // For service images: larger logo positioned to appear on the van's side panel
+    // For area images: subtle corner watermark
+    if (logoUrl) {
+      console.log(`Adding real logo to ${type} image: ${slug}`);
+      try {
+        const watermarkSettings = type === 'service'
+          ? {
+              position: 'center-right' as const, // Position on van's side panel area
+              opacity: 0.95,  // Nearly solid - should look like vinyl graphics
+              scale: 0.22,    // 22% of image width - prominent on van
+              padding: 80     // Offset from edge to hit van area
+            }
+          : {
+              position: 'bottom-right' as const,
+              opacity: 0.6,   // Subtle for city images
+              scale: 0.10,    // Small watermark
+              padding: 25
+            };
+
+        imageBlob = await addWatermark(imageBlob, logoUrl, watermarkSettings);
+        console.log(`Logo added successfully (${type} style)`);
+      } catch (watermarkError) {
+        console.warn('Failed to add logo, continuing without:', watermarkError);
+      }
+    }
 
     const fileName = `${type}-hero-${slug}-${Date.now()}.png`;
 

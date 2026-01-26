@@ -19,7 +19,7 @@ export async function addWatermark(
   imageBlob: Blob,
   logoUrl: string,
   options: {
-    position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'center';
+    position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'center' | 'center-right' | 'center-left';
     opacity?: number; // 0-1
     scale?: number; // relative to image width (e.g., 0.15 = 15% of image width)
     padding?: number; // pixels from edge
@@ -163,6 +163,15 @@ async function compositeImages(
         break;
       case 'center':
         x = (bgImage.width() - overlayWidth) / 2;
+        y = (bgImage.height() - overlayHeight) / 2;
+        break;
+      case 'center-right':
+        // Position for van's side panel - right side, vertically centered
+        x = bgImage.width() - overlayWidth - padding;
+        y = (bgImage.height() - overlayHeight) / 2;
+        break;
+      case 'center-left':
+        x = padding;
         y = (bgImage.height() - overlayHeight) / 2;
         break;
       case 'bottom-right':
