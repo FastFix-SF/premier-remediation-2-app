@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { supabase } from '@/integrations/supabase/client';
-import { ImageIcon, Loader2, CheckCircle, XCircle, Sparkles, RefreshCw, AlertTriangle, ChevronDown, ChevronRight, MapPin, Building2 } from 'lucide-react';
+import { ImageIcon, Loader2, CheckCircle, XCircle, Sparkles, RefreshCw, AlertTriangle, ChevronDown, ChevronRight, MapPin, Building2, Upload, Eye, Pencil } from 'lucide-react';
 import { toast } from 'sonner';
 import { useServices, useAreas, useBusiness } from '@/hooks/useBusinessConfig';
 
@@ -34,6 +35,12 @@ export const HeroImageGenerator: React.FC = () => {
   const [backfillResponse, setBackfillResponse] = useState<any>(null);
   const [includeNeighborhoods, setIncludeNeighborhoods] = useState(true);
   const [forceRegenerate, setForceRegenerate] = useState(false);
+
+  // Image management state
+  const [selectedImage, setSelectedImage] = useState<GenerationResult | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [previewDialogOpen, setPreviewDialogOpen] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Initialize results from config
   useEffect(() => {
@@ -99,6 +106,70 @@ export const HeroImageGenerator: React.FC = () => {
       }
       return newSet;
     });
+  };
+
+  // Handle manual image upload
+  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file || !selectedImage) return;
+
+    setIsUploading(true);
+    try {
+      // Upload to Supabase Storage
+      const fileName = `service-hero-${selectedImage.slug}-${Date.now()}.${file.name.split('.').pop()}`;
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('business-media')
+        .upload(fileName, file, {
+          contentType: file.type,
+          upsert: true
+        });
+
+      if (uploadError) throw uploadError;
+
+      // Get public URL
+      const { data: publicUrlData } = supabase.storage
+        .from('business-media')
+        .getPublicUrl(fileName);
+
+      const newImageUrl = publicUrlData.publicUrl;
+
+      // Update the service in GitHub via edge function
+      const { error: updateError } = await supabase.functions.invoke('update-service-image', {
+        body: {
+          serviceSlug: selectedImage.slug,
+          imageUrl: newImageUrl
+        }
+      });
+
+      if (updateError) {
+        console.warn('Failed to update GitHub, but image was uploaded:', updateError);
+        toast.warning('Image uploaded but GitHub sync failed. You may need to update manually.');
+      } else {
+        toast.success('Image uploaded and synced to GitHub!');
+      }
+
+      // Update local state
+      setServiceResults(prev => prev.map(r =>
+        r.slug === selectedImage.slug
+          ? { ...r, status: 'success', imageUrl: newImageUrl }
+          : r
+      ));
+
+      setPreviewDialogOpen(false);
+      setSelectedImage(null);
+    } catch (err) {
+      console.error('Upload error:', err);
+      toast.error(err instanceof Error ? err.message : 'Failed to upload image');
+    } finally {
+      setIsUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
+
+  // Open preview dialog for a service
+  const openImagePreview = (result: GenerationResult) => {
+    setSelectedImage(result);
+    setPreviewDialogOpen(true);
   };
 
   // Use the new backfill function that updates GitHub directly
@@ -467,18 +538,50 @@ export const HeroImageGenerator: React.FC = () => {
         )}
 
         <div className="grid md:grid-cols-2 gap-6">
-          {/* Services */}
+          {/* Services with image thumbnails */}
           <div>
             <h3 className="font-semibold mb-3 flex items-center gap-2">
               <Building2 className="w-4 h-4" />
               Services ({serviceResults.filter(r => r.status === 'success' || r.status === 'has_image').length}/{serviceResults.length})
             </h3>
-            <div className="space-y-2 max-h-64 overflow-y-auto">
+            <div className="space-y-2 max-h-[500px] overflow-y-auto">
               {serviceResults.map((result) => (
-                <div key={result.slug} className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
-                  {getStatusIcon(result.status)}
-                  <span className="text-sm flex-1 truncate">{result.name}</span>
-                  {getStatusBadge(result.status)}
+                <div key={result.slug} className="flex items-center gap-3 p-2 bg-muted/50 rounded-lg hover:bg-muted/70 transition-colors">
+                  {/* Image thumbnail */}
+                  <div
+                    className="w-16 h-12 rounded overflow-hidden bg-gray-200 flex-shrink-0 cursor-pointer hover:ring-2 hover:ring-primary"
+                    onClick={() => openImagePreview(result)}
+                  >
+                    {result.imageUrl ? (
+                      <img
+                        src={result.imageUrl}
+                        alt={result.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <ImageIcon className="w-6 h-6 text-gray-400" />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <span className="text-sm font-medium truncate block">{result.name}</span>
+                    <div className="flex items-center gap-1 mt-0.5">
+                      {getStatusIcon(result.status)}
+                      {getStatusBadge(result.status)}
+                    </div>
+                  </div>
+
+                  {/* Edit/Upload button */}
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => openImagePreview(result)}
+                    className="flex-shrink-0"
+                  >
+                    <Pencil className="w-4 h-4" />
+                  </Button>
                 </div>
               ))}
               {serviceResults.length === 0 && (
@@ -560,6 +663,109 @@ export const HeroImageGenerator: React.FC = () => {
             </pre>
           </div>
         )}
+
+        {/* Hidden file input for uploads */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleImageUpload}
+          accept="image/*"
+          className="hidden"
+        />
+
+        {/* Image Preview/Edit Dialog */}
+        <Dialog open={previewDialogOpen} onOpenChange={setPreviewDialogOpen}>
+          <DialogContent className="max-w-2xl">
+            <DialogHeader>
+              <DialogTitle className="flex items-center gap-2">
+                <ImageIcon className="w-5 h-5" />
+                {selectedImage?.name} - Hero Image
+              </DialogTitle>
+              <DialogDescription>
+                Preview, upload a new image, or regenerate with AI
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="space-y-4">
+              {/* Current Image Preview */}
+              <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                {selectedImage?.imageUrl ? (
+                  <img
+                    src={selectedImage.imageUrl}
+                    alt={selectedImage.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center text-gray-400">
+                    <ImageIcon className="w-16 h-16 mb-2" />
+                    <p>No image yet</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={isUploading}
+                  className="flex-1"
+                >
+                  {isUploading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Uploading...
+                    </>
+                  ) : (
+                    <>
+                      <Upload className="w-4 h-4 mr-2" />
+                      Upload New Image
+                    </>
+                  )}
+                </Button>
+
+                <Button
+                  variant="outline"
+                  onClick={async () => {
+                    if (!selectedImage) return;
+                    const index = serviceResults.findIndex(s => s.slug === selectedImage.slug);
+                    if (index >= 0) {
+                      setPreviewDialogOpen(false);
+                      await generateServiceImage(selectedImage, index);
+                      // Refresh selected image with new URL
+                      const updated = serviceResults.find(s => s.slug === selectedImage.slug);
+                      if (updated) setSelectedImage(updated);
+                    }
+                  }}
+                  disabled={isGenerating || isUploading}
+                  className="flex-1"
+                >
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Regenerate with AI
+                </Button>
+              </div>
+
+              {/* Tips */}
+              <Alert>
+                <AlertTriangle className="w-4 h-4" />
+                <AlertTitle>Tips for best results</AlertTitle>
+                <AlertDescription className="text-sm">
+                  <ul className="list-disc list-inside space-y-1 mt-1">
+                    <li>Use <strong>Nano Banana Gemini</strong> to generate perfect images with your logo</li>
+                    <li>Prompt: "Add the second logo to all places where you see the first logo"</li>
+                    <li>Upload the result here - it will sync to Supabase and GitHub automatically</li>
+                  </ul>
+                </AlertDescription>
+              </Alert>
+
+              {/* Current URL */}
+              {selectedImage?.imageUrl && (
+                <div className="text-xs text-muted-foreground break-all p-2 bg-muted rounded">
+                  <strong>Current URL:</strong> {selectedImage.imageUrl}
+                </div>
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
       </CardContent>
     </Card>
   );
