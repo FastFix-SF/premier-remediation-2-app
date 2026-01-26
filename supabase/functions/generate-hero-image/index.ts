@@ -46,12 +46,21 @@ MAIN SUBJECT - ${service.name.toUpperCase()}:
 - Industrial-grade equipment with company branding visible
 - Active work scene - not posed, looks candid and real
 
-CRITICAL BRANDING ELEMENTS (make these prominent and readable):
-- Company work truck/van parked nearby with "${businessName || 'Premier Remediation'}" logo on the side
-- Workers wearing polo shirts or safety vests with company logo
-- Equipment cases, dehumidifiers, or tool boxes with company stickers
-- A-frame sign or door hanger visible with company name
-- Clipboard or tablet showing company paperwork
+COMPANY BRANDING - "${businessName || 'Premier Remediation'}" - USE THIS EXACT LOGO DESIGN:
+The company logo is a CIRCULAR BADGE with:
+- The words "PREMIER" at the top curved along the circle
+- The words "REMEDIATION" at the bottom curved along the circle
+- Inside the circle: a BLUE WATER DROPLET on the left and RED/ORANGE FLAMES on the right
+- Small white stars decorating the design
+- Red and white stripes at the bottom (American flag style)
+- Colors: Navy blue, red, white, with blue and orange/red for the water and fire icons
+
+PLACE THIS LOGO NATURALLY ON:
+- The side of a white work van/truck (large, prominent, readable)
+- Worker uniforms (polo shirts or safety vests)
+- Equipment cases and tool boxes
+- Any visible flyers, door hangers, or signage
+- The logo should look like real vinyl graphics/embroidery, not photoshopped
 
 ATMOSPHERE & LIGHTING:
 - Documentary/editorial photography style - looks like a real job site photo
@@ -65,7 +74,7 @@ STYLE REFERENCE:
 - Photo-journalistic quality - not overly staged
 - High resolution, sharp focus on workers and branding
 
-The image should look 100% like a real photograph from an actual ${service.name} job, with the company branding naturally integrated so viewers believe this is the actual company doing real work.
+The image should look 100% like a real photograph from an actual ${service.name} job. The company branding with the circular water/fire logo should be clearly visible and look like authentic business branding, not added digitally.
 `;
 
 // Area/City image prompt - with specific local landmarks
@@ -311,33 +320,8 @@ serve(async (req) => {
           imageBlob = await imageResponse.blob();
         }
 
-        // Add watermark if logo URL is provided
-        // Service images get a LARGER, more prominent logo (like branding on a truck)
-        // Area/neighborhood images get a smaller corner watermark
-        if (addWatermarkLogo && logoUrl) {
-          console.log('Adding watermark with logo:', logoUrl);
-          try {
-            const watermarkSettings = type === 'service'
-              ? {
-                  position: 'bottom-right' as const,
-                  opacity: 0.95, // Almost fully opaque for services
-                  scale: 0.25,   // 25% of image width - much more prominent
-                  padding: 40
-                }
-              : {
-                  position: 'bottom-right' as const,
-                  opacity: 0.7,  // Semi-transparent for areas
-                  scale: 0.12,   // 12% - subtle watermark
-                  padding: 25
-                };
-
-            imageBlob = await addWatermark(imageBlob, logoUrl, watermarkSettings);
-            console.log(`Watermark added successfully (${type} style)`);
-          } catch (watermarkError) {
-            console.error('Failed to add watermark, continuing without:', watermarkError);
-            // Continue with original image if watermarking fails
-          }
-        }
+        // No watermark overlay - branding is included naturally in the AI-generated image
+        // via the prompt (on vans, uniforms, equipment, flyers, etc.)
 
         // Upload to Supabase Storage
         const fileName = `${type}-hero-${recordId}-${Date.now()}.png`;
