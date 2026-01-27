@@ -1,263 +1,163 @@
 [
   {
-    "id": "trenchless-services",
-    "name": "Trenchless Pipe Repair",
-    "slug": "trenchless-pipe-repair",
-    "shortDescription": "Minimally invasive pipe restoration using advanced CIPP technology to repair damaged pipelines without excavation.",
-    "longDescription": "Our trenchless pipe repair services allow damaged pipelines to be relined and returned to service instead of being dug up and fully replaced. This minimally invasive approach uses existing valve or connection points to insert a liner that hardens into a durable material, improving structural integrity, sealing leaks, and blocking tree roots. Perfect for commercial sites with landscaping or paving where excavation would be highly disruptive.",
-    "icon": "pipe-repair",
-    "image": "/images/trenchless-repair.jpg",
-    "benefits": [
-      "No excavation required",
-      "Minimal property disruption",
-      "Preserves landscaping and paving",
-      "Blocks tree root intrusion",
-      "Seals existing leaks",
-      "Improves structural integrity"
-    ],
-    "process": [
-      "Site assessment and access point identification",
-      "Video inspection to assess pipe condition",
-      "Liner preparation and insertion",
-      "Curing process to harden liner",
-      "Final inspection and testing"
-    ],
-    "faqs": [
-      {
-        "question": "What is trenchless pipe repair?",
-        "answer": "Trenchless repair can restore cracked or separated pipelines by placing a new liner inside the existing pipe, avoiding major digging and property damage."
-      },
-      {
-        "question": "Does trenchless help prevent future leaks and root intrusion?",
-        "answer": "Yes, the liner hardens into a durable material that can seal leaks and block out tree roots from entering the pipe system."
-      }
-    ],
-    "seoKeywords": [
-      "trenchless pipe repair",
-      "CIPP",
-      "cure in place pipe",
-      "SIPP",
-      "pipe bursting",
-      "sewer rehabilitation",
-      "gas line repair",
-      "water line repair",
-      "manhole rehabilitation"
-    ],
-    "isFeatured": true
+    "id": "981804f4-6b2e-4aa1-9ee4-1f6982c48043",
+    "name": "Water Damage Mitigation",
+    "slug": "water-damage-mitigation",
+    "shortDescription": "Rapid response water extraction and structural drying to prevent secondary damage and restore your property.",
+    "longDescription": "Water damage can strike without warning—from burst pipes and appliance failures to storm flooding and sewage backups. Premier Remediation 2 provides 24/7 emergency water damage mitigation services throughout the Bay Area, responding within hours to minimize damage and protect your property investment.\n\nOur certified technicians use advanced moisture detection equipment to identify hidden water intrusion in walls, floors, and ceilings. We deploy industrial-grade extraction equipment and strategic drying systems to remove standing water and restore proper humidity levels, preventing mold growth and structural deterioration.\n\nEvery water damage event is unique, which is why we customize our approach based on the water category (clean, gray, or black water), the extent of saturation, and the materials affected. We document everything thoroughly for insurance purposes and work directly with adjusters to streamline your claims process.",
+    "icon": "Droplets",
+    "image": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200",
+    "benefits": [],
+    "process": [],
+    "faqs": [],
+    "seoKeywords": [],
+    "seoTitle": "",
+    "seoDescription": "",
+    "priceRange": "",
+    "duration": "",
+    "isFeatured": true,
+    "sortOrder": 0,
+    "aeoSummary": "",
+    "aeoKeyPoints": [],
+    "aeoConversationalAnswer": ""
   },
   {
-    "id": "sewer-services",
-    "name": "Commercial Sewer Services",
-    "slug": "commercial-sewer-services",
-    "shortDescription": "Comprehensive sewer repair and maintenance services including emergency response, video inspection, and hydro jetting.",
-    "longDescription": "Our sewer services address common issues caused by age, poor maintenance, tree roots, pipe separation, crushing, and improper disposal of fats, grease, and debris. We respond to warning signs like slow drains, gurgling pipes, odors, and water damage with comprehensive solutions including emergency response available nights, weekends, and holidays.",
-    "icon": "sewer",
-    "image": "/images/sewer-services.jpg",
-    "benefits": [
-      "24/7 emergency response",
-      "Advanced video camera inspection",
-      "Professional hydro jetting",
-      "Root removal capabilities",
-      "Modern piping and repiping",
-      "Prevents costly water damage"
-    ],
-    "process": [
-      "Emergency response and assessment",
-      "Video camera inspection",
-      "Problem diagnosis and solution planning",
-      "Hydro jetting or repair implementation",
-      "System testing and verification"
-    ],
-    "faqs": [
-      {
-        "question": "What are common signs of sewer problems?",
-        "answer": "Warning signs include slow drains, gurgling or noisy pipes, bad odors, and even mold, damp spots, or water damage in your property."
-      },
-      {
-        "question": "Do you provide emergency sewer services?",
-        "answer": "Yes, we provide emergency sewer response including nights, weekends, and holidays to address urgent sewer problems."
-      }
-    ],
-    "seoKeywords": [
-      "emergency sewer repair",
-      "video camera sewer inspection",
-      "commercial sewer services",
-      "sewer piping",
-      "sewer repiping",
-      "hydro jetting",
-      "root removal"
-    ],
-    "isFeatured": true
+    "id": "a253a82a-30e0-412e-a7f5-fd814c9dcd67",
+    "name": "Mold Remediation",
+    "slug": "mold-remediation",
+    "shortDescription": "Professional mold removal and prevention using containment protocols and HEPA filtration systems.",
+    "longDescription": "Mold growth is more than an aesthetic problem—it poses serious health risks and can cause significant structural damage if left untreated. Premier Remediation 2 provides comprehensive mold remediation services that address both visible mold and hidden colonies, ensuring your property is safe and healthy.\n\nOur IICRC-certified technicians begin every project with a thorough inspection and assessment, often using thermal imaging and moisture meters to detect hidden mold behind walls and under flooring. We then develop a customized remediation plan that includes proper containment, HEPA air filtration, and safe removal of contaminated materials.\n\nWe don't just remove mold—we address the underlying moisture issues that caused it in the first place. Our team provides detailed recommendations for preventing future mold growth, and we can coordinate with contractors for any necessary repairs to plumbing, roofing, or HVAC systems.",
+    "icon": "Shield",
+    "image": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200",
+    "benefits": [],
+    "process": [],
+    "faqs": [],
+    "seoKeywords": [],
+    "seoTitle": "",
+    "seoDescription": "",
+    "priceRange": "",
+    "duration": "",
+    "isFeatured": true,
+    "sortOrder": 1,
+    "aeoSummary": "",
+    "aeoKeyPoints": [],
+    "aeoConversationalAnswer": ""
   },
   {
-    "id": "hydro-jetting",
-    "name": "Hydro Jetting Services",
-    "slug": "hydro-jetting-services",
-    "shortDescription": "High-pressure water cleaning service using 1,500-4,000 PSI to remove clogs and debris from pipe walls.",
-    "longDescription": "Our hydro jetting service uses high-pressure water cleaning through specialized hoses to force out clogs and debris from pipe walls. With pressures typically ranging from 1,500 to 4,000 PSI, this method provides superior cleaning compared to traditional snaking with close to nil chances of recurring clogs. Effective for both residential and commercial systems including sewer lines, drain pipes, kitchen sinks, bathroom drains, and outdoor sewer lines.",
-    "icon": "water-pressure",
-    "image": "/images/hydro-jetting.jpg",
-    "benefits": [
-      "Superior cleaning power (1,500-4,000 PSI)",
-      "Prevents recurring clogs",
-      "Safe for pipe systems",
-      "Environmentally friendly",
-      "Works on all drain types",
-      "Removes stubborn blockages"
-    ],
-    "process": [
-      "Initial inspection and assessment",
-      "Equipment setup and safety preparation",
-      "High-pressure water application",
-      "Debris removal and flushing",
-      "Final inspection and testing"
-    ],
-    "faqs": [
-      {
-        "question": "How does hydro jetting work?",
-        "answer": "Hydro jetting pumps water at high pressure (often 1,500–4,000 PSI) to break up and flush blockages, restoring proper flow through your pipes."
-      },
-      {
-        "question": "Is hydro jetting good for commercial properties?",
-        "answer": "Yes, hydro jetting is highly effective for both residential and commercial systems and can be used across many drain and sewer lines."
-      }
-    ],
-    "seoKeywords": [
-      "hydro jetting",
-      "high pressure drain cleaning",
-      "commercial drain cleaning",
-      "pipe cleaning",
-      "clog removal",
-      "drain maintenance"
-    ],
-    "isFeatured": true
+    "id": "8769bac1-02bb-4994-8eb3-100f05f422d0",
+    "name": "Fire & Smoke Damage Cleanup",
+    "slug": "fire-smoke-damage",
+    "shortDescription": "Complete fire damage restoration including smoke odor removal, soot cleaning, and structural rehabilitation.",
+    "longDescription": "Fire damage extends far beyond what flames directly touch. Smoke, soot, and water from firefighting efforts can cause extensive secondary damage throughout your property. Premier Remediation 2 provides comprehensive fire and smoke damage cleanup services that restore your property to its pre-loss condition.\n\nOur fire damage restoration process begins with securing your property and assessing the full extent of damage from flames, smoke, soot, and water. We use specialized equipment and techniques to remove soot from surfaces, neutralize smoke odors, and clean or dispose of damaged contents safely.\n\nSmoke damage is particularly insidious—it can penetrate walls, ductwork, and soft materials, leaving persistent odors and health hazards if not properly addressed. Our team uses thermal fogging, ozone treatment, and hydroxyl generators to eliminate smoke odors at the molecular level, not just mask them.",
+    "icon": "Flame",
+    "image": "https://images.unsplash.com/photo-1486162928267-e6274cb3106f?w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1486162928267-e6274cb3106f?w=1200",
+    "benefits": [],
+    "process": [],
+    "faqs": [],
+    "seoKeywords": [],
+    "seoTitle": "",
+    "seoDescription": "",
+    "priceRange": "",
+    "duration": "",
+    "isFeatured": true,
+    "sortOrder": 2,
+    "aeoSummary": "",
+    "aeoKeyPoints": [],
+    "aeoConversationalAnswer": ""
   },
   {
-    "id": "commercial-drain-cleaning",
-    "name": "Commercial Drain Cleaning",
-    "slug": "commercial-drain-cleaning",
-    "shortDescription": "Professional drain cleaning services for commercial properties with video inspection and preventative maintenance options.",
-    "longDescription": "Even minor clogs can disrupt commercial operations. Our commercial drain cleaning services address warning signs like gurgling sounds, bad smells, and slow drainage. When clogs aren't immediately clear, we use video camera inspection to determine size, location, and composition. We discourage DIY methods to avoid pipe damage and chemical exposure, using proper professional tools and methods instead.",
-    "icon": "drain-cleaning",
-    "image": "/images/commercial-drain-cleaning.jpg",
-    "benefits": [
-      "Prevents operational disruptions",
-      "Video camera diagnostics",
-      "Professional tools and methods",
-      "Preventative maintenance available",
-      "Avoids pipe damage from DIY attempts",
-      "Safe chemical-free cleaning"
-    ],
-    "process": [
-      "Problem assessment and diagnosis",
-      "Video camera inspection if needed",
-      "Professional cleaning method selection",
-      "Thorough cleaning and clearing",
-      "Preventative maintenance scheduling"
-    ],
-    "faqs": [
-      {
-        "question": "How do you locate and diagnose a drain clog?",
-        "answer": "If the problem isn't clear, we can perform a video camera inspection to determine the clog's size, location, and composition."
-      },
-      {
-        "question": "Do you offer preventative drain maintenance?",
-        "answer": "Yes, we can inspect and hydro jet lines to reduce future issues even if you aren't currently experiencing clogs."
-      }
-    ],
-    "seoKeywords": [
-      "commercial drain cleaning",
-      "video camera inspection",
-      "drain maintenance",
-      "clog removal",
-      "preventative drain care"
-    ],
-    "isFeatured": false
+    "id": "32ee7c02-b5c9-4b2d-a2f9-256b542bd020",
+    "name": "Asbestos & Lead Abatement",
+    "slug": "asbestos-lead-abatement",
+    "shortDescription": "Licensed hazardous material removal following EPA and Cal/OSHA regulations for safe property remediation.",
+    "longDescription": "Properties built before 1980 often contain asbestos insulation, lead paint, or other hazardous materials that require specialized handling during renovation or remediation projects. Premier Remediation 2 is fully licensed and certified to safely identify, contain, and remove these dangerous materials in compliance with all federal, state, and local regulations.\n\nOur certified abatement professionals follow strict protocols established by the EPA, Cal/OSHA, and Bay Area Air Quality Management District. We use advanced containment systems, personal protective equipment, and HEPA filtration to protect workers, occupants, and the environment during removal operations.\n\nWe handle the complete abatement process from initial testing through final clearance, including proper documentation for regulatory compliance and property records. Our team works efficiently to minimize disruption while ensuring every safety standard is met or exceeded.",
+    "icon": "AlertTriangle",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200",
+    "benefits": [],
+    "process": [],
+    "faqs": [],
+    "seoKeywords": [],
+    "seoTitle": "",
+    "seoDescription": "",
+    "priceRange": "",
+    "duration": "",
+    "isFeatured": false,
+    "sortOrder": 3,
+    "aeoSummary": "",
+    "aeoKeyPoints": [],
+    "aeoConversationalAnswer": ""
   },
   {
-    "id": "commercial-plumbing",
-    "name": "Commercial Plumbing Services",
-    "slug": "commercial-plumbing-services",
-    "shortDescription": "Comprehensive commercial plumbing services including emergency repairs, fixture installation, and maintenance.",
-    "longDescription": "Our commercial plumbing services cover a broad range of work including emergency plumbing for broken fixtures, damaged pipes, and backed-up drains. We handle fixture plumbing for kitchens, bathrooms, and utility rooms, along with specialized services like slab leak repair, gas line repair, and pressure reduction valves. Our team is equipped to handle toilet repairs, leak detection, faucet and sink repairs, and garbage disposal replacement.",
-    "icon": "plumbing",
-    "image": "/images/commercial-plumbing.jpg",
-    "benefits": [
-      "24/7 emergency plumbing response",
-      "Complete fixture services",
-      "Leak detection and repair",
-      "Gas line repair capabilities",
-      "Slab leak specialists",
-      "Professional maintenance programs"
-    ],
-    "process": [
-      "Emergency response or scheduled service",
-      "Problem assessment and diagnosis",
-      "Solution planning and approval",
-      "Professional repair or installation",
-      "System testing and verification"
-    ],
-    "faqs": [
-      {
-        "question": "What commercial plumbing emergencies do you handle?",
-        "answer": "We handle emergency plumbing including broken fixtures, damaged pipes, backed-up drains, and other urgent plumbing issues 24/7."
-      },
-      {
-        "question": "Do you provide ongoing plumbing maintenance?",
-        "answer": "Yes, we offer comprehensive plumbing maintenance programs to prevent issues and keep your commercial plumbing systems running smoothly."
-      }
-    ],
-    "seoKeywords": [
-      "commercial plumbing",
-      "emergency plumbing",
-      "fixture installation",
-      "leak repair",
-      "slab leak repair",
-      "gas line repair",
-      "plumbing maintenance"
-    ],
-    "isFeatured": false
+    "id": "3b852350-a0d1-4a6b-beec-a65b5bad8cf1",
+    "name": "Clearance & Verification Support",
+    "slug": "clearance-verification",
+    "shortDescription": "Third-party testing coordination and documentation for regulatory compliance and project sign-off.",
+    "longDescription": "Successful remediation projects require proper documentation and third-party verification to satisfy regulatory requirements, insurance claims, and due diligence obligations. Premier Remediation 2 provides comprehensive clearance and verification support to ensure your project meets all applicable standards.\n\nWe coordinate with accredited third-party testing laboratories to conduct post-remediation verification sampling for mold, asbestos, lead, and other contaminants. Our team understands the specific clearance criteria for different regulatory frameworks and can guide you through the requirements for your situation.\n\nWhether you need clearance testing for a real estate transaction, tenant re-occupancy, or regulatory compliance, we provide the documentation and support you need. We maintain detailed records of all remediation activities and can provide comprehensive reports for property files, insurance claims, and legal proceedings.",
+    "icon": "CheckCircle",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200",
+    "benefits": [],
+    "process": [],
+    "faqs": [],
+    "seoKeywords": [],
+    "seoTitle": "",
+    "seoDescription": "",
+    "priceRange": "",
+    "duration": "",
+    "isFeatured": false,
+    "sortOrder": 4,
+    "aeoSummary": "",
+    "aeoKeyPoints": [],
+    "aeoConversationalAnswer": ""
   },
   {
-    "id": "commercial-water-heater",
-    "name": "Commercial Water Heater Services",
-    "slug": "commercial-water-heater-services",
-    "shortDescription": "Commercial water heater installation, repair, and replacement for restaurants, hotels, offices, and industrial facilities.",
-    "longDescription": "Commercial water heater reliability is critical for restaurants, hotels, office buildings, manufacturers, and heavy industry. We address common issues like sedimentation, mechanical failure, damaged connections, and hard-water impact on lifespan and efficiency. With expected service life of 10-20 years, units over 20 years may become less efficient and need frequent repairs, making replacement often recommended.",
-    "icon": "water-heater",
-    "image": "/images/commercial-water-heater.jpg",
-    "benefits": [
-      "Critical system reliability",
-      "Expert sizing and selection",
-      "Handles all commercial applications",
-      "Addresses hard water issues",
-      "Expansion planning support",
-      "Manufacturer expertise"
-    ],
-    "process": [
-      "System assessment and inspection",
-      "Problem diagnosis or sizing needs",
-      "Equipment selection and planning",
-      "Professional installation or repair",
-      "System testing and commissioning"
-    ],
-    "faqs": [
-      {
-        "question": "When should a commercial water heater be replaced?",
-        "answer": "Expected service life is about 10–20 years. Units over 20 years may become less efficient and need frequent repairs, so replacement is often recommended."
-      },
-      {
-        "question": "We're expanding—do we need to upgrade our water heater?",
-        "answer": "Expansion may require a new unit or adding a second heater if demand exceeds your current system's capacity."
-      }
-    ],
-    "seoKeywords": [
-      "commercial water heater",
-      "water heater replacement",
-      "commercial water heater repair",
-      "water heater installation",
-      "industrial water heater"
-    ],
-    "isFeatured": false
+    "id": "01401e0b-7910-4911-a072-a3f43558e12b",
+    "name": "Commercial Property Remediation",
+    "slug": "commercial-remediation",
+    "shortDescription": "Large-scale remediation services for offices, retail, industrial facilities, and multi-tenant buildings.",
+    "longDescription": "Commercial properties face unique challenges when disaster strikes. Business interruption, tenant obligations, regulatory compliance, and stakeholder communication all add complexity to an already stressful situation. Premier Remediation 2 specializes in commercial remediation projects that minimize downtime and protect your business interests.\n\nOur commercial team has extensive experience with office buildings, retail centers, industrial facilities, healthcare facilities, and multi-tenant properties throughout the Bay Area. We understand the importance of maintaining business operations during remediation and can often work in phases or during off-hours to minimize disruption.\n\nWe work directly with property managers, building owners, and insurance representatives to develop remediation plans that address technical requirements while meeting business objectives. Our detailed documentation and communication protocols keep all stakeholders informed throughout the project.",
+    "icon": "Building",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200",
+    "benefits": [],
+    "process": [],
+    "faqs": [],
+    "seoKeywords": [],
+    "seoTitle": "",
+    "seoDescription": "",
+    "priceRange": "",
+    "duration": "",
+    "isFeatured": false,
+    "sortOrder": 5,
+    "aeoSummary": "",
+    "aeoKeyPoints": [],
+    "aeoConversationalAnswer": ""
+  },
+  {
+    "id": "42958fbc-624e-48b5-9beb-00d73c2bd7fc",
+    "name": "Multifamily Property Remediation",
+    "slug": "multifamily-remediation",
+    "shortDescription": "Specialized remediation for apartment complexes and HOAs with minimal tenant disruption.",
+    "longDescription": "Multifamily properties present special challenges for remediation projects. Tenant rights, habitability requirements, and the need to coordinate across multiple units require a specialized approach. Premier Remediation 2 has extensive experience working with apartment complexes, condominiums, and HOA-managed properties throughout the Bay Area.\n\nWe understand the legal and practical considerations involved in multifamily remediation, from proper tenant notification to temporary relocation coordination. Our team works closely with property managers and HOA boards to develop remediation plans that minimize tenant disruption while meeting all regulatory requirements.\n\nOur multifamily services include unit-by-unit assessments, coordinated remediation scheduling, and clear communication with affected residents. We document everything thoroughly to protect property owners and managers from liability while ensuring tenants' health and safety concerns are properly addressed.",
+    "icon": "Home",
+    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200",
+    "benefits": [],
+    "process": [],
+    "faqs": [],
+    "seoKeywords": [],
+    "seoTitle": "",
+    "seoDescription": "",
+    "priceRange": "",
+    "duration": "",
+    "isFeatured": false,
+    "sortOrder": 6,
+    "aeoSummary": "",
+    "aeoKeyPoints": [],
+    "aeoConversationalAnswer": ""
   }
 ]
