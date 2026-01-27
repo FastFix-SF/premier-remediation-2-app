@@ -208,15 +208,13 @@ async function createVercelDeployment(
   }
 }
 
-// Step 4: Update business config in the new repo
+// Step 4: Update business config in the new repo (this also triggers Vercel deployment)
 async function updateBusinessConfig(
   token: string,
   owner: string,
   repo: string,
   config: ProvisionRequest['businessConfig']
 ): Promise<boolean> {
-  if (!config) return true;
-
   try {
     // Fetch current business.json
     const getResponse = await fetch(
@@ -229,18 +227,22 @@ async function updateBusinessConfig(
       }
     );
 
-    if (!getResponse.ok) return false;
+    if (!getResponse.ok) {
+      console.error('Failed to fetch business.json:', await getResponse.text());
+      return false;
+    }
 
     const fileData = await getResponse.json();
     const currentContent = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
 
-    // Merge new config
+    // Merge new config (or just update timestamp to trigger deployment)
     const updatedContent = {
       ...currentContent,
-      ...config
+      ...config,
+      _deployedAt: new Date().toISOString()  // This ensures a commit even if no config changes
     };
 
-    // Update the file
+    // Update the file - this commit will trigger Vercel deployment
     const updateResponse = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/contents/src/config/business.json`,
       {
@@ -251,7 +253,7 @@ async function updateBusinessConfig(
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: '[FastFix] Initialize business config',
+          message: '[FastFix] Initialize business - trigger first deployment',
           content: btoa(JSON.stringify(updatedContent, null, 2)),
           sha: fileData.sha,
           branch: 'main'
@@ -259,9 +261,69 @@ async function updateBusinessConfig(
       }
     );
 
+    if (!updateResponse.ok) {
+      console.error('Failed to update business.json:', await updateResponse.text());
+    }
+
     return updateResponse.ok;
   } catch (err) {
     console.error('Failed to update business config:', err);
+    return false;
+  }
+}
+
+// Trigger deployment by pushing a commit (backup method)
+async function triggerDeploymentCommit(
+  token: string,
+  owner: string,
+  repo: string
+): Promise<boolean> {
+  try {
+    // Create or update a deployment trigger file
+    const triggerContent = {
+      deployedAt: new Date().toISOString(),
+      triggeredBy: 'FastFix Provisioning'
+    };
+
+    // Check if file exists
+    const getResponse = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/.fastfix-deploy`,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json',
+        }
+      }
+    );
+
+    let sha: string | undefined;
+    if (getResponse.ok) {
+      const fileData = await getResponse.json();
+      sha = fileData.sha;
+    }
+
+    // Create/update the trigger file
+    const updateResponse = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/.fastfix-deploy`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: '[FastFix] Trigger initial deployment',
+          content: btoa(JSON.stringify(triggerContent, null, 2)),
+          ...(sha && { sha }),
+          branch: 'main'
+        })
+      }
+    );
+
+    return updateResponse.ok;
+  } catch (err) {
+    console.error('Failed to trigger deployment commit:', err);
     return false;
   }
 }
@@ -353,10 +415,14 @@ serve(async (req) => {
     // Wait for repo to be ready
     await new Promise(resolve => setTimeout(resolve, 5000));
 
-    // Update business config in new repo
-    if (request.businessConfig) {
-      console.log('Updating business config...');
-      await updateBusinessConfig(GITHUB_TOKEN, templateOwner, newRepoName, request.businessConfig);
+    // Update business config in new repo (this will trigger the first Vercel deployment)
+    console.log('Updating business config and triggering deployment...');
+    const configUpdated = await updateBusinessConfig(GITHUB_TOKEN, templateOwner, newRepoName, request.businessConfig);
+
+    if (!configUpdated) {
+      // Fallback: trigger deployment with a separate commit
+      console.log('Config update failed, triggering deployment via commit...');
+      await triggerDeploymentCommit(GITHUB_TOKEN, templateOwner, newRepoName);
     }
 
     // Step 2: Create Supabase project
