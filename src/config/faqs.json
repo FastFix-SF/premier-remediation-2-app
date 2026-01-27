@@ -1,62 +1,92 @@
 [
   {
-    "id": "trenchless-what-is",
-    "question": "What is trenchless pipe repair?",
-    "answer": "Trenchless repair can restore cracked or separated pipelines by placing a new liner inside the existing pipe, avoiding major digging and property damage.",
-    "category": "trenchless"
+    "id": "ce4d3ce9-d1b3-46f1-b6c9-5780c6709146",
+    "question": "What should I do immediately after discovering water damage?",
+    "answer": "First, ensure safety by turning off electricity to affected areas if water levels are significant. Stop the water source if possible (shut off main valve for pipe breaks). Then call us immediately—fast response is critical to prevent mold growth and minimize damage. While waiting, move valuable items to dry areas and avoid walking on wet carpets, which can push water deeper into the padding.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 0,
+    "serviceId": null
   },
   {
-    "id": "trenchless-prevents-leaks",
-    "question": "Does trenchless help prevent future leaks and root intrusion?",
-    "answer": "Yes, the liner hardens into a durable material that can seal leaks and block out tree roots from entering the pipe system.",
-    "category": "trenchless"
+    "id": "777cd4f5-1671-4a64-9d7d-e2d5c971fa8d",
+    "question": "How quickly can mold develop after water damage?",
+    "answer": "Mold can begin growing within 24-48 hours in the right conditions. That's why rapid water extraction and thorough drying are so critical. Our team responds quickly and uses professional-grade dehumidifiers and air movers to reduce moisture levels before mold has a chance to establish. If water damage isn't addressed within the first few days, mold remediation may become necessary.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 1,
+    "serviceId": null
   },
   {
-    "id": "hydro-jetting-how-works",
-    "question": "How does hydro jetting work?",
-    "answer": "Hydro jetting pumps water at high pressure (often 1,500–4,000 PSI) to break up and flush blockages, restoring proper flow through your pipes.",
-    "category": "hydro-jetting"
+    "id": "9eb86af1-c789-4357-ac62-55e4f7e2e451",
+    "question": "What is the mold remediation process?",
+    "answer": "Our mold remediation process includes: 1) Thorough inspection and moisture assessment, 2) Containment of affected areas to prevent spore spread, 3) HEPA air filtration to capture airborne spores, 4) Removal of mold-contaminated materials, 5) Cleaning and treatment of salvageable surfaces, 6) Drying and dehumidification, 7) Third-party clearance testing to verify success. We also address the moisture source that caused the mold.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 2,
+    "serviceId": null
   },
   {
-    "id": "hydro-jetting-commercial",
-    "question": "Is hydro jetting good for commercial properties?",
-    "answer": "Yes, hydro jetting is highly effective for both residential and commercial systems and can be used across many drain and sewer lines.",
-    "category": "hydro-jetting"
+    "id": "9e1f0c63-34d3-44f5-bd4d-eb94bddfa1d1",
+    "question": "Can I stay in my home or building during remediation?",
+    "answer": "It depends on the scope of work. For small, contained projects, occupants can often remain in unaffected areas. For larger remediation projects—especially those involving mold, asbestos, or extensive water damage—temporary relocation may be recommended or required for safety. We'll assess your specific situation and provide clear guidance. For commercial properties, we often work in phases or after hours to minimize business disruption.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 3,
+    "serviceId": null
   },
   {
-    "id": "drain-cleaning-diagnosis",
-    "question": "How do you locate and diagnose a drain clog?",
-    "answer": "If the problem isn't clear, we can perform a video camera inspection to determine the clog's size, location, and composition.",
-    "category": "drain-cleaning"
+    "id": "23c12ea8-33cc-4173-b758-a736bdc007e5",
+    "question": "What is asbestos abatement and when is it needed?",
+    "answer": "Asbestos abatement is the safe removal or encapsulation of asbestos-containing materials. It's required when asbestos materials are damaged, deteriorating, or will be disturbed by renovation or demolition. Common locations include pipe insulation, floor tiles, popcorn ceilings, and roofing materials in buildings constructed before 1980. We follow strict EPA and Cal/OSHA protocols and coordinate third-party testing for clearance.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 4,
+    "serviceId": null
   },
   {
-    "id": "drain-cleaning-preventative",
-    "question": "Do you offer preventative drain maintenance?",
-    "answer": "Yes, we can inspect and hydro jet lines to reduce future issues even if you aren't currently experiencing clogs.",
-    "category": "drain-cleaning"
+    "id": "ef4b74f0-933c-4122-ae4f-18859cb65523",
+    "question": "How long does fire and smoke damage cleanup take?",
+    "answer": "Timeline varies significantly based on the extent of damage. Minor smoke damage in one room might be resolved in a few days, while major fire damage could require weeks or months of restoration work. We'll provide a detailed timeline estimate after our initial assessment. Key factors include the size of affected area, types of materials damaged, presence of structural damage, and coordination required with other contractors.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 5,
+    "serviceId": null
   },
   {
-    "id": "water-heater-replacement",
-    "question": "When should a commercial water heater be replaced?",
-    "answer": "Expected service life is about 10–20 years. Units over 20 years may become less efficient and need frequent repairs, so replacement is often recommended.",
-    "category": "water-heater"
+    "id": "d59e9009-1c70-4419-a3ec-20959fa20396",
+    "question": "Do you work with insurance companies?",
+    "answer": "Yes, we work with all major insurance carriers and have extensive experience navigating the claims process. We document everything thoroughly—including photos, moisture readings, and detailed scope of work—to support your claim. We can communicate directly with your adjuster and provide the documentation they need. While we work to maximize your coverage, we always maintain our role as your advocate, not the insurance company's.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 6,
+    "serviceId": null
   },
   {
-    "id": "water-heater-expansion",
-    "question": "We're expanding—do we need to upgrade our water heater?",
-    "answer": "Expansion may require a new unit or adding a second heater if demand exceeds your current system's capacity.",
-    "category": "water-heater"
+    "id": "52597d17-86bd-4fd1-9376-b67699582892",
+    "question": "What areas do you serve in the Bay Area?",
+    "answer": "Premier Remediation 2 serves the entire San Francisco Bay Area including San Francisco, Marin County, Alameda County (Oakland, Berkeley, Fremont), Contra Costa County (Walnut Creek, Concord), and Santa Clara County (San Jose, Palo Alto, Mountain View). We provide 24/7 emergency response throughout our service area with rapid response times.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 7,
+    "serviceId": null
   },
   {
-    "id": "emergency-services",
+    "id": "a7ef80e8-1f34-4928-a02e-3ffe8beab248",
     "question": "Do you provide 24/7 emergency services?",
-    "answer": "Yes, we provide emergency plumbing and sewer services 24/7, including nights, weekends, and holidays throughout the Bay Area.",
-    "category": "general"
+    "answer": "Yes, water damage and fire emergencies don't wait for business hours, and neither do we. Our emergency response team is available 24/7, 365 days a year. For water damage especially, rapid response is critical to minimize damage and prevent mold growth. Call our emergency line anytime, and we'll dispatch a team to your location as quickly as possible.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 8,
+    "serviceId": null
   },
   {
-    "id": "service-areas",
-    "question": "What areas do you serve?",
-    "answer": "We serve the Greater San Francisco Bay Area including San Francisco, Santa Clara County, Alameda County, Contra Costa County, and Marin County.",
-    "category": "general"
+    "id": "a5e8e2d4-1b58-4929-848e-be3b2f64aa7f",
+    "question": "What documentation do you provide for remediation projects?",
+    "answer": "We provide comprehensive documentation including: initial assessment reports with photos and moisture readings, detailed scope of work, daily progress logs, final completion reports, third-party clearance test results (when applicable), and all necessary compliance documentation for asbestos/lead projects. This documentation is essential for insurance claims, property records, real estate transactions, and regulatory compliance.",
+    "category": "general",
+    "isFeatured": false,
+    "sortOrder": 9,
+    "serviceId": null
   }
 ]
