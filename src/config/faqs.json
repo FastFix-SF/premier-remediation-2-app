@@ -1,83 +1,92 @@
 [
   {
-    "id": "7852ed1b-0dad-45cc-8aa4-11dcd5e44566",
-    "question": "What types of properties do you service?",
-    "answer": "Premier Remediation 2 primarily serves commercial and multifamily properties, including high-rises, hotels, retail establishments, restaurants, and other managed buildings. We specialize in understanding the unique needs and complexities of these larger-scale properties.",
+    "id": "ce4d3ce9-d1b3-46f1-b6c9-5780c6709146",
+    "question": "What should I do immediately after discovering water damage?",
+    "answer": "First, ensure safety by turning off electricity to affected areas if water levels are significant. Stop the water source if possible (shut off main valve for pipe breaks). Then call us immediately—fast response is critical to prevent mold growth and minimize damage. While waiting, move valuable items to dry areas and avoid walking on wet carpets, which can push water deeper into the padding.",
     "category": "general",
     "isFeatured": true,
     "sortOrder": 0,
     "serviceId": null
   },
   {
-    "id": "3d5a64e3-9996-47de-988c-9de74478f61b",
-    "question": "How quickly can you respond to a water damage emergency?",
-    "answer": "We understand the urgency of water damage. Our team is committed to rapid response, assessing the situation and initiating mitigation efforts as quickly as possible to prevent further damage and mold growth. Please contact us immediately for assistance.",
+    "id": "777cd4f5-1671-4a64-9d7d-e2d5c971fa8d",
+    "question": "How quickly can mold develop after water damage?",
+    "answer": "Mold can begin growing within 24-48 hours in the right conditions. That's why rapid water extraction and thorough drying are so critical. Our team responds quickly and uses professional-grade dehumidifiers and air movers to reduce moisture levels before mold has a chance to establish. If water damage isn't addressed within the first few days, mold remediation may become necessary.",
     "category": "general",
     "isFeatured": true,
     "sortOrder": 1,
     "serviceId": null
   },
   {
-    "id": "b391ad14-23bc-4d67-8e61-e3e48f4ce6c7",
-    "question": "What is included in your mold remediation process?",
-    "answer": "Our mold remediation process involves locating affected areas, confirming the scope of contamination, establishing containment, safely removing contaminated materials, and performing detailed cleaning. We also support post-remediation verification and clearance steps.",
+    "id": "9eb86af1-c789-4357-ac62-55e4f7e2e451",
+    "question": "What is the mold remediation process?",
+    "answer": "Our mold remediation process includes: 1) Thorough inspection and moisture assessment, 2) Containment of affected areas to prevent spore spread, 3) HEPA air filtration to capture airborne spores, 4) Removal of mold-contaminated materials, 5) Cleaning and treatment of salvageable surfaces, 6) Drying and dehumidification, 7) Third-party clearance testing to verify success. We also address the moisture source that caused the mold.",
     "category": "general",
     "isFeatured": true,
     "sortOrder": 2,
     "serviceId": null
   },
   {
-    "id": "c3b7043a-5181-4915-9bad-b37ddfb29c48",
-    "question": "Do you handle asbestos and lead removal?",
-    "answer": "Yes, when required by a project in older buildings, we provide compliant abatement and removal of asbestos- and lead-containing materials. This ensures safety and adherence to regulations during demolition or remediation work.",
+    "id": "9e1f0c63-34d3-44f5-bd4d-eb94bddfa1d1",
+    "question": "Can I stay in my home or building during remediation?",
+    "answer": "It depends on the scope of work. For small, contained projects, occupants can often remain in unaffected areas. For larger remediation projects—especially those involving mold, asbestos, or extensive water damage—temporary relocation may be recommended or required for safety. We'll assess your specific situation and provide clear guidance. For commercial properties, we often work in phases or after hours to minimize business disruption.",
     "category": "general",
     "isFeatured": true,
     "sortOrder": 3,
     "serviceId": null
   },
   {
-    "id": "6157ce8e-13a0-4386-a129-a60db24ec1bc",
-    "question": "What is 'clearance and verification support'?",
-    "answer": "Clearance and verification support is our service to ensure that a remediated area is definitively safe and ready for re-occupancy. This includes coordinating any necessary testing and reporting to provide property managers with official documentation and peace of mind.",
+    "id": "23c12ea8-33cc-4173-b758-a736bdc007e5",
+    "question": "What is asbestos abatement and when is it needed?",
+    "answer": "Asbestos abatement is the safe removal or encapsulation of asbestos-containing materials. It's required when asbestos materials are damaged, deteriorating, or will be disturbed by renovation or demolition. Common locations include pipe insulation, floor tiles, popcorn ceilings, and roofing materials in buildings constructed before 1980. We follow strict EPA and Cal/OSHA protocols and coordinate third-party testing for clearance.",
     "category": "general",
-    "isFeatured": true,
+    "isFeatured": false,
     "sortOrder": 4,
     "serviceId": null
   },
   {
-    "id": "ff4cb0e6-6ef4-4d7b-9cc3-515ba914f049",
-    "question": "Are you certified and insured?",
-    "answer": "Yes, Premier Remediation 2 adheres to industry standards and best practices. We are fully insured and our team is trained and equipped to handle complex remediation projects safely and effectively. Specific certifications can be provided upon request.",
+    "id": "ef4b74f0-933c-4122-ae4f-18859cb65523",
+    "question": "How long does fire and smoke damage cleanup take?",
+    "answer": "Timeline varies significantly based on the extent of damage. Minor smoke damage in one room might be resolved in a few days, while major fire damage could require weeks or months of restoration work. We'll provide a detailed timeline estimate after our initial assessment. Key factors include the size of affected area, types of materials damaged, presence of structural damage, and coordination required with other contractors.",
     "category": "general",
     "isFeatured": false,
     "sortOrder": 5,
     "serviceId": null
   },
   {
-    "id": "64f06eb0-48cc-4f0b-8a16-ac5e44d8f082",
-    "question": "What areas do you serve?",
-    "answer": "We provide commercial-first remediation support in San Francisco, Oakland, Berkeley, San Jose, Alameda County, and Contra Costa County. Please contact us to confirm service availability for your specific location.",
+    "id": "d59e9009-1c70-4419-a3ec-20959fa20396",
+    "question": "Do you work with insurance companies?",
+    "answer": "Yes, we work with all major insurance carriers and have extensive experience navigating the claims process. We document everything thoroughly—including photos, moisture readings, and detailed scope of work—to support your claim. We can communicate directly with your adjuster and provide the documentation they need. While we work to maximize your coverage, we always maintain our role as your advocate, not the insurance company's.",
     "category": "general",
-    "isFeatured": false,
+    "isFeatured": true,
     "sortOrder": 6,
     "serviceId": null
   },
   {
-    "id": "3f2fca7a-2621-4f26-9033-5ef652de5901",
-    "question": "How does your pricing work?",
-    "answer": "Our pricing is based on the scope and complexity of the remediation project. We provide detailed assessments and transparent estimates for all services. For specific inquiries, please contact us to discuss your needs and receive a consultation.",
+    "id": "52597d17-86bd-4fd1-9376-b67699582892",
+    "question": "What areas do you serve in the Bay Area?",
+    "answer": "Premier Remediation 2 serves the entire San Francisco Bay Area including San Francisco, Marin County, Alameda County (Oakland, Berkeley, Fremont), Contra Costa County (Walnut Creek, Concord), and Santa Clara County (San Jose, Palo Alto, Mountain View). We provide 24/7 emergency response throughout our service area with rapid response times.",
     "category": "general",
     "isFeatured": false,
     "sortOrder": 7,
     "serviceId": null
   },
   {
-    "id": "b40885f1-01e6-4e2f-a521-c75c426a5440",
-    "question": "What makes Premier Remediation 2 different from other companies?",
-    "answer": "We specialize in commercial and multifamily properties, offering a structured, documented approach that goes beyond basic cleanup. Our focus on detailed cleaning, comprehensive monitoring, and crucial clearance/verification support ensures a complete and confident resolution for property managers.",
+    "id": "a7ef80e8-1f34-4928-a02e-3ffe8beab248",
+    "question": "Do you provide 24/7 emergency services?",
+    "answer": "Yes, water damage and fire emergencies don't wait for business hours, and neither do we. Our emergency response team is available 24/7, 365 days a year. For water damage especially, rapid response is critical to minimize damage and prevent mold growth. Call our emergency line anytime, and we'll dispatch a team to your location as quickly as possible.",
+    "category": "general",
+    "isFeatured": true,
+    "sortOrder": 8,
+    "serviceId": null
+  },
+  {
+    "id": "a5e8e2d4-1b58-4929-848e-be3b2f64aa7f",
+    "question": "What documentation do you provide for remediation projects?",
+    "answer": "We provide comprehensive documentation including: initial assessment reports with photos and moisture readings, detailed scope of work, daily progress logs, final completion reports, third-party clearance test results (when applicable), and all necessary compliance documentation for asbestos/lead projects. This documentation is essential for insurance claims, property records, real estate transactions, and regulatory compliance.",
     "category": "general",
     "isFeatured": false,
-    "sortOrder": 8,
+    "sortOrder": 9,
     "serviceId": null
   }
 ]
