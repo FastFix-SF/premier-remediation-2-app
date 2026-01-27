@@ -1,163 +1,263 @@
 [
   {
-    "id": "8fb44fef-b13d-4184-85a2-eb3acdc5faea",
-    "name": "Water Damage Mitigation",
-    "slug": "water-damage-mitigation",
-    "shortDescription": "Swift response to water events for commercial and multifamily properties.",
-    "longDescription": "Water incidents can escalate quickly, leading to extensive damage and mold risk. We provide rapid assessment, containment, extraction, drying support, and continuous moisture monitoring, all meticulously documented to aid property managers in resolving the incident efficiently.",
-    "icon": "Wrench",
-    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/water-damage-mitigation-1769465814616.png",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/water-damage-mitigation-1769465814616.png",
-    "benefits": [],
-    "process": [],
-    "faqs": [],
-    "seoKeywords": [],
-    "seoTitle": "",
-    "seoDescription": "",
-    "priceRange": "",
-    "duration": "",
-    "isFeatured": true,
-    "sortOrder": 0,
-    "aeoSummary": "",
-    "aeoKeyPoints": [],
-    "aeoConversationalAnswer": ""
+    "id": "trenchless-services",
+    "name": "Trenchless Pipe Repair",
+    "slug": "trenchless-pipe-repair",
+    "shortDescription": "Minimally invasive pipe restoration using advanced CIPP technology to repair damaged pipelines without excavation.",
+    "longDescription": "Our trenchless pipe repair services allow damaged pipelines to be relined and returned to service instead of being dug up and fully replaced. This minimally invasive approach uses existing valve or connection points to insert a liner that hardens into a durable material, improving structural integrity, sealing leaks, and blocking tree roots. Perfect for commercial sites with landscaping or paving where excavation would be highly disruptive.",
+    "icon": "pipe-repair",
+    "image": "/images/trenchless-repair.jpg",
+    "benefits": [
+      "No excavation required",
+      "Minimal property disruption",
+      "Preserves landscaping and paving",
+      "Blocks tree root intrusion",
+      "Seals existing leaks",
+      "Improves structural integrity"
+    ],
+    "process": [
+      "Site assessment and access point identification",
+      "Video inspection to assess pipe condition",
+      "Liner preparation and insertion",
+      "Curing process to harden liner",
+      "Final inspection and testing"
+    ],
+    "faqs": [
+      {
+        "question": "What is trenchless pipe repair?",
+        "answer": "Trenchless repair can restore cracked or separated pipelines by placing a new liner inside the existing pipe, avoiding major digging and property damage."
+      },
+      {
+        "question": "Does trenchless help prevent future leaks and root intrusion?",
+        "answer": "Yes, the liner hardens into a durable material that can seal leaks and block out tree roots from entering the pipe system."
+      }
+    ],
+    "seoKeywords": [
+      "trenchless pipe repair",
+      "CIPP",
+      "cure in place pipe",
+      "SIPP",
+      "pipe bursting",
+      "sewer rehabilitation",
+      "gas line repair",
+      "water line repair",
+      "manhole rehabilitation"
+    ],
+    "isFeatured": true
   },
   {
-    "id": "56a50b66-ac64-4b77-bd3a-746da45926b8",
-    "name": "Mold Remediation",
-    "slug": "mold-remediation",
-    "shortDescription": "Comprehensive mold removal with detailed cleaning and verification support.",
-    "longDescription": "Addressing hidden mold issues, we locate affected areas, establish containment, safely remove contaminated materials, and perform detailed cleaning. We also support post-remediation verification and clearance steps to ensure safe re-occupancy.",
-    "icon": "Wrench",
-    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/mold-remediation-1769466321783.png",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/mold-remediation-1769466321783.png",
-    "benefits": [],
-    "process": [],
-    "faqs": [],
-    "seoKeywords": [],
-    "seoTitle": "",
-    "seoDescription": "",
-    "priceRange": "",
-    "duration": "",
-    "isFeatured": true,
-    "sortOrder": 1,
-    "aeoSummary": "",
-    "aeoKeyPoints": [],
-    "aeoConversationalAnswer": ""
+    "id": "sewer-services",
+    "name": "Commercial Sewer Services",
+    "slug": "commercial-sewer-services",
+    "shortDescription": "Comprehensive sewer repair and maintenance services including emergency response, video inspection, and hydro jetting.",
+    "longDescription": "Our sewer services address common issues caused by age, poor maintenance, tree roots, pipe separation, crushing, and improper disposal of fats, grease, and debris. We respond to warning signs like slow drains, gurgling pipes, odors, and water damage with comprehensive solutions including emergency response available nights, weekends, and holidays.",
+    "icon": "sewer",
+    "image": "/images/sewer-services.jpg",
+    "benefits": [
+      "24/7 emergency response",
+      "Advanced video camera inspection",
+      "Professional hydro jetting",
+      "Root removal capabilities",
+      "Modern piping and repiping",
+      "Prevents costly water damage"
+    ],
+    "process": [
+      "Emergency response and assessment",
+      "Video camera inspection",
+      "Problem diagnosis and solution planning",
+      "Hydro jetting or repair implementation",
+      "System testing and verification"
+    ],
+    "faqs": [
+      {
+        "question": "What are common signs of sewer problems?",
+        "answer": "Warning signs include slow drains, gurgling or noisy pipes, bad odors, and even mold, damp spots, or water damage in your property."
+      },
+      {
+        "question": "Do you provide emergency sewer services?",
+        "answer": "Yes, we provide emergency sewer response including nights, weekends, and holidays to address urgent sewer problems."
+      }
+    ],
+    "seoKeywords": [
+      "emergency sewer repair",
+      "video camera sewer inspection",
+      "commercial sewer services",
+      "sewer piping",
+      "sewer repiping",
+      "hydro jetting",
+      "root removal"
+    ],
+    "isFeatured": true
   },
   {
-    "id": "d52839c0-a094-407a-8ad1-644e72e4dc8d",
-    "name": "Fire & Smoke Damage Cleanup",
-    "slug": "fire-&-smoke-damage-cleanup",
-    "shortDescription": "Thorough cleanup after fire events to reduce particulate and odor impact.",
-    "longDescription": "Even minor smoke impact can disrupt operations. Our team expertly removes damaged materials, cleans affected surfaces, and reduces particulate and odor, preparing your property for restoration and rebuild with minimal downtime.",
-    "icon": "Wrench",
-    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/fire-smoke-damage-cleanup-1769468533290.png",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/fire-smoke-damage-cleanup-1769468533290.png",
-    "benefits": [],
-    "process": [],
-    "faqs": [],
-    "seoKeywords": [],
-    "seoTitle": "",
-    "seoDescription": "",
-    "priceRange": "",
-    "duration": "",
-    "isFeatured": true,
-    "sortOrder": 2,
-    "aeoSummary": "",
-    "aeoKeyPoints": [],
-    "aeoConversationalAnswer": ""
+    "id": "hydro-jetting",
+    "name": "Hydro Jetting Services",
+    "slug": "hydro-jetting-services",
+    "shortDescription": "High-pressure water cleaning service using 1,500-4,000 PSI to remove clogs and debris from pipe walls.",
+    "longDescription": "Our hydro jetting service uses high-pressure water cleaning through specialized hoses to force out clogs and debris from pipe walls. With pressures typically ranging from 1,500 to 4,000 PSI, this method provides superior cleaning compared to traditional snaking with close to nil chances of recurring clogs. Effective for both residential and commercial systems including sewer lines, drain pipes, kitchen sinks, bathroom drains, and outdoor sewer lines.",
+    "icon": "water-pressure",
+    "image": "/images/hydro-jetting.jpg",
+    "benefits": [
+      "Superior cleaning power (1,500-4,000 PSI)",
+      "Prevents recurring clogs",
+      "Safe for pipe systems",
+      "Environmentally friendly",
+      "Works on all drain types",
+      "Removes stubborn blockages"
+    ],
+    "process": [
+      "Initial inspection and assessment",
+      "Equipment setup and safety preparation",
+      "High-pressure water application",
+      "Debris removal and flushing",
+      "Final inspection and testing"
+    ],
+    "faqs": [
+      {
+        "question": "How does hydro jetting work?",
+        "answer": "Hydro jetting pumps water at high pressure (often 1,500–4,000 PSI) to break up and flush blockages, restoring proper flow through your pipes."
+      },
+      {
+        "question": "Is hydro jetting good for commercial properties?",
+        "answer": "Yes, hydro jetting is highly effective for both residential and commercial systems and can be used across many drain and sewer lines."
+      }
+    ],
+    "seoKeywords": [
+      "hydro jetting",
+      "high pressure drain cleaning",
+      "commercial drain cleaning",
+      "pipe cleaning",
+      "clog removal",
+      "drain maintenance"
+    ],
+    "isFeatured": true
   },
   {
-    "id": "30f19d10-5133-4f96-bbdf-cac67849e2b7",
-    "name": "Asbestos & Lead Abatement",
-    "slug": "asbestos-&-lead-abatement",
-    "shortDescription": "Compliant abatement and removal of hazardous materials when required.",
-    "longDescription": "For older buildings, we provide compliant abatement and removal of asbestos- and lead-containing materials. This ensures the scope of work remains controlled, property integrity is protected, and all regulatory requirements are met during demolition and remediation.",
-    "icon": "Wrench",
-    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/asbestos-lead-abatement-1769468764730.png",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/asbestos-lead-abatement-1769468764730.png",
-    "benefits": [],
-    "process": [],
-    "faqs": [],
-    "seoKeywords": [],
-    "seoTitle": "",
-    "seoDescription": "",
-    "priceRange": "",
-    "duration": "",
-    "isFeatured": false,
-    "sortOrder": 3,
-    "aeoSummary": "",
-    "aeoKeyPoints": [],
-    "aeoConversationalAnswer": ""
+    "id": "commercial-drain-cleaning",
+    "name": "Commercial Drain Cleaning",
+    "slug": "commercial-drain-cleaning",
+    "shortDescription": "Professional drain cleaning services for commercial properties with video inspection and preventative maintenance options.",
+    "longDescription": "Even minor clogs can disrupt commercial operations. Our commercial drain cleaning services address warning signs like gurgling sounds, bad smells, and slow drainage. When clogs aren't immediately clear, we use video camera inspection to determine size, location, and composition. We discourage DIY methods to avoid pipe damage and chemical exposure, using proper professional tools and methods instead.",
+    "icon": "drain-cleaning",
+    "image": "/images/commercial-drain-cleaning.jpg",
+    "benefits": [
+      "Prevents operational disruptions",
+      "Video camera diagnostics",
+      "Professional tools and methods",
+      "Preventative maintenance available",
+      "Avoids pipe damage from DIY attempts",
+      "Safe chemical-free cleaning"
+    ],
+    "process": [
+      "Problem assessment and diagnosis",
+      "Video camera inspection if needed",
+      "Professional cleaning method selection",
+      "Thorough cleaning and clearing",
+      "Preventative maintenance scheduling"
+    ],
+    "faqs": [
+      {
+        "question": "How do you locate and diagnose a drain clog?",
+        "answer": "If the problem isn't clear, we can perform a video camera inspection to determine the clog's size, location, and composition."
+      },
+      {
+        "question": "Do you offer preventative drain maintenance?",
+        "answer": "Yes, we can inspect and hydro jet lines to reduce future issues even if you aren't currently experiencing clogs."
+      }
+    ],
+    "seoKeywords": [
+      "commercial drain cleaning",
+      "video camera inspection",
+      "drain maintenance",
+      "clog removal",
+      "preventative drain care"
+    ],
+    "isFeatured": false
   },
   {
-    "id": "f2cba8d8-bc90-4bc1-bf81-b82d438970b0",
-    "name": "Clearance & Verification Support",
-    "slug": "clearance-&-verification-support",
-    "shortDescription": "Ensuring properties are confidently ready for re-occupancy after remediation.",
-    "longDescription": "Beyond cleanup, we support the crucial clearance and verification process. This includes coordinating required testing and reporting, providing property managers with documented assurance that the area is safe and ready for re-occupancy.",
-    "icon": "Wrench",
-    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/clearance-verification-support-1769469054372.png",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/clearance-verification-support-1769469054372.png",
-    "benefits": [],
-    "process": [],
-    "faqs": [],
-    "seoKeywords": [],
-    "seoTitle": "",
-    "seoDescription": "",
-    "priceRange": "",
-    "duration": "",
-    "isFeatured": false,
-    "sortOrder": 4,
-    "aeoSummary": "",
-    "aeoKeyPoints": [],
-    "aeoConversationalAnswer": ""
+    "id": "commercial-plumbing",
+    "name": "Commercial Plumbing Services",
+    "slug": "commercial-plumbing-services",
+    "shortDescription": "Comprehensive commercial plumbing services including emergency repairs, fixture installation, and maintenance.",
+    "longDescription": "Our commercial plumbing services cover a broad range of work including emergency plumbing for broken fixtures, damaged pipes, and backed-up drains. We handle fixture plumbing for kitchens, bathrooms, and utility rooms, along with specialized services like slab leak repair, gas line repair, and pressure reduction valves. Our team is equipped to handle toilet repairs, leak detection, faucet and sink repairs, and garbage disposal replacement.",
+    "icon": "plumbing",
+    "image": "/images/commercial-plumbing.jpg",
+    "benefits": [
+      "24/7 emergency plumbing response",
+      "Complete fixture services",
+      "Leak detection and repair",
+      "Gas line repair capabilities",
+      "Slab leak specialists",
+      "Professional maintenance programs"
+    ],
+    "process": [
+      "Emergency response or scheduled service",
+      "Problem assessment and diagnosis",
+      "Solution planning and approval",
+      "Professional repair or installation",
+      "System testing and verification"
+    ],
+    "faqs": [
+      {
+        "question": "What commercial plumbing emergencies do you handle?",
+        "answer": "We handle emergency plumbing including broken fixtures, damaged pipes, backed-up drains, and other urgent plumbing issues 24/7."
+      },
+      {
+        "question": "Do you provide ongoing plumbing maintenance?",
+        "answer": "Yes, we offer comprehensive plumbing maintenance programs to prevent issues and keep your commercial plumbing systems running smoothly."
+      }
+    ],
+    "seoKeywords": [
+      "commercial plumbing",
+      "emergency plumbing",
+      "fixture installation",
+      "leak repair",
+      "slab leak repair",
+      "gas line repair",
+      "plumbing maintenance"
+    ],
+    "isFeatured": false
   },
   {
-    "id": "ef5caeb3-cb5b-4cb2-a01d-e7d855d4c5ec",
-    "name": "Commercial Property Remediation",
-    "slug": "commercial-property-remediation",
-    "shortDescription": "Specialized remediation services for high-rises, hotels, retail, and managed buildings.",
-    "longDescription": "We understand the unique needs of various commercial properties, including high-rises, hotels, retail spaces, and managed buildings. Our tailored approach ensures efficient and effective remediation, minimizing disruption to your business operations.",
-    "icon": "Wrench",
-    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/commercial-property-remediation-1769469240884.png",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/service-hero/commercial-property-remediation-1769469240884.png",
-    "benefits": [],
-    "process": [],
-    "faqs": [],
-    "seoKeywords": [],
-    "seoTitle": "",
-    "seoDescription": "",
-    "priceRange": "",
-    "duration": "",
-    "isFeatured": false,
-    "sortOrder": 5,
-    "aeoSummary": "",
-    "aeoKeyPoints": [],
-    "aeoConversationalAnswer": ""
-  },
-  {
-    "id": "cb02d300-61b5-411b-a026-89078c63e7df",
-    "name": "Multifamily Property Remediation",
-    "slug": "multifamily-property-remediation",
-    "shortDescription": "Expert remediation solutions for apartment complexes and residential communities.",
-    "longDescription": "Addressing the specific challenges of multifamily properties, we provide comprehensive remediation services that prioritize the safety and well-being of residents. Our structured process ensures minimal inconvenience and swift resolution for water, mold, and fire incidents.",
-    "icon": "Wrench",
-    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/premier-remediation-2-app/hero-service-multifamily-property-remediation-1769463049381.png",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-media/premier-remediation-2-app/hero-service-multifamily-property-remediation-1769463049381.png",
-    "benefits": [],
-    "process": [],
-    "faqs": [],
-    "seoKeywords": [],
-    "seoTitle": "",
-    "seoDescription": "",
-    "priceRange": "",
-    "duration": "",
-    "isFeatured": false,
-    "sortOrder": 6,
-    "aeoSummary": "",
-    "aeoKeyPoints": [],
-    "aeoConversationalAnswer": ""
+    "id": "commercial-water-heater",
+    "name": "Commercial Water Heater Services",
+    "slug": "commercial-water-heater-services",
+    "shortDescription": "Commercial water heater installation, repair, and replacement for restaurants, hotels, offices, and industrial facilities.",
+    "longDescription": "Commercial water heater reliability is critical for restaurants, hotels, office buildings, manufacturers, and heavy industry. We address common issues like sedimentation, mechanical failure, damaged connections, and hard-water impact on lifespan and efficiency. With expected service life of 10-20 years, units over 20 years may become less efficient and need frequent repairs, making replacement often recommended.",
+    "icon": "water-heater",
+    "image": "/images/commercial-water-heater.jpg",
+    "benefits": [
+      "Critical system reliability",
+      "Expert sizing and selection",
+      "Handles all commercial applications",
+      "Addresses hard water issues",
+      "Expansion planning support",
+      "Manufacturer expertise"
+    ],
+    "process": [
+      "System assessment and inspection",
+      "Problem diagnosis or sizing needs",
+      "Equipment selection and planning",
+      "Professional installation or repair",
+      "System testing and commissioning"
+    ],
+    "faqs": [
+      {
+        "question": "When should a commercial water heater be replaced?",
+        "answer": "Expected service life is about 10–20 years. Units over 20 years may become less efficient and need frequent repairs, so replacement is often recommended."
+      },
+      {
+        "question": "We're expanding—do we need to upgrade our water heater?",
+        "answer": "Expansion may require a new unit or adding a second heater if demand exceeds your current system's capacity."
+      }
+    ],
+    "seoKeywords": [
+      "commercial water heater",
+      "water heater replacement",
+      "commercial water heater repair",
+      "water heater installation",
+      "industrial water heater"
+    ],
+    "isFeatured": false
   }
 ]
