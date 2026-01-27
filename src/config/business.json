@@ -1,61 +1,61 @@
 {
-    "name": "Premier Remediation",
-    "tagline": "Restoring Commercial Properties, Responsibly.",
-    "description": "Premier Remediation specializes in comprehensive disaster recovery and environmental remediation services for commercial and multifamily properties. We offer efficient solutions for water, mold, fire, and smoke damage with thorough documentation and post-remediation verification. Our experienced team ensures properties are safely returned to pre-incident conditions with minimal disruption.",
-    "phone": "4156692410",
-    "phoneRaw": "4156692410",
-    "email": "fastrackfix@gmail.com",
-    "address": {
-          "street": "729 Jones Street, apt 7",
-          "city": "San Francisco",
-          "state": "CA",
-          "zip": "94109",
-          "full": "729 Jones Street, apt 7, San francisco, CA, 94109"
-    },
-    "owner": {
-          "name": "Juan Munos",
-          "bio": "",
-          "photo": ""
-    },
-    "logo": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/logos/101921aa-cfa5-47b4-a979-51c47a255a58-logos-1768983671041.png",
-    "logoDark": "",
-    "favicon": "",
-    "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/hero-images/101921aa-cfa5-47b4-a979-51c47a255a58-hero-images-1769234040160.png",
-    "heroVideo": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/hero-videos/101921aa-cfa5-47b4-a979-51c47a255a58-hero-videos-1769236335401.mp4",
-    "colors": {
-          "primary": "#042758",
-          "secondary": "#b91d1e",
-          "accent": "#e6e9ed"
-    },
-    "hero": {
-          "headline": "Water & Fire Damage",
-          "headlineHighlight": "Excellence.",
-          "subheadline": "Commercial property restoration done right.",
-          "ctaPrimary": "Get Instant Quote",
-          "ctaSecondary": "View Portfolio",
-          "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/hero-images/101921aa-cfa5-47b4-a979-51c47a255a58-hero-images-1769234040160.png"
-    },
-    "hours": "Mon-Fri: 8am-6pm, Sat: 9am-4pm",
-    "certifications": [],
-    "uniqueSellingPoints": [],
-    "social": {
-          "facebook": "",
-          "instagram": "",
-          "twitter": "",
-          "linkedin": "",
-          "youtube": ""
-    },
-    "seo": {
-          "metaTitle": "Premier Remediation | Professional Services",
-          "metaDescription": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services, primarily serving commercial and multifamily properties. With a deep understanding of the unique challenges faced by property managers, we offer a structured and efficient approach to mitigating damage from water, mold, fire, and smoke. Our commitment extends beyond mere cleanup, focusing on thorough documentation, detailed cleaning, and support for post-remediation verification to ensure properties are safely and confidently returned to pre-incident conditions.\n\nOur team is equipped to handle complex remediation projects, from swift water damage mitigation to precise mold remediation and asbestos/lead abatement when required. We pride ourselves on our meticulous process, which includes containment, selective demolition, advanced drying techniques, and continuous moisture monitoring. By providing clear communication and robust support for clearance and verification, Premier Remediation 2 helps minimize disruption and facilitate a smooth transition toward full restoration and re-occupancy for your commercial assets.",
-          "keywords": []
-    },
-    "yearsInBusiness": 10,
-    "foundedYear": 2025,
-    "licenseNumber": "License #141231",
-    "employeesCount": "6-10",
-    "googlePlaceId": "",
-    "googleBusinessUrl": "",
-    "googleAverageRating": null,
-    "googleTotalReviews": null
+  "name": "Premier Remediation",
+  "tagline": "Restoring Commercial Properties, Responsibly.",
+  "description": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services, primarily serving commercial and multifamily properties. With a deep understanding of the unique challenges faced by property managers, we offer a structured and efficient approach to mitigating damage from water, mold, fire, and smoke. Our commitment extends beyond mere cleanup, focusing on thorough documentation, detailed cleaning, and support for post-remediation verification to ensure properties are safely and confidently returned to pre-incident conditions.\n\nOur team is equipped to handle complex remediation projects, from swift water damage mitigation to precise mold remediation and asbestos/lead abatement when required. We pride ourselves on our meticulous process, which includes containment, selective demolition, advanced drying techniques, and continuous moisture monitoring. By providing clear communication and robust support for clearance and verification, Premier Remediation 2 helps minimize disruption and facilitate a smooth transition toward full restoration and re-occupancy for your commercial assets.",
+  "phone": "4159692410",
+  "phoneRaw": "4159692410",
+  "email": "fastrackfix@gmail.com",
+  "address": {
+    "street": "729 Jones Street, apt 7",
+    "city": "San francisco",
+    "state": "CA",
+    "zip": "94109",
+    "full": "729 Jones Street, apt 7, San francisco, CA, 94109"
+  },
+  "owner": {
+    "name": "Juan Munos",
+    "bio": "",
+    "photo": ""
+  },
+  "logo": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/logos/101921aa-cfa5-47b4-a979-51c47a255a58-logos-1768983671041.png",
+  "logoDark": "",
+  "favicon": "",
+  "heroImage": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/hero-images/101921aa-cfa5-47b4-a979-51c47a255a58-hero-images-1769234040160.png",
+  "heroVideo": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/hero-videos/101921aa-cfa5-47b4-a979-51c47a255a58-hero-videos-1769236335401.mp4",
+  "colors": {
+    "primary": "#042758",
+    "secondary": "#b91d1e",
+    "accent": "#e6e9ed"
+  },
+  "hero": {
+    "headline": "Welcome to Our Business",
+    "headlineHighlight": "Excellence.",
+    "subheadline": "Quality service you can trust.",
+    "ctaPrimary": "Get Instant Quote",
+    "ctaSecondary": "View Portfolio",
+    "image": "https://ivainhvckowigupafbae.supabase.co/storage/v1/object/public/business-assets/hero-images/101921aa-cfa5-47b4-a979-51c47a255a58-hero-images-1769234040160.png"
+  },
+  "hours": "Mon-Fri: 8am-6pm, Sat: 9am-4pm",
+  "certifications": [],
+  "uniqueSellingPoints": [],
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "twitter": "",
+    "linkedin": "",
+    "youtube": ""
+  },
+  "seo": {
+    "metaTitle": "Premier Remediation | Professional Services",
+    "metaDescription": "Premier Remediation 2 specializes in comprehensive disaster recovery and environmental remediation services, primarily serving commercial and multifamily properties. With a deep understanding of the unique challenges faced by property managers, we offer a structured and efficient approach to mitigating damage from water, mold, fire, and smoke. Our commitment extends beyond mere cleanup, focusing on thorough documentation, detailed cleaning, and support for post-remediation verification to ensure properties are safely and confidently returned to pre-incident conditions.\n\nOur team is equipped to handle complex remediation projects, from swift water damage mitigation to precise mold remediation and asbestos/lead abatement when required. We pride ourselves on our meticulous process, which includes containment, selective demolition, advanced drying techniques, and continuous moisture monitoring. By providing clear communication and robust support for clearance and verification, Premier Remediation 2 helps minimize disruption and facilitate a smooth transition toward full restoration and re-occupancy for your commercial assets.",
+    "keywords": []
+  },
+  "yearsInBusiness": 10,
+  "foundedYear": 2025,
+  "licenseNumber": "License #141231",
+  "employeesCount": "6-10",
+  "googlePlaceId": "",
+  "googleBusinessUrl": "",
+  "googleAverageRating": null,
+  "googleTotalReviews": null
 }
